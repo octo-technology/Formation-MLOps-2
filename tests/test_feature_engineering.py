@@ -1,19 +1,22 @@
 import pytest
 import pandas as pd
-from src.feature_engineering import produce_data_features, get_season
+import numpy as np
+from src.feature_engineering import produce_data_features, get_season, fillna_with_previous_values
+from pandas._testing import assert_frame_equal
+
 
 def test_produce_data_feature_create_feature_year_month_season():
     # given
-    df = pd.read_csv("/Users/ismail.lachheb/Projects/dsin2/la-haute-borne-data-2017-2020.csv", sep=";")
+    # df = pd.read_csv("/Users/ismail.lachheb/Projects/dsin2/la-haute-borne-data-2017-2020.csv", sep=";")
+    df = pd.read_csv("/Users/lea.naccache/CODE/cercle_formation/la-haute-borne-data-2017-2020.csv", sep=";")
 
     # when 
     df_output = produce_data_features(df)
 
     # then
-    assert 'date' not in df_output.keys()
+    assert 'date' in df_output.keys()
     assert 'month' in df_output.keys()
     assert 'season' in df_output.keys()
-
 
 
 def test_get_season_return_the_correct_season():
@@ -28,4 +31,15 @@ def test_get_season_return_the_correct_season():
     assert season == output_season
 
 
+def test_fillna_with_previous_values():
+    # given
+    features = ['Q']
+    df = pd.DataFrame({'Q': [0.1, np.nan, 0.2, 0.4]})
+    df_expected = pd.DataFrame({'Q': [0.1, 0.1, 0.2, 0.4]})
 
+    # when
+    df = fillna_with_previous_values(features, df)
+
+    # then
+    assert df[features].isnull().sum()[0] == 0
+    assert_frame_equal(df, df_expected)
