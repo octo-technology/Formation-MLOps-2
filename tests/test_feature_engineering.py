@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 from src.feature_engineering import produce_data_features, get_season
 
-def test_produce_data_feature_create_feature_year_month_season_and_remove_data_time():
+def test_produce_data_feature_create_feature_year_month_season():
     # given
     df = pd.read_csv("/Users/ismail.lachheb/Projects/dsin2/la-haute-borne-data-2017-2020.csv", sep=";")
 
@@ -13,7 +13,6 @@ def test_produce_data_feature_create_feature_year_month_season_and_remove_data_t
     assert 'date' not in df_output.keys()
     assert 'month' in df_output.keys()
     assert 'season' in df_output.keys()
-    assert 'Date_time' not in df_output.keys()
 
 
 

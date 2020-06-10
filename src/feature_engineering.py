@@ -1,12 +1,11 @@
 import pandas as pd
 
-def produce_data_features(df):
-    df['date']      = pd.to_datetime(df.Date_time, utc=True)
-    df['year']      = df['date'].dt.year
-    df['month']     = df['date'].dt.month
-    df['season']    = df['month'].apply(lambda x : get_season(x))
-    df = df.drop(columns=['Date_time', 'date'])
-    return df 
+def produce_data_features(dataframe):
+    dataframe['date']      = pd.to_datetime(dataframe.Date_time, utc=True)
+    dataframe['year']      = dataframe['date'].dt.year
+    dataframe['month']     = dataframe['date'].dt.month
+    dataframe['season']    = dataframe['month'].apply(lambda x : get_season(x))
+    return dataframe 
 
 
 def get_season(month):
