@@ -7,7 +7,7 @@ setup(
     name='formation_indus_ds_avancee',
     version='1.0',
     packages=["indus"],
-    package_dir={"indus": "src"},
+    package_dir={"indus": "formation_indus_ds_avancee"},
     url='',
     license='',
     author='Octo-LENA-ISMA',
