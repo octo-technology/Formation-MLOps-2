@@ -1,7 +1,7 @@
+import datetime
 from time import sleep
 
 import pandas as pd
-import datetime
 
 
 def get_data_from_csv(df_path):

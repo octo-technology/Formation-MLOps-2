@@ -3,3 +3,4 @@ numpy
 sklearn
 apache-airflow
 jupyter
+matplotlib

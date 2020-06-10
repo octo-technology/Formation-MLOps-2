@@ -1,8 +1,11 @@
+import sys
 from datetime import timedelta, datetime
 
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-from src.data.data_loading import get_data_from_csv
+
+#sys.path.append("../formation_indus_ds_avancee/")
+from formation_indus_ds_avancee.feature_engineering import get_data_from_csv
 
 
 default_args = {
@@ -25,3 +28,6 @@ get_data = PythonOperator(task_id='get_data_from_csv',
                         python_callable=get_data_from_csv,
                         provide_context=False,
                         dag=dag)
+
+
+get_data

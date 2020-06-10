@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def produce_data_features(dataframe):
     dataframe['date'] = pd.to_datetime(dataframe.Date_time, utc=True)
     dataframe['year'] = dataframe['date'].dt.year
@@ -35,3 +34,4 @@ def fillna_with_mean_of_last_values(features, df, window, min_per):
     for feature in features:
         df[feature] = df[feature].fillna(df[feature].rolling(window,min_periods=min_per).mean())
     return df
+
