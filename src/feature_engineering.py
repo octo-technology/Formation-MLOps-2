@@ -17,3 +17,21 @@ def fillna_with_previous_values(features, df):
     for feature in features:
         df[feature] = df[feature].fillna(method='ffill')
     return df
+
+
+def fillna_with_mean(features, df):
+    for feature in features:
+        df[feature] = df[feature].fillna(df[feature].mean())
+    return df
+
+
+def fillna_with_median(features, df):
+    for feature in features:
+        df[feature] = df[feature].fillna(df[feature].median())
+    return df
+
+
+def fillna_with_mean_of_last_values(features, df, window, min_per):
+    for feature in features:
+        df[feature] = df[feature].fillna(df[feature].rolling(window,min_periods=min_per).mean())
+    return df
