@@ -9,7 +9,6 @@ default_args = {
     'depends_on_past': False,
     'email_on_failure': ['isma@octo.com', 'lena@octo.com'],
     'retries': 0,
-    'task_concurrency': 2,
 }
 
 dag = DAG(

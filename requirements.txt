@@ -1,5 +1,5 @@
 numpy
 pandas
 scikit-learn
-airflow
+apache-airflow
 joblib
