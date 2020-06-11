@@ -3,7 +3,7 @@ import unittest
 
 from airflow.models import DagBag
 
-import airflow_home.dags
+import dags
 
 
 class TestDagIntegrity(unittest.TestCase):
@@ -11,7 +11,7 @@ class TestDagIntegrity(unittest.TestCase):
 
     def test_import_dags(self):
         # Given
-        given_dagbag = DagBag(os.path.dirname(airflow_home.dags.__file__))
+        given_dagbag = DagBag(os.path.dirname(dags.__file__))
 
         # When + then
         self.assertFalse(
@@ -23,7 +23,7 @@ class TestDagIntegrity(unittest.TestCase):
 
     def test_all_dags_found(self):
         # Given
-        given_dagbag = DagBag(os.path.dirname(airflow_home.dags.__file__))
+        given_dagbag = DagBag(os.path.dirname(dags.__file__))
         expected_dag_ids = {'data_generator'}
 
         # When

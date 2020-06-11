@@ -16,7 +16,7 @@ dag = DAG(
     'data_generator',
     default_args=default_args,
     description='Get data every 2min from Engie hub',
-    start_date=datetime(2020, 6, 10),
+    start_date=datetime(2020, 6, 11),
     schedule_interval=timedelta(minutes=2)
 )
 
