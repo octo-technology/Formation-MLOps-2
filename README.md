@@ -6,25 +6,12 @@ First, make sure you have miniconda or anaconda installed. If not, install it!
 
 Create a conda env
 
-```sh
-conda create -n python_indus_avancee python=3.8
+```bash
+make conda-env
 conda activate python_indus_avancee
 ```
 
 Retrieve project from gitlab
-
-Start a jupyter notebook in the folder
-
-```sh
-cd formation_indus_ds
-jupyter-notebook
-```
-
-If your `python_indus_avancee` environment is not available in `jupyter` interface (when clicking on new). You should :
-
-- Quit jupyter-notebook with <kbd>ctrl</kbd>+<kbd>c</kbd> in terminal
-- Run `conda install -n python_indus_avancee nb_conda_kernels`
-- Start `jupyter-notebook`
 
 ## How to follow it
 
