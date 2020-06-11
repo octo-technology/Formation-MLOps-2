@@ -13,5 +13,6 @@ setup(
     author='Octo-LENA-ISMA',
     author_email='',
     description='Demonstration pour la formation indus de la data science avancee',
-    install_requires=requirements
+    install_requires=requirements,
+    tests_require=["pytest"]
 )

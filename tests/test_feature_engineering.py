@@ -1,3 +1,5 @@
+import os
+
 import pytest
 import pandas as pd
 import numpy as np
@@ -7,8 +9,8 @@ from pandas.testing import assert_frame_equal
 
 def test_produce_data_feature_create_feature_year_month_season():
     # given
-    df = pd.read_csv("/Users/ismail.lachheb/Projects/dsin2/la-haute-borne-data-2017-2020.csv", sep=";")
-    #df = pd.read_csv("/Users/lea.naccache/CODE/cercle_formation/la-haute-borne-data-2017-2020.csv", sep=";")
+    given_path = os.path.join(os.path.dirname(__file__), "test_data/sub_eolienne_data.csv")
+    df = pd.read_csv(given_path, sep=";")
 
     # when 
     df_output = produce_data_features(df)
