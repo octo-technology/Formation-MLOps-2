@@ -11,6 +11,23 @@ make conda-env
 conda activate python_indus_avancee
 ```
 
+Use the DAG Airflow 
+
+export AIRFLOW_HOME= {path}/dsind2
+
+# install from pypi using pip
+pip install apache-airflow
+
+# initialize the database
+airflow initdb
+
+# start the web server, default port is 8080
+airflow webserver -p 8080
+
+# start the scheduler
+airflow scheduler
+
+
 Retrieve project from gitlab
 
 ## How to follow it
