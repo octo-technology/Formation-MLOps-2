@@ -1,8 +1,8 @@
 import pytest
 import pandas as pd
 import numpy as np
-from src.feature_engineering import produce_data_features, get_season, fillna_with_previous_values, fillna_with_mean, fillna_with_median, fillna_with_mean_of_last_values
-from pandas._testing import assert_frame_equal
+from formation_indus_ds_avancee.feature_engineering import produce_data_features, get_season, fillna_with_previous_values, fillna_with_mean, fillna_with_median, fillna_with_mean_of_last_values
+from pandas.testing import assert_frame_equal
 
 
 def test_produce_data_feature_create_feature_year_month_season():

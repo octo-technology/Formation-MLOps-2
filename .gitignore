@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+airflow_home/__init__.py
+airflow_home/dags/__pycache__/
+formation_indus_ds_avancee.egg-info/
+formation_indus_ds_avancee/__pycache__/
+formation_indus_ds_avancee/unittests.cfg
+la-haute-borne-data-2017-2020.csv
+tests/__pycache__/
