@@ -1,0 +1,20 @@
+[2020-06-11 10:15:18,754] {scheduler_job.py:153} INFO - Started process (PID=30458) to work on /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:15:18,759] {scheduler_job.py:1562} INFO - Processing file /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py for tasks to queue
+[2020-06-11 10:15:18,759] {logging_mixin.py:112} INFO - [2020-06-11 10:15:18,759] {dagbag.py:396} INFO - Filling up the DagBag from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:15:19,236] {scheduler_job.py:1574} INFO - DAG(s) dict_keys(['data_generator']) retrieved from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:15:19,264] {scheduler_job.py:161} INFO - Processing /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py took 0.510 seconds
+[2020-06-11 10:16:08,753] {scheduler_job.py:153} INFO - Started process (PID=32044) to work on /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:16:08,756] {scheduler_job.py:1562} INFO - Processing file /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py for tasks to queue
+[2020-06-11 10:16:08,757] {logging_mixin.py:112} INFO - [2020-06-11 10:16:08,757] {dagbag.py:396} INFO - Filling up the DagBag from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:16:09,206] {scheduler_job.py:1574} INFO - DAG(s) dict_keys(['data_generator']) retrieved from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:16:09,239] {scheduler_job.py:161} INFO - Processing /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py took 0.486 seconds
+[2020-06-11 10:16:58,802] {scheduler_job.py:153} INFO - Started process (PID=801) to work on /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:16:58,806] {scheduler_job.py:1562} INFO - Processing file /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py for tasks to queue
+[2020-06-11 10:16:58,807] {logging_mixin.py:112} INFO - [2020-06-11 10:16:58,807] {dagbag.py:396} INFO - Filling up the DagBag from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:16:59,850] {scheduler_job.py:1574} INFO - DAG(s) dict_keys(['data_generator']) retrieved from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:16:59,893] {scheduler_job.py:161} INFO - Processing /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py took 1.091 seconds
+[2020-06-11 10:17:48,923] {scheduler_job.py:153} INFO - Started process (PID=1718) to work on /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:17:48,928] {scheduler_job.py:1562} INFO - Processing file /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py for tasks to queue
+[2020-06-11 10:17:48,928] {logging_mixin.py:112} INFO - [2020-06-11 10:17:48,928] {dagbag.py:396} INFO - Filling up the DagBag from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:17:49,355] {scheduler_job.py:1574} INFO - DAG(s) dict_keys(['data_generator']) retrieved from /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py
+[2020-06-11 10:17:49,383] {scheduler_job.py:161} INFO - Processing /home/eltoulemonde/Documents/octo/dsin2/dags/get_data_from_engie_hub_dag.py took 0.461 seconds
