@@ -1,6 +1,5 @@
-pandas
 numpy
+pandas
 scikit-learn
 airflow
-jupyter
-matplotlib
+joblib
