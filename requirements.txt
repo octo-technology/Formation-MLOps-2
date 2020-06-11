@@ -1,6 +1,6 @@
 pandas
 numpy
-sklearn
-apache-airflow
+scikit-learn
+airflow
 jupyter
 matplotlib

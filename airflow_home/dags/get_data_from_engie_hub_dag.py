@@ -5,7 +5,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
 #sys.path.append("../formation_indus_ds_avancee/")
-from formation_indus_ds_avancee.feature_engineering import get_data_from_csv
+from formation_indus_ds_avancee.data_loading import get_data_from_csv
 
 
 default_args = {
@@ -20,7 +20,7 @@ dag = DAG(
     default_args=default_args,
     description='Get data every 2min from Engie hub',
     start_date=datetime(2020, 6, 10),
-    schedule_interval= timedelta(minute=2)
+    schedule_interval= timedelta(seconds=120)
 )
 
 
