@@ -9,3 +9,10 @@ la-haute-borne-data-2017-2020.csv
 tests/__pycache__/
 data/
 */logs/*
+logs/
+la-haute-borne-data-2013-2016.csv
+scripts/.ipynb_checkpoints/
+scripts/__init__.py
+scripts/random_forest.joblib
+scripts/submission.csv
+

@@ -1,7 +1,5 @@
 import datetime
 import os
-from time import sleep
-
 import pandas as pd
 
 
@@ -13,5 +11,4 @@ def get_data_from_csv():
     data2 = df.sample(n=1, random_state=1)
     data2.Date_time = datetime.datetime.now() + datetime.timedelta(seconds=60)
     new_data = data1.concate(data2)
-    new_data.to_csv('../../input/'+'data_'+str(datetime.datetime.now())+'.csv')
-
+    new_data.to_csv('../../input/' + 'data_' + str(datetime.datetime.now()) + '.csv')
