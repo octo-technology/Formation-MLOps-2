@@ -1,7 +1,10 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 with open("requirements.txt", "r") as requirements_file:
     requirements = requirements_file.read().split()
+
+with open("test-requirements.txt", "r") as requirements_file:
+    test_requirements = requirements_file.read().split()
 
 setup(
     name='formation_indus_ds_avancee',
@@ -10,9 +13,9 @@ setup(
     package_dir={"formation_indus_ds_avancee": "formation_indus_ds_avancee"},
     url='',
     license='',
-    author='Octo-LENA-ISMA',
+    author='OCTO',
     author_email='',
-    description='Demonstration pour la formation indus de la data science avancee',
+    description='Package pour le TP de la formation industrialisation de la data science avancée',
     install_requires=requirements,
-    tests_require=["pytest"]
+    tests_require=test_requirements
 )
