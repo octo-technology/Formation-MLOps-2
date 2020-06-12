@@ -11,7 +11,7 @@ class TestDagIntegrity(unittest.TestCase):
 
     def test_import_dags(self):
         # Given
-        given_dagbag = DagBag(os.path.dirname(dags.__file__))
+        given_dagbag = DagBag(os.path.dirname(dags.__file__), include_examples=False)
 
         # When + then
         self.assertFalse(
@@ -23,7 +23,7 @@ class TestDagIntegrity(unittest.TestCase):
 
     def test_all_dags_found(self):
         # Given
-        given_dagbag = DagBag(os.path.dirname(dags.__file__))
+        given_dagbag = DagBag(os.path.dirname(dags.__file__), include_examples=False)
         expected_dag_ids = {'data_generator'}
 
         # When
