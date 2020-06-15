@@ -10,5 +10,6 @@ def get_data_from_csv():
     data1.Date_time = datetime.datetime.now()
     data2 = df.sample(n=1, random_state=1)
     data2.Date_time = datetime.datetime.now() + datetime.timedelta(seconds=60)
-    new_data = pd.concat([data1,data2], ignore_index=True)
-    new_data.to_csv(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/' + str(datetime.datetime.now()) + '.csv'))
+    new_data = pd.concat([data1, data2], ignore_index=True)
+    new_data.to_csv(
+        os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/' + str(datetime.datetime.now()) + '.csv'))

@@ -11,7 +11,7 @@ def prepare_features(data_path: str, features_path: str, training_mode=True):
     else:
         data = data.drop(columns=[target], errors='ignore')
 
-    data = produce_data_features(data)
+    data = create_date_features(data)
     data = data.sort_values(by='date')
     features = ['Q_avg', 'Q_min', 'Q_max', 'Q_std']
     fillna_with_previous_values(features, data)
@@ -31,7 +31,7 @@ def prepare_features(data_path: str, features_path: str, training_mode=True):
     data.to_parquet(features_path)
 
 
-def produce_data_features(data_frame: pd.DataFrame):
+def create_date_features(data_frame: pd.DataFrame):
     data_frame['date'] = pd.to_datetime(data_frame.Date_time, utc=True)
     data_frame['year'] = data_frame['date'].dt.year
     data_frame['month'] = data_frame['date'].dt.month

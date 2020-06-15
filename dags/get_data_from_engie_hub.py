@@ -12,7 +12,7 @@ default_args = {
 }
 
 dag = DAG(
-    'data_generator',
+    dag_id='data_generator',
     default_args=default_args,
     description='Get data every 2min from Engie hub',
     start_date=datetime(2020, 6, 11),
