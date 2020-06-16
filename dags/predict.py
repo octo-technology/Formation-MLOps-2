@@ -5,7 +5,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
-from config.config import MODEL_PATH, FEATURES_PATH, PREDICT_DATA_PATH
+from config import MODEL_PATH, FEATURES_PATH, PREDICT_DATA_PATH
 from formation_indus_ds_avancee.feature_engineering import prepare_features
 from formation_indus_ds_avancee.train_and_predict import predict
 

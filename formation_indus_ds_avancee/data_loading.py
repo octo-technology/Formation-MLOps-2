@@ -2,7 +2,7 @@ import datetime
 import os
 import pandas as pd
 
-from config.config import TRAIN_DATA_PATH, DATA_FOLDER
+from config import TRAIN_DATA_PATH, DATA_FOLDER
 
 
 def get_data_from_csv():
