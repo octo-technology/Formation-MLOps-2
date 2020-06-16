@@ -8,4 +8,5 @@ test:
   script:
   - pip install -r requirements.txt
   - pip install -r requirements_test.txt
-  - python -m pytest tests
+  - python -m pytest tests/test_unit
+  - behave tests/test_integration/features

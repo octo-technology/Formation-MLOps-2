@@ -3,9 +3,9 @@ import os
 from formation_indus_ds_avancee.feature_engineering import prepare_features
 from formation_indus_ds_avancee.train_and_predict import train_model
 
-training_data_path = '../../test_data/sub_eolienne_data.csv'
-features_path = '../../test_data/test_prepared_features.parquet'
-model_path = '../../test_data/test_model.joblib'
+training_data_path = './tests/test_integration/test_data/sub_eolienne_data.csv'
+features_path = './tests/test_integration/test_data/test_prepared_features.parquet'
+model_path = './tests/test_integration/test_data/test_model.joblib'
 
 
 @given('training data is available')
