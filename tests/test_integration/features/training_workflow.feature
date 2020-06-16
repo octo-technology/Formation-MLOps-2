@@ -4,4 +4,4 @@ Feature: Model training
   Scenario: train the model when training data is available
      Given training data is available
       When I launch the training
-      Then a model is created in the right folder
+      Then a model is added to the model registry

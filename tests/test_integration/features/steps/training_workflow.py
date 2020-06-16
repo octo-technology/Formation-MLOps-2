@@ -6,12 +6,12 @@ from formation_indus_ds_avancee.train_and_predict import train_model
 test_data_path = './tests/test_integration/test_data/'
 training_data_path = test_data_path + 'sub_eolienne_data.csv'
 features_path = test_data_path + 'prepared_features.parquet'
-model_registry_folder = test_data_path + 'models/'
+model_registry_folder = test_data_path
 
 
 @given('training data is available')
 def step_impl(context):
-    assert len(os.listdir(test_data_path)) == 2
+    assert len(os.listdir(test_data_path)) == 1
     assert os.path.exists(training_data_path)
 
 
@@ -21,9 +21,9 @@ def step_impl(context):
     train_model(features_path, model_registry_folder)
 
 
-@then('a model is created in the right folder')
+@then('a model is added to the model registry')
 def step_impl(context):
-    models = os.listdir(model_registry_folder)
+    models = [f for f in os.listdir(model_registry_folder) if f.endswith('.joblib')]
     assert len(models) == 1
     os.remove(features_path)
     os.remove(model_registry_folder + models[0])
