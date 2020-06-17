@@ -3,6 +3,11 @@ SHELL := /bin/bash
 .ONESHELL:
 .SILENT:
 
+.EXPORT_ALL_VARIABLES:
+REPO_DIRECTORY:=$(shell pwd)
+AIRFLOW_HOME?=${REPO_DIRECTORY}/airflow
+PYTHONPATH:=${PYTHONPATH}:${REPO_DIRECTORY}
+
 .PHONY: help
 help:
 	echo "❓ Utiliser \`make <target>' où <target> peut être"
@@ -49,3 +54,17 @@ dataset:
 		-o data/la-haute-borne-data-2017-2020.zip
 	unzip data/la-haute-borne-data-2017-2020.zip -d data/
 	rm data/la-haute-borne-data-2017-2020.zip
+
+.PHONY: airflow-setup  ## 💨  Initialize airflow backend: initdb > variables > connections
+airflow-setup:
+	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
+	airflow initdb
+
+.PHONY: airflow-webserver  ## 🌐  Run airflow web server
+airflow-webserver:
+	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
+	airflow webserver --port 8080
+
+airflow-scheduler:
+	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
+	airflow scheduler
