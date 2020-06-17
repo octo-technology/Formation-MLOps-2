@@ -6,7 +6,7 @@ import pandas as pd
 def prepare_features_with_io(data_path: str, features_path: str, training_mode: bool = True) -> None:
     data = pd.read_csv(data_path, sep=';')
 
-    data = prepare_features(data, training_mode)
+    data = prepare_features(data, training_mode=training_mode)
 
     data.to_parquet(features_path)
 

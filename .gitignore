@@ -29,3 +29,12 @@ __pycache__/
 models/*
 !.gitkeep
 prepared_features
+
+# Ignore predictions
+data/predictions/*
+data/*
+!data/.gitkeep
+
+# Ignore airflow
+dags/airflow*
+dags/unittests.cfg
