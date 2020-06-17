@@ -1,3 +1,5 @@
+import os
+
 import joblib
 import time
 import pandas as pd
@@ -15,14 +17,13 @@ def train_model(features_path: str, model_registry_folder: str):
     model.fit(X, y)
 
     time_str = time.strftime('%Y%m%d-%H%M%S')
-    joblib.dump(model, model_registry_folder + time_str + '.joblib')
+    joblib.dump(model, os.path.join(model_registry_folder, time_str + '.joblib'))
 
 
-def predict(features_path: str, model_path: str):
+def predict(features_path: str, model_path: str, predictions_folder: str):
     features = pd.read_parquet(features_path)
     model = joblib.load(model_path)
 
-    submission = model.predict(features)
-    final_submit = pd.DataFrame.from_dict({'target': submission})
-    final_submit.index = features.index
-    final_submit.to_csv('submission.csv')
+    features['predictions'] = model.predict(features)
+    time_str = time.strftime('%Y%m%d-%H%M%S')
+    features.to_csv(os.path.join(predictions_folder, time_str + '.csv'), index=False)
