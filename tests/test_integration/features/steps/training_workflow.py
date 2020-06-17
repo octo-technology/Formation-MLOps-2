@@ -1,7 +1,7 @@
 from behave import *
 import os
-from formation_indus_ds_avancee.feature_engineering import prepare_features
-from formation_indus_ds_avancee.train_and_predict import train_model
+from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
+from formation_indus_ds_avancee.train_and_predict import train_model_with_io
 
 test_data_path = './tests/test_integration/test_data/'
 training_data_path = test_data_path + 'sub_eolienne_data.csv'
@@ -17,8 +17,8 @@ def step_impl(context):
 
 @when('I launch the training')
 def step_impl(context):
-    prepare_features(training_data_path, features_path)
-    train_model(features_path, model_registry_folder)
+    prepare_features_with_io(training_data_path, features_path)
+    train_model_with_io(features_path, model_registry_folder)
 
 
 @then('a model is added to the model registry')

@@ -6,16 +6,46 @@ SHELL := /bin/bash
 .PHONY: help
 help:
 	echo "❓ Utiliser \`make <target>' où <target> peut être"
-	grep -E '^\.PHONY: [a-zA-Z0-9_-]+ .*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = "(: |##)"}; {printf "\033[36m%-30s\033[0m %s\n", $$2, $$3}'
+	grep -E '^\.PHONY: [a-zA-Z0-9_-]+ .*?## .*$$' $(MAKEFILE_LIST) | \
+		awk 'BEGIN {FS = "(: |##)"}; {printf "\033[36m%-30s\033[0m %s\n", $$2, $$3}'
 
-.PHONY: conda-env  ## créé l'environnement conda python_indus_avancee, et le récréé s'il existe déjà
+.PHONY: conda-env  ## 🐍 créé l'environnement conda python_indus_avancee, et le récréé s'il existe déjà
 conda-env:
-	conda env create --file requirements.txt --name python_indus_avancee --force --quiet
+	conda create -yqf python=3.8 --name python_indus_avancee
 
-.PHONY: test-tps  ## lance les tests
-test-tps:
-	pytest tests
+.PHONY: dependencies  ## ⏬ installe les dépendances de production
+dependences:
+	pip install -r requirements.txt
 
-.PHONY: distribution  ## crée le package 
+.PHONY: conda-env-test  ## 🧪 installe toutes les dépendances, y compris celles de test
+dependences-de-test:
+	$(MAKE) dependencies && pip install -r requirements_test.txt
+
+.PHONY: tests  ## ✅ lance tous les tests
+tests:
+	$(MAKE) tests-unitaires && $(MAKE) tests-fonctionnels
+
+.PHONY: tests-unitaires  ## ✅ lance les tests unitaires
+tests-unitaires:
+	python -m pytest tests/test_unit \
+		--junitxml=junit/test-results.xml \
+		--cov -vv -p no:warnings --cov-report=xml --cov-report=html -v
+
+.PHONY: tests-fonctionnels  ## ✅ lance les tests fonctionnels
+tests-fonctionnels:
+	python -m behave tests/test_integration/features
+
+.PHONY: distribution  ## 📦 crée le package au format wheel
 distribution:
 	python3 setup.py sdist bdist_wheel
+
+.PHONY: instructions  ## 📄 Génère les instructions de TPs au format codelabs
+instructions:
+	$(MAKE) -C TP_instructions/ instructions
+
+.PHONY: dataset  ## 🔽 télécharge les données et les dézippe dans le dossier data/
+dataset:
+	curl -L https://opendata-renewables.engie.com/media/datasets/01c55756-5cd6-4f60-9f63-2d771bb25a1a.zip \
+		-o data/la-haute-borne-data-2017-2020.zip
+	unzip data/la-haute-borne-data-2017-2020.zip -d data/
+	rm data/la-haute-borne-data-2017-2020.zip

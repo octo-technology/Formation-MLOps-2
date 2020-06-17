@@ -17,3 +17,15 @@ scripts/__init__.py
 scripts/random_forest.joblib
 scripts/submission.csv
 
+# Rapports produits par pytest
+htmlcov/
+junit/
+tests/**/__pycache__/
+.coverageci
+coverage.xml
+__pycache__/
+
+# Modèles sauvegardées dans la registry locale
+models/*
+!.gitkeep
+prepared_features

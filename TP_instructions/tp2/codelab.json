@@ -3,25 +3,25 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-06-16T10:37:05+02:00",
-  "id": "tp1",
-  "duration": 8,
-  "title": "TP1 - Introduction à la CI/CD",
+  "updated": "2020-06-16T15:26:12+02:00",
+  "id": "tp2",
+  "duration": 1,
+  "title": "TP7 - Exposition de modèles",
   "authors": "OCTO Technology",
-  "summary": "TP1 - Introduction à la CI/CD",
-  "source": "tp1.md",
+  "summary": "TP2",
+  "source": "tp2.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
-    "ci"
+    "tp",
+    "api"
   ],
   "tags": [
-    "cd",
-    "ci",
-    "gitlab"
+    "api",
+    "flask"
   ],
   "feedback": "https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new",
-  "url": "tp1"
+  "url": "tp2"
 }
