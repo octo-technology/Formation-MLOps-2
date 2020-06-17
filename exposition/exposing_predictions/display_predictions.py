@@ -6,7 +6,9 @@ import os
 
 from config import PREDICTIONS_FOLDER
 
-predictions_files = glob.glob(PREDICTIONS_FOLDER+'*.csv')
+predictions_files = glob.glob(os.path.join(PREDICTIONS_FOLDER, '*.csv'))
+print("predictions_files: ", predictions_files)
+print("predictions_folder", os.listdir(PREDICTIONS_FOLDER))
 latest_predictions_file = max(predictions_files, key=os.path.getctime)
 last_predictions = pd.read_csv(latest_predictions_file)
 

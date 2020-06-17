@@ -17,7 +17,7 @@ conda-env:
 dependences:
 	pip install -r requirements.txt
 
-.PHONY: conda-env-test  ## 🧪 installe toutes les dépendances, y compris celles de test
+.PHONY: dependences-de-test  ## 🧪 installe toutes les dépendances, y compris celles de test
 dependences-de-test:
 	$(MAKE) dependencies && pip install -r requirements_test.txt
 
