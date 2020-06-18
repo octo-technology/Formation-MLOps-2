@@ -36,7 +36,7 @@ function measure_tests_pyramid
     /__|___|___|_\\/     [*] unit tests: $number_of_unit_tests/$total_number_of_tests --> $percentage_of_unit_tests%
     ";
 
-    check_if_pyramid_is_ok number_of_unit_tests number_of_int_tests number_of_func_tests
+    #check_if_pyramid_is_ok number_of_unit_tests number_of_int_tests number_of_func_tests
 }
 
 function check_if_pyramid_is_ok
