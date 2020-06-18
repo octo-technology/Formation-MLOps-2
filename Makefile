@@ -38,7 +38,7 @@ tests-unitaires:
 
 .PHONY: tests-fonctionnels  ## ✅ lance les tests fonctionnels
 tests-fonctionnels:
-	python -m behave tests/test_integration/features
+	python -m behave tests/test_functional/features
 
 .PHONY: distribution  ## 📦 crée le package au format wheel
 distribution:

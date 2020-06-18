@@ -3,7 +3,7 @@ import os
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 from formation_indus_ds_avancee.train_and_predict import train_model_with_io
 
-test_data_path = './tests/test_integration/test_data/'
+test_data_path = './tests/test_functional/test_data/'
 training_data_path = test_data_path + 'sub_eolienne_data.csv'
 features_path = test_data_path + 'prepared_features.parquet'
 model_registry_folder = test_data_path
