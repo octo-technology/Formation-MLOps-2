@@ -37,14 +37,14 @@ Pour répondre à ce problème, nous avons décoré la fonction de prédiction a
 - une fonction permettant de lire un fichier en entrée,
 - et d'écrire le résultat de la tâche dans un fichier en sortie.
 
-A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_indus_ds_avancee`, créér une fonction `predict_with_io` qui soit soit utilisable par le DAG Airflow.
+A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_indus_ds_avancee`, nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
 
 Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 
 - {date}.csv où la date est au format `%Y%m%d-%H%M%S`, exemple:
 - latest.csv
 
-## Utilisation d'Airflow
+## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg`
   - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`,
@@ -70,4 +70,36 @@ load_examples = True
 dag_dir_list_interval = 300
 ```
 
-Dans le `Laucher`, lancer le service `Airflow`.
+- Dans le `Launcher`, lancer le service `Airflow`.
+
+![launcher](./docs/tp4/launcher-airflow.png)
+
+L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet.
+- En ligne de commande dans l'environnement virtuel, lancer le scheduler avec `airflow scheduler -d`.
+
+L'interface graphique devrait désormais afficher 3 dags:
+
+![ui-airflow](./docs/tp4/ui-airflow-start.png)
+
+## Lancer un premier DAG d'entraînement
+
+Afin de s'entraîner, il va nous falloir des données d'entraînement !
+
+Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande `make dataset`.
+
+Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-2017-2020.csv`.
+
+Pour lancer le dag `train`:
+
+- activer le DAG en appuyant sur le bouton `ON/OFF` (à gauche),
+- déclencher le DAG manuellement en cliquant sur l'icône `Play` (sur la droite).
+
+![ui-airflow](./docs/tp4/ui-airflow-start.png)
+
+Inspecter le dag `train` en cliquant sur celui-ci, la tâche `prepare_features` devrait avoir commencé:
+
+![train-dag](./docs/tp4/train-prepare-features.png)
+
+## DAG de prédiction
+
+Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.

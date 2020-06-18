@@ -55,7 +55,7 @@
 <li>une fonction permettant de lire un fichier en entrée,</li>
 <li>et d&#39;écrire le résultat de la tâche dans un fichier en sortie.</li>
 </ul>
-<p>A l&#39;image des fonctions <code>train_with_io</code> et <code>train</code> du module <code>train_and_predict.py</code> dans <code>/formation_indus_ds_avancee</code>, créér une fonction <code>predict_with_io</code> qui soit soit utilisable par le DAG Airflow.</p>
+<p>A l&#39;image des fonctions <code>train_with_io</code> et <code>train</code> du module <code>train_and_predict.py</code> dans <code>/formation_indus_ds_avancee</code>, nous avons créé une fonction <code>predict_with_io</code> qui soit utilisable par le DAG Airflow.</p>
 <p>Les prédictions réalisées sont écrites dans 2 fichiers identiques:</p>
 <ul>
 <li>{date}.csv où la date est au format <code>%Y%m%d-%H%M%S</code>, exemple:</li>
@@ -65,7 +65,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Utilisation d&#39;Airflow" duration="0">
+      <google-codelab-step label="Démarrer avec Airflow" duration="0">
         <ul>
 <li>Modifier le fichier <code>/airflow/airflow.cfg</code><ul>
 <li>Changer la variable <code>dags_folder</code> pour pointer sur <code>/home/jovyan/dsin2/dags</code>,</li>
@@ -91,6 +91,38 @@ load_examples = True
 # How often (in seconds) to scan the DAGs directory for new files. Default to 5 minutes.
 dag_dir_list_interval = 300
 </code></pre>
+<ul>
+<li>Dans le <code>Launcher</code>, lancer le service <code>Airflow</code>.</li>
+</ul>
+<p class="image-container"><img alt="launcher" src="img/dbc63491bde0fa9c.png"></p>
+<p>L&#39;interface graphique d&#39;Airflow devrait s&#39;ouvrir dans un nouveau onglet.</p>
+<ul>
+<li>En ligne de commande dans l&#39;environnement virtuel, lancer le scheduler avec <code>airflow scheduler -d</code>.</li>
+</ul>
+<p>L&#39;interface graphique devrait désormais afficher 3 dags:</p>
+<p class="image-container"><img alt="ui-airflow" src="img/9d180270c937df3b.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Lancer un premier DAG d&#39;entraînement" duration="0">
+        <p>Afin de s&#39;entraîner, il va nous falloir des données d&#39;entraînement !</p>
+<p>Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande <code>make dataset</code>.</p>
+<p>Les données sont désormais disponible dans <code>dsin2/data/la-haute-borne-data-2017-2020.csv</code>.</p>
+<p>Pour lancer le dag <code>train</code>:</p>
+<ul>
+<li>activer le DAG en appuyant sur le bouton <code>ON/OFF</code> (à gauche),</li>
+<li>déclencher le DAG manuellement en cliquant sur l&#39;icône <code>Play</code> (sur la droite).</li>
+</ul>
+<p class="image-container"><img alt="ui-airflow" src="img/9d180270c937df3b.png"></p>
+<p>Inspecter le dag <code>train</code> en cliquant sur celui-ci, la tâche <code>prepare_features</code> devrait avoir commencé:</p>
+<p class="image-container"><img alt="train-dag" src="img/e3a972a23a9c3a1d.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="DAG de prédiction" duration="0">
+        <p>Compléter le DAG <code>dags/predict</code> pour intégrer la fonction <code>predict_with_io</code> dans un opérateur, avec les bons arguments.</p>
 
 
       </google-codelab-step>
