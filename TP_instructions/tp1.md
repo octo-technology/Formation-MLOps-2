@@ -13,7 +13,7 @@ Duration: 1
 
 ### A l'issue de cette section, vous aurez découvert:
 
-- 📄Comment lire un fichier de pipeline `.gitlab-ci.yml`, totototot
+- 📄Comment lire un fichier de pipeline `.gitlab-ci.yml`,
 - 🚀Comment exécuter un pipeline gitlab, manuellement ou via commit & push
 - 🖊Comment éditer un pipeline gitlab,
 - ✅Comment tester le fonctionnement d'une application Python dans une chaîne d'intégration continue,
@@ -21,37 +21,6 @@ Duration: 1
 - 📦Comment packager une application Python dans une chaîne de CI, au format `wheel` et `docker`,
 - 🐳Comment manipuler les registres gitlab pour Python et Docker.
 
-## Créer un compte sur Gitlab
-Duration: 2
-
-### Création du compte
-
-Rendez-vous sur le site de gitlab afin de créer un compte si vous n'en possédez pas déjà un: <https://gitlab.com/users/sign_in>.
-
-Puis, cliquer sur `Register now`:
-
-![Page de connexion à gitlab.com](./docs/tp1/gitlab-sign-in-page.png)
-
-### Fork du repo de TP dans votre espace personnel gitlab
-
-Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation: <https://...>
-
-Puis `forkez` le repo à l'aide du bouton en haut à droite pour récupérer une copie de ce dernier dans votre espace gitlab personnel:
-
-![bouton fork](docs/tp1/gitlab-fork-button.png)
-
-🏁 Vous possédez désormais une copie personnelle du repo de code pour les TPs ! Nous allons désormais la cloner dans votre environnement de développement.
-
-## Préparer son environnement et cloner le repo
-Duration: 3
-
-Rendez-vous sur votre environnement de développement. L'url de ce dernier vous sera communiqué pendant la formation.
-
-Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`. Vous trouverez l'URL de clonage en HTTPS sur gitlab, dans le repo que vous avez cloné:
-
-![bouton clonage](docs/tp1/gitlab-clone-button.png)
-
-<!-- ------------------------ -->
 ## Exécuter le pipeline de CI
 Duration: 1
 

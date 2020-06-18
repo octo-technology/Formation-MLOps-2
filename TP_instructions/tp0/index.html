@@ -1,0 +1,77 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>TP0 - Setup de l&#39;environnement de travail</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="tp0"
+                  title="TP0 - Setup de l&#39;environnement de travail"
+                  environment="web"
+                  feedback-link="https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Cette partie permet de préparer l&#39;environnement de travail pour les TPs.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Créer un compte sur Gitlab" duration="2">
+        <h2 is-upgraded>Création du compte</h2>
+<p>Rendez-vous sur le site de gitlab afin de créer un compte si vous n&#39;en possédez pas déjà un: <a href="https://gitlab.com/users/sign_in" target="_blank">https://gitlab.com/users/sign_in</a>.</p>
+<p>Puis, cliquer sur <code>Register now</code>:</p>
+<p class="image-container"><img alt="Page de connexion à gitlab.com" src="img/c16bc7c2d3cb6a8.png"></p>
+<h2 is-upgraded>Fork du repo de TP dans votre espace personnel gitlab</h2>
+<p>Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation: <a href="https://..." target="_blank">https://...</a></p>
+<p>Puis <code>forkez</code> le repo à l&#39;aide du bouton en haut à droite pour récupérer une copie de ce dernier dans votre espace gitlab personnel:</p>
+<p class="image-container"><img alt="bouton fork" src="img/d19ca7c9c9ac0377.png"></p>
+<p>🏁 Vous possédez désormais une copie personnelle du repo de code pour les TPs ! Nous allons désormais la cloner dans votre environnement de développement.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Préparer son environnement et cloner le repo" duration="3">
+        <p>Rendez-vous sur votre environnement de développement. L&#39;url de ce dernier vous sera communiqué pendant la formation.</p>
+<p>Dans VSCode, ouvrez un terminal afin d&#39;y cloner le repository de code des TPs avec la commande <code>$&gt; git clone &lt;url&gt;;</code>. Vous trouverez l&#39;URL de clonage en HTTPS sur gitlab, dans le repo que vous avez cloné:</p>
+<p class="image-container"><img alt="bouton clonage" src="img/29725cfd233d97ad.png"></p>
+<p>Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances:</p>
+<pre><code>cd dsin2
+conda create -yqf python=3.8 --name python_indus_avancee
+conda activate python_indus_avancee
+pip install -e .
+pip install -r requirements.txt &amp;&amp; pip install -r requirements_test.txt
+</code></pre>
+<p>Exécutons les tests pour s&#39;assurer que tout marche !</p>
+<pre><code>make tests-unitaires
+</code></pre>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

@@ -24,7 +24,7 @@ dependences:
 
 .PHONY: dependences-de-test  ## 🧪 installe toutes les dépendances, y compris celles de test
 dependences-de-test:
-	$(MAKE) dependencies && pip install -r requirements_test.txt
+	$(MAKE) dependencies && pip install -r requirements_test.txt && pip install -e .
 
 .PHONY: tests  ## ✅ lance tous les tests
 tests:

@@ -3,25 +3,23 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-06-17T10:16:13+02:00",
-  "id": "tp6",
-  "duration": 1,
-  "title": "TP7 - Exposition de modèles",
+  "updated": "2020-06-18T15:04:56+02:00",
+  "id": "tp0",
+  "duration": 6,
+  "title": "TP0 - Setup de l'environnement de travail",
   "authors": "OCTO Technology",
-  "summary": "TP6",
-  "source": "tp6.md",
+  "summary": "TP0 - Setup de l’environnement de travail",
+  "source": "tp0.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
-    "tp",
-    "api"
+    "setup"
   ],
   "tags": [
-    "api",
-    "flask"
+    "setup"
   ],
   "feedback": "https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new",
-  "url": "tp6"
+  "url": "tp0"
 }
