@@ -32,9 +32,7 @@ tests:
 
 .PHONY: tests-unitaires  ## ✅ lance les tests unitaires
 tests-unitaires:
-	python -m pytest tests/test_unit \
-		--junitxml=junit/test-results.xml \
-		--cov -vv -p no:warnings --cov-report=xml --cov-report=html -v
+	python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings
 
 .PHONY: tests-fonctionnels  ## ✅ lance les tests fonctionnels
 tests-fonctionnels:
