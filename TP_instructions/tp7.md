@@ -20,4 +20,19 @@ Duration: 1
 
 ## Développement d'API avec Flask
 
-lorem ipsum
+Flask est un microserveur d'application. Il est souvent utilisé en Python pour développer des APIs et exposer des ressources.
+
+### Exposition "model as a service"
+
+- Se rendre dans `dsin2/exposition/model_as_a_service/`
+- Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
+
+Le serveur d'exposition est désormais disponible sur le port 5000, avec:
+
+- la route de healthcheck `/health` pour vérifier que le service est fonctionnel,
+- la route `/predict` pour demander une prédiction
+  - Il est possible de demander une prédiction en spécifiant une valeur pour la feature explicative `Ws1_avg`
+
+![requete-healthcheck](./docs/tp7/ping-healthcheck.png)
+
+Requêter une prédiction pour une `Wind Speed` de 50.

@@ -160,10 +160,9 @@ def predict_endpoint():
         "Na_c_std": None
     }
     received_data_df = pd.DataFrame(received_data, index=[0])
-    # TODO à compléter pour les TPs
-    # prepared_features_df = prepare_features(
-    #     received_data_df, training_mode=False)
-    # prediction = predict(prepared_features_df, MODEL_PATH)[
-    #     'predictions'].to_dict()
-    # return jsonify(prediction)
+    prepared_features_df = prepare_features(
+        received_data_df, training_mode=False)
+    prediction = predict(prepared_features_df, MODEL_PATH)[
+        'predictions'].to_dict()
+    return jsonify(prediction)
     return jsonify(...)

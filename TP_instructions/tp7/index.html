@@ -40,7 +40,22 @@
       </google-codelab-step>
     
       <google-codelab-step label="Développement d&#39;API avec Flask" duration="0">
-        <p>lorem ipsum</p>
+        <p>Flask est un microserveur d&#39;application. Il est souvent utilisé en Python pour développer des APIs et exposer des ressources.</p>
+<h2 is-upgraded>Exposition &#34;model as a service&#34;</h2>
+<ul>
+<li>Se rendre dans <code>dsin2/exposition/model_as_a_service/</code></li>
+<li>Démarrer le serveur Flask d&#39;exposition avec <code>FLASK_APP=inference.py python -m flask run</code></li>
+</ul>
+<p>Le serveur d&#39;exposition est désormais disponible sur le port 5000, avec:</p>
+<ul>
+<li>la route de healthcheck <code>/health</code> pour vérifier que le service est fonctionnel,</li>
+<li>la route <code>/predict</code> pour demander une prédiction  <ul>
+<li>Il est possible de demander une prédiction en spécifiant une valeur pour la feature explicative <code>Ws1_avg</code></li>
+</ul>
+</li>
+</ul>
+<p class="image-container"><img alt="requete-healthcheck" src="img/47019fb2df4999bd.png"></p>
+<p>Requêter une prédiction pour une <code>Wind Speed</code> de 50.</p>
 
 
       </google-codelab-step>
