@@ -100,4 +100,4 @@ pages:
 ## Exercice: faire passer les tests au vert dans la CI
 Duration: 1
 
-Votre mission si vous l'acceptez: éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exéuter les tests avec succès et faire passer le pipeline au vert ✅.
+Votre mission si vous l'acceptez: éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
