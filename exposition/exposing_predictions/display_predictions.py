@@ -16,4 +16,4 @@ st.title('My Wind Turbine App')
 st.text(latest_predictions_file)
 st.dataframe(last_predictions)
 
-st.image('https://media.giphy.com/media/rQdPpBsXTy7GU/giphy.gif')
+st.image('https://media.giphy.com/media/rQdPpBsXTy7GU/giphy.gif', use_column_width=True)

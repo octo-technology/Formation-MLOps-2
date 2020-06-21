@@ -9,6 +9,28 @@ help:
 	grep -E '^\.PHONY: [a-zA-Z0-9_-]+ .*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = "(: |##)"}; {printf "\033[36m%-30s\033[0m %s\n", $$2, $$3}'
 
-.PHONY: server  ## 🐍 lancer le serveur d'inférence
-server:
-	python -m flask run FLASK_APP=inference.py
+.PHONY: inference-service  ## 🐍 lancer le service d'inférence
+inference-service:
+	FLASK_APP=inference.py python -m flask run --host='0.0.0.0'
+
+.PHONY: docker-build-inference-service  ## 🐳 pour builder l'image docker du service d'inférence (Flask)
+docker-build-inference-service:
+	docker build -f dockerfile-inference-service -t inference-service:v1 .
+
+.PHONY: docker-inference-service  ## 🐳 pour lancer le service d'inférence dans docker
+docker-inference-service:
+	docker run --rm -p 5000:5000 --name inference-service -it inference-service:v1
+
+.PHONY: app  ## 🐍 lancer l'application de dashboarding (app streamlit)
+app:
+	streamlit run app.py --server.port 8092
+
+.PHONY: docker-build-app  ## 🐳 pour builder l'image docker de l'application de dashboarding (app streamlit)
+docker-build-app:
+	docker build -f dockerfile-app -t app:v1 .
+
+.PHONY: docker-app  ## 🐳 pour lancer l'application de dashboard (app streamlit)
+docker-app:
+	docker run --rm -p 8092:8092 --name app -it app:v1
+
+demo:

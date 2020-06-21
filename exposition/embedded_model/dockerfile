@@ -1,0 +1,18 @@
+FROM python:3.8.0-slim as builder
+RUN apt-get update \
+    && apt-get install -y gcc \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+COPY . /app
+WORKDIR /app
+RUN pip install --user -U pip \
+    && pip install --user --no-cache-dir -r requirements.txt
+
+FROM python:3.8.0-slim as app
+COPY --from=builder /root/.local /root/.local
+COPY --from=builder /app /app
+WORKDIR /app
+ENV PATH=/root/.local/bin:$PATH
+EXPOSE 8091
+ENV PYTHONPATH /app
+CMD streamlit run embedded_model.py --server.port 8091

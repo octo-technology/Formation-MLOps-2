@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  exposing-predictions:
+    image: exposing-predictions-app:v1
+    build: ./exposing_predictions/
+    ports:
+      - 8090:8090
+
+  embedded-model:
+    image: embedded-model-app:v1
+    build: ./embedded_model/
+    ports:
+      - 8091:8091
+
+  inference-service:
+    image: inference-service:v1
+    build: ./model_as_a_service/dockerfile-inference-service
+    ports:
+      - 5000:5000
+
+  app:
+    image: app:v1
+    build: ./model_as_a_service/dockerfile-app
+    environment:
+      - INFERENCE_HOST=inference-service
+    ports:
+      - 8092:8092

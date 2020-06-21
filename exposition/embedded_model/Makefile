@@ -11,12 +11,12 @@ help:
 
 .PHONY: server  ## 🐍 lance l'application streamlit
 server:
-	streamlit run display_predictions.py
+	streamlit run embedded_model.py
 
 .PHONY: docker-build  ## 🐳 pour builder l'image docker
 docker-build:
-	docker build -t exposing-predictions-app:v1 .
+	docker build -t embedded-model-app:v1 .
 
 .PHONY: docker-server  ## 🐳 pour lancer l'application streamlit dans docker
 docker-server:
-	docker run --rm -p 8090:8090 --name exposing-predictions -it exposing-predictions-app:v1
+	docker run --rm -p 8091:8091 --name embedded-model-app -it embedded-model-app:v1

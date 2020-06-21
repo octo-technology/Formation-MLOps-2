@@ -165,4 +165,3 @@ def predict_endpoint():
     prediction = predict(prepared_features_df, MODEL_PATH)[
         'predictions'].to_dict()
     return jsonify(prediction)
-    return jsonify(...)
