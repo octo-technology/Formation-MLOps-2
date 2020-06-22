@@ -46,7 +46,7 @@
 <li>Se rendre dans <code>dsin2/exposition/model_as_a_service/</code></li>
 <li>Démarrer le serveur Flask d&#39;exposition avec <code>FLASK_APP=inference.py python -m flask run</code></li>
 </ul>
-<p>Le serveur d&#39;exposition est désormais disponible sur le port 5000, avec:</p>
+<p>Le serveur d&#39;exposition est désormais disponible sur le port 5000 <a href="http://localhost:5000" target="_blank">http://localhost:5000</a>, avec:</p>
 <ul>
 <li>la route de healthcheck <code>/health</code> pour vérifier que le service est fonctionnel,</li>
 <li>la route <code>/predict</code> pour demander une prédiction  <ul>
@@ -55,7 +55,12 @@
 </li>
 </ul>
 <p class="image-container"><img alt="requete-healthcheck" src="img/47019fb2df4999bd.png"></p>
-<p>Requêter une prédiction pour une <code>Wind Speed</code> de 50.</p>
+<p>Dans votre terminal, avec l&#39;outil en ligne de commande <code>cURL</code>, réalisez les requêtes HTTP suivantes:</p>
+<ul>
+<li>requêtez l&#39;url de <code>healthcheck</code> du service pour s&#39;assurer qu&#39;il fonctionne (<a href="http://localhost:5000/health" target="_blank">http://localhost:5000/health</a>),</li>
+<li>requêtez une prédiction sur <a href="http://localhost:5000/predict" target="_blank">http://localhost:5000/predict</a>,</li>
+<li>requêtez une prédiction pour une <code>Wind Speed</code> de 50.</li>
+</ul>
 
 
       </google-codelab-step>

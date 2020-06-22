@@ -94,7 +94,7 @@ def predict_endpoint():
         "Yt_min": 20.5,
         "Yt_max": 20.799999,
         "Yt_std": 0.079999998,
-        "Ws1_avg": received_wind_speed_avg,
+        "": received_wind_speed_avg,
         "Ws1_min": 0.0,
         "Ws1_max": 1.9400001,
         "Ws1_std": 0.44,

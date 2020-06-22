@@ -32,5 +32,3 @@ docker-build-app:
 .PHONY: docker-app  ## 🐳 pour lancer l'application de dashboard (app streamlit)
 docker-app:
 	docker run --rm -p 8092:8092 --name app -it app:v1
-
-demo:
