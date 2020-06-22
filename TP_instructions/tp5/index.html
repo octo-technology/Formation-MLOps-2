@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>TP7 - Exposition de modèles</title>
+  <title>TP5 - Artefacts</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
@@ -23,24 +23,34 @@
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid=""
                   id="tp5"
-                  title="TP7 - Exposition de modèles"
+                  title="TP5 - Artefacts"
                   environment="web"
                   feedback-link="https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new">
     
       <google-codelab-step label="Overview" duration="1">
         <h2 is-upgraded>A l&#39;issue de cette section, vous aurez découvert</h2>
 <ul>
-<li>Comment fonctionne une simple API Flask,</li>
-<li>Le pattern d&#39;exposition <code>modèle embarq</code>ué,</li>
-<li>Le pattern d&#39;exposition <code>model as a service</code>,</li>
-<li>Le pattern d&#39;exposition <code>model published as data</code>,</li>
+<li>Une stratégie simple de versionning de modèles,</li>
+<li>Un timestamp est un bon moyen pour versionner les modèles,</li>
+<li>Mais il est difficile de retrouver quel code a produit quel modèle.</li>
 </ul>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Développement d&#39;API avec Flask" duration="0">
-        <p>lorem ipsum</p>
+      <google-codelab-step label="Versionner les modèles avec un timestamp" duration="0">
+        <p>Pour l&#39;instant, les modèles sont sauvegardés par la fonction <code>train_model</code>.</p>
+<p>Ils possèdent le même nom de fichier, ce qui signifie que chaque entraînement produit un modèle mais que le modèle ainsi produit écrase le précédent 😕.</p>
+<p>Ceci est problématique pour des raisons</p>
+<ul>
+<li>de suivi et d&#39;auditabilité: un modèle est déployé, mais je ne sais pas lequel précisément.</li>
+<li>de reproductibilité: comme je ne sais pas quel modèle est déployé, je ne peux pas facilement effectuer un roll-back vers un précédent modèle plus stable si le modèle que je viens de déployer est défectueux.</li>
+</ul>
+<p>Un moyen de distinguer un modèle d&#39;un autre à chaque entraînement est <em>d&#39;intégrer un identifiant unique à son nom</em>.</p>
+<p>Un moyen simple d&#39;y parvenir est d&#39;utiliser un horodatage.</p>
+<p><strong>L&#39;objectif de ce TP est de modifier le nom du modèle généré en intégrant un timestamp au format YYYYMMDD-HHMMSS (</strong><code>&#39;%Y%m%d-%H%M%S&#39;</code><strong>).</strong></p>
+<p>Exécuter un entraînement devrait produire plusieurs modèles identifiables comme ceci dans votre <em>model registry</em>:</p>
+<p class="image-container"><img alt="model-registry" src="img/852f279ed590db60.png"></p>
 
 
       </google-codelab-step>
