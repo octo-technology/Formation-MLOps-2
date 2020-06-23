@@ -12,6 +12,7 @@ from formation_indus_ds_avancee.train_and_predict import predict_with_io
 
 dag = DAG(dag_id='predict',
           description='Prediction DAG',
+          catchup= False,
           start_date=days_ago(1),
           schedule_interval=timedelta(minutes=15))
 
