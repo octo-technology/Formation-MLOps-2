@@ -65,6 +65,55 @@
 
       </google-codelab-step>
     
+      <google-codelab-step label="Démo: Exposition | model as a service" duration="0">
+        <p>La manipulation sera faite par les formateurs</p>
+<p>Dans le dossier <code>exposition/</code> se trouvent un fichier <code>docker-compose.yaml</code>, exécutable avec <code>docker-compose up</code>.</p>
+<p>Une fois lancée, l&#39;application streamlit est accessible sur <a href="http://localhost:8092" target="_blank">http://localhost:8092</a> et le service Flask est disponible sur <a href="http://localhost:5000/health" target="_blank">http://localhost:5000/health</a>.</p>
+<p>Dans le dossier <code>exposition/model_as_a_service/</code> se trouve la définition de ces 2 services:</p>
+<ul>
+<li>une application de dashboarding construite avec Streamlit dans <code>app.py</code>,</li>
+<li>un service d&#39;inférence construit avec Flask dans <code>inference.py</code>.</li>
+</ul>
+<p>L&#39;application streamlit permet d&#39;afficher une prédiction à la demande selon la valeur de <code>Ws1_avg</code> spécifiée par l&#39;utilisateur.</p>
+<p class="image-container"><img alt="streamlit-model-as-a-service" src="img/928fca2a95c4af66.png"></p>
+<ul>
+<li>Modifier la valeur de <code>Wind Speed Average</code> à 0, 10, 20, 50, 100 et demander une prédiction</li>
+<li>Observer les logs de docker-compose, et constater que le service Flask réalise les prédictions quand Streamlit les demande.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Démo: Exposition | embedded model" duration="0">
+        <p>La manipulation sera faite par les formateurs</p>
+<p>Dans le dossier <code>exposition/</code> se trouvent un fichier <code>docker-compose.yaml</code>, exécutable avec <code>docker-compose up</code>.</p>
+<p>Une fois lancée, l&#39;application streamlit avec modèle embarqué est accessible sur <a href="http://localhost:8091" target="_blank">http://localhost:8091</a>.</p>
+<p>Dans le dossier <code>exposition/embedded_model/</code> se trouve la définition de ce service de dashboarding:</p>
+<ul>
+<li>une application de dashboarding construite avec Streamlit dans <code>embedded_model.py</code>,</li>
+<li>il n&#39;y a pas de service d&#39;inférence.</li>
+</ul>
+<p>L&#39;application streamlit permet d&#39;afficher une prédiction à la demande selon la valeur de <code>Ws1_avg</code> spécifiée par l&#39;utilisateur.</p>
+<p class="image-container"><img alt="streamlit-embedded-model" src="img/9307b3eae10f0523.png"></p>
+<ul>
+<li>Modifier la valeur de <code>Wind Speed Average</code> à 0, 10, 20, 50, 100 et demander une prédiction</li>
+<li>Observer les logs de docker-compose, et constater que le service Flask ne réalise pas de prédictions quand Streamlit les demande.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Démo: Exposition | Exposing predictions" duration="0">
+        <p>La manipulation sera faite par les formateurs</p>
+<p>Dans le dossier <code>exposition/</code> se trouvent un fichier <code>docker-compose.yaml</code>, exécutable avec <code>docker-compose up</code>.</p>
+<p>Une fois lancée, l&#39;application streamlit est accessible sur <a href="http://localhost:8090" target="_blank">http://localhost:8090</a>.</p>
+<p>Dans le dossier <code>exposition/exposing_predictions/</code> se trouve la définition de ce service de dashboarding dans <code>display_predictions.py</code>.</p>
+<p>L&#39;application streamlit affiche des prédictions déjà réalisées.</p>
+<p class="image-container"><img alt="streamlit-exposing-predictions" src="img/9ec456f8fcd6c1e3.png"></p>
+
+
+      </google-codelab-step>
+    
   </google-codelab>
 
   <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
