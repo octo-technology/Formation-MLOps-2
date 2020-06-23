@@ -8,7 +8,7 @@ from formation_indus_ds_avancee.monitoring import monitor_with_io
 
 
 @patch('pandas.read_csv')
-def test_(mocked_read_csv):
+def test_monitor_with_io_should_write_predictions_mean_to_db(mocked_read_csv):
     # Given
     predictions_folder = 'test_pred_folder'
     given_date = pd.to_datetime('20200101-120000', format='%Y%m%d-%H%M%S')
