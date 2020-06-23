@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>TP8 - Monitoring de modèles</title>
+  <title>TP8 - Monitoring</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
@@ -23,114 +23,52 @@
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid=""
                   id="tp8"
-                  title="TP8 - Monitoring de modèles"
+                  title="TP8 - Monitoring"
                   environment="web"
                   feedback-link="https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new">
     
       <google-codelab-step label="Overview" duration="1">
-        <h2 is-upgraded>A l&#39;issue de cette section, vous aurez découvert</h2>
+        <h2 is-upgraded>À l&#39;issue de cette section, vous aurez découvert :</h2>
 <ul>
-<li>📈 Comment fonctionne Grafana, un outil de dashboarding,</li>
-<li>🗄 Comment brancher une datasource PostgreSQL dans Grafana,</li>
-<li>📈 Comment construire un dashboard de monitoring dans Grafana,</li>
-<li>⚙️ Comment alimenter une base de données PostgreSQL avec des données de prédiction produites dans un pipeline Airflow</li>
+<li>Comment implémenter une sonde de monitoring de vos prédictions</li>
+<li>Comment créer et alimenter une DB avec les valeurs monitorées</li>
+<li>Comment créer un dashboard de monitoring dans Grafana</li>
 </ul>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Un mot sur PostgreSQL" duration="0">
-        <p>PostgreSQL est un SGBD (Système de Gestion de Bases de Données) relationnel. C&#39;est un système robuste que nous utilisons souvent en production dans nos missions à OCTO Technology.</p>
-<p>Un <code>SGBD</code> PostgreSQL commun à tous les formés est déployé dans l&#39;environnement de développement Jupyterhub, il est configuré comme suit:</p>
-<ul>
-<li>c&#39;est un service dockerisé accessible sur le port <code>5432</code>,</li>
-<li>il est accessible avec le login: <code>postgres</code> et le mot de passe <code>postgres</code>,</li>
-<li>il contient 1 <code>base de donnees</code> nommée <code>postgres</code>,</li>
-<li>au démarrage, cette base de données ne contient aucune <code>table</code>. Mais cette création de table sera gérée par le DAG de prédiction Airflow.</li>
+      <google-codelab-step label="Monitoring des prédictions et enregistrement dans une DB" duration="0">
+        <ul>
+<li>Définir une sonde de monitoring sous forme de fonction Python</li>
 </ul>
-<p>Vérifiez cela en exécutant ligne par ligne ce qui suit dans un interpréteur Python:</p>
-<pre><code>conn = psycopg2.connect(&#34;host=postgres dbname=postgres user=postgres password=postgres&#34;)
-
-cur = conn.cursor()
-
-# Afficher les tables dans la base de données
-cur.execute(&#34;&#34;&#34;SELECT table_name FROM information_schema.tables WHERE table_schema = &#39;public&#39;&#34;&#34;&#34;)
-for table in cur.fetchall():
-    print(table)
-
-# Afficher le contenu de la table monitoring
-cur.execute(&#39;SELECT * FROM monitoring;&#39;)
-conn.commit()
-print(cur.featchall())
-
-conn.close()
-</code></pre>
-<p>Plus tard, ré-exécutez ces lignes après avoir exécuté au moins 1 fois le DAG de prédiction pour consulter les prédictions sauvegardées.</p>
+<p>Dans le fichier <code>formation_indus_ds_avancee/monitoring.py</code>, créer une fonction <code>monitor</code> qui retournera la valeur de votre choix à monitorer. Cette valeur sera enregistrée dans la DB PostreSQL grâce à la fonction <code>monitor_with_io</code> associée à une tâche Airflow.</p>
+<ul>
+<li>Spécifier la table postgreSQL dans laquelle enregistrer les valeurs à monitorer</li>
+</ul>
+<p>Dans le fichier <code>config.py</code>, définir la constante <code>MONITORING_TABLE_NAME</code> avec un nom unique différent de celui des autres participants. Cette table sera désormais alimentée par la tâche <code>monitor</code> d&#39;Airflow.</p>
+<ul>
+<li>Relancer Airflow et le DAG de prédiction</li>
+</ul>
+<p>La tâche <code>monitor</code> devrait s&#39;exécuter. Il nous faut désormais créer un dashboard de suivi des valeurs renvoyées par notre fonction.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Un mot sur Grafana" duration="0">
-        <p>Grafana est un outil open-source permettant de construire des dashboards. Il est souvent utilisé par les ingénieurs opérationnels (ops) pour des tâches de monitoring de systèmes (RAM, CPU, consommation disque de serveurs, ...).</p>
-<p>Une instance Grafana commune à tous les formés est déployée dans l&#39;environnement de développement Jupyterhub, il est configuré comme suit:</p>
+      <google-codelab-step label="Affichage d&#39;un dashboard de monitoring dans Grafana" duration="0">
+        <p>Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table postgreSQL.</p>
 <ul>
-<li>c&#39;est un service dockerisé accessible sur le port <code>3000</code>,</li>
-<li>On peut s&#39;y connecter avec le login <code>admin</code> et le mot de passe <code>admin</code>.</li>
+<li>Accéder à Grafana sur le port <code>3000</code> et se connecter avec l&#39;identifiant <code>admin</code> et le mot de passe <code>admin</code></li>
+<li>Créer la connexion à la DB postgreSQL</li>
 </ul>
-<p>🏹 Vérifiez que le service grafana est disponible dans votre terminal avec <code>wget --server-response grafana:3000</code>.</p>
-<p>Les formateurs vont désormais configurer grafana afin d&#39;y connecter la base de données PostgreSQL en tant que <code>datasource</code>.</p>
-<p>Dans Grafana,</p>
+<p>La connexion à définir est la même pour l&#39;ensemble des participants à la formation : cette tâche doit donc être réalisée en mob programming avec les formateurs.</p>
+<p>Nous allons ajouter une <em>Data Source</em> de type <em>postgreSQL</em> et spécifier les paramètres suivants :</p>
+<p class="image-container"><img alt="streamlit-embedded-model" src="img/a0ca1b5712537774.png"></p>
+<p><em>Note : Dans le cadre du TP, le paramètre </em><code>Host</code><em> sera communiqué par le formateur.</em></p>
 <ul>
-<li>Ajoutez une datasource,</li>
-<li>Choisissez une datasource <code>PostgreSQL</code>,</li>
-<li>Configurez la data source:</li>
+<li>Créer un simple dashboard de monitoring.</li>
 </ul>
-<table>
-<tr></tr>
-<tr><td colspan="1" rowspan="1"><p>Name</p>
-</td><td colspan="1" rowspan="1"><p>PostgreSQL</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Host</p>
-</td><td colspan="1" rowspan="1"><p><a href="postgres:5432" target="_blank">postgres:5432</a></p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Database</p>
-</td><td colspan="1" rowspan="1"><p>postgres</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>User</p>
-</td><td colspan="1" rowspan="1"><p>postgres</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Password</p>
-</td><td colspan="1" rowspan="1"><p>postgres</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>SSL Mode</p>
-</td><td colspan="1" rowspan="1"><p>disable</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>PostgreSQL version</p>
-</td><td colspan="1" rowspan="1"><p>9.6</p>
-</td></tr>
-</table>
-<p class="image-container"><img alt="postgres-datasource" src="img/800ebf705b9be4f9.png"></p>
-<p>🏁 Vous pouvez désormais créer un dashboard branché sur cette source de données !</p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Monitorer les prédictions d&#39;un modèle" duration="0">
-        <p>Dans le dag <code>dags/predict.py</code>:</p>
-<ul>
-<li>Ajoutez une tâche finale permettant de monitorer les prédictions. Cette tâche s&#39;appuiera sur la fonction <code>monitor_with_io()</code> du module Python <code>formation_indus_avancee</code>.</li>
-<li>Modifiez la table de destination spécifiée dans la fonction <code>monitor_with_io()</code> avec un nom unique.</li>
-<li>Dans la console Airflow, activez le dag de prédiction.</li>
-<li>Une fois la tâche <code>monitor</code> du dag de prédiction terminée avec succès, rendez-vous dans Grafana pour construire votre dashboard !  <ul>
-<li>Survolez le bouton ➕ dans la barre latérale pour créer un dashboard,</li>
-<li>Pensez à le renommer pour ne pas le confondre avec celui de quelqu&#39;un d&#39;autre !</li>
-<li>Ajoutez un panel et faites le pointer vers la data source &#34;PostgreSQL&#34; configurée auparavant.</li>
-</ul>
-</li>
-</ul>
-<p class="image-container"><img alt="panel" src="img/cf3f54359deb9129.png"></p>
-<p>🏁 Au bout d&#39;une quinzaine de minutes, le DAG de prediction aura suffisamment alimenté la base de données pour pouvoir observer des choses intéressantes dans Grafana !</p>
-<p class="image-container"><img alt="dashboard" src="img/1a9b4bcb38351d6b.png"></p>
+<p>Il vous suffit de cliquer sur <em>New dashboard</em> &gt; <em>Add Query</em>, et de spécifier la connexion et la table postgreSQL (personnelle) créées lors des étapes précédentes.</p>
 
 
       </google-codelab-step>
