@@ -3,10 +3,8 @@ import os
 import pandas as pd
 from sqlalchemy import create_engine
 
-from formation_indus_ds_avancee.config import MONITORING_TABLE_NAME
 
-
-def monitor_with_io(predictions_folder: str, db_con_str: str):
+def monitor_with_io(predictions_folder: str, db_con_str: str, monitoring_table_name: str):
     latest_predictions_path = os.path.join(predictions_folder, 'latest.csv')
     latest_predictions = pd.read_csv(latest_predictions_path,
                                      usecols=['predictions_time', 'predictions'],
@@ -17,7 +15,7 @@ def monitor_with_io(predictions_folder: str, db_con_str: str):
 
     engine = create_engine(db_con_str)
     db_conn = engine.connect()
-    monitoring_df.to_sql(MONITORING_TABLE_NAME, con=db_conn, if_exists='append', index=False)
+    monitoring_df.to_sql(monitoring_table_name, con=db_conn, if_exists='append', index=False)
     db_conn.close()
 
 

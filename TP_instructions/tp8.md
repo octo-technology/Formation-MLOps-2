@@ -27,7 +27,7 @@ associée à une tâche Airflow.
 
 - Spécifier la table postgreSQL dans laquelle enregistrer les valeurs à monitorer
 
-Dans le fichier `formation_indus_ds_avancee/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique 
+Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique 
 différent de celui des autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
 
 - Relancer Airflow et le DAG de prédiction

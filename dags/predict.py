@@ -6,13 +6,15 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
 from config import MODEL_PATH, FEATURES_PATH, GENERATED_DATA_PATH, PREDICTIONS_FOLDER
+
+from dags.config import MONITORING_TABLE_NAME
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 from formation_indus_ds_avancee.monitoring import monitor_with_io
 from formation_indus_ds_avancee.train_and_predict import predict_with_io
 
 dag = DAG(dag_id='predict',
           description='Prediction DAG',
-          catchup= False,
+          catchup=False,
           start_date=days_ago(1),
           schedule_interval=timedelta(minutes=15))
 
@@ -37,6 +39,7 @@ monitor = PythonOperator(task_id='monitor',
                          dag=dag,
                          provide_context=False,
                          op_kwargs={'predictions_folder': PREDICTIONS_FOLDER,
+                                    'monitoring_table_name': MONITORING_TABLE_NAME,
                                     'db_con_str': 'postgresql://postgres:postgres@basa_hub_postgres_1:5432/postgres'})
 
 prepare_features >> predict >> monitor
