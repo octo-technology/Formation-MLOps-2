@@ -59,8 +59,14 @@
       <google-codelab-step label="Mesure de la qualité du code" duration="0">
         <p>Compléter la chaîne d&#39;intégration continue avec une step <code>qualite</code> afin de</p>
 <ul>
-<li>mesurer la couverture de tests avec <code>pytest --cov</code>,</li>
-<li>mesurer la pyramide de tests avec le script <code>dsin2/tests/tests_pyramide.sh</code>.</li>
+<li>mesurer la couverture de tests avec <code>pytest</code> en rajoutant l&#39;argument <code>--cov</code>,  <ul>
+<li><code>python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings</code></li>
+</ul>
+</li>
+<li>mesurer la pyramide de tests en exécutant le script  <ul>
+<li><code>./dsin2/tests/tests_pyramide.sh</code></li>
+</ul>
+</li>
 </ul>
 <p class="image-container"><img alt="test+qualite" src="img/4e15ca450df44386.png"></p>
 

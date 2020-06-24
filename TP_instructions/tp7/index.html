@@ -31,7 +31,7 @@
         <h2 is-upgraded>A l&#39;issue de cette section, vous aurez découvert</h2>
 <ul>
 <li>Comment fonctionne une simple API Flask,</li>
-<li>Le pattern d&#39;exposition <code>modèle embarq</code>ué,</li>
+<li>Le pattern d&#39;exposition <code>embedded model</code>,</li>
 <li>Le pattern d&#39;exposition <code>model as a service</code>,</li>
 <li>Le pattern d&#39;exposition <code>model published as data</code>,</li>
 </ul>
@@ -55,11 +55,13 @@
 </li>
 </ul>
 <p class="image-container"><img alt="requete-healthcheck" src="img/47019fb2df4999bd.png"></p>
+<p>⚠ Le serveur Flask ne sera pas consultable dans votre navigateur !</p>
 <p>Dans votre terminal, avec l&#39;outil en ligne de commande <code>cURL</code>, réalisez les requêtes HTTP suivantes:</p>
 <ul>
+<li>explorez le code de l&#39;API Flask dans <code>dsin2/exposition/model_as_a_service/inference.py</code>,</li>
 <li>requêtez l&#39;url de <code>healthcheck</code> du service pour s&#39;assurer qu&#39;il fonctionne (<a href="http://localhost:5000/health" target="_blank">http://localhost:5000/health</a>),</li>
 <li>requêtez une prédiction sur <a href="http://localhost:5000/predict" target="_blank">http://localhost:5000/predict</a>,</li>
-<li>requêtez une prédiction pour une <code>Wind Speed</code> de 50.</li>
+<li>requêtez une prédiction pour une <code>Wind Speed</code> de 0, 10, 50, 100.</li>
 </ul>
 
 

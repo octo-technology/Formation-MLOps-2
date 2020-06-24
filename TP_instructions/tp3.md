@@ -9,6 +9,13 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP3 - DevOps, Cloud et Infra-Code
 
 ## Overview
-Duration: 1
+Duration: 20
 
 Les manipulations seront faites par les formateurs pour ce TP.
+
+Le formateur montre les différents éléments d'infrastructure déployés avec de l'infrastructure-as-code:
+
+- Terraform,
+- Ansible,
+- Docker,
+- Docker-compose

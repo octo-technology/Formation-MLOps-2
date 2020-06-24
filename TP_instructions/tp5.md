@@ -34,6 +34,9 @@ Un moyen simple d'y parvenir est d'utiliser un horodatage.
 
 **L'objectif de ce TP est de modifier le nom du modèle généré en intégrant un timestamp au format YYYYMMDD-HHMMSS (`'%Y%m%d-%H%M%S'`).**
 
-Exécuter un entraînement devrait produire plusieurs modèles identifiables comme ceci dans votre *model registry*:
+Exécuter plusieurs entraînements devrait produire plusieurs modèles identifiables comme ceci dans votre *model registry*:
 
 ![model-registry](./docs/tp5/model-registry.png)
+
+- A quoi ce timestamp sert-il ?
+- Quelles limitations voyez-vous à cette technique ?

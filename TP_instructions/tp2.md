@@ -36,7 +36,9 @@ Compléter le squelette de test fonctionnel:
 
 Compléter la chaîne d'intégration continue avec une step `qualite` afin de
 
-- mesurer la couverture de tests avec `pytest --cov`,
-- mesurer la pyramide de tests avec le script `dsin2/tests/tests_pyramide.sh`.
+- mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
+  - `python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
+- mesurer la pyramide de tests en exécutant le script
+  - `./dsin2/tests/tests_pyramide.sh`
 
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)

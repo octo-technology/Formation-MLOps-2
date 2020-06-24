@@ -15,7 +15,7 @@ Duration: 1
 
 - Découvrir l'orchestration avec Airflow,
 - Savoir créer un `DAG` et les scheduler,
-- Savoir créer des `tâches` Airflow et les orchestrer,
+- Savoir créer des `tasks` Airflow et les orchestrer,
 - Comprendre la gestion des `IO` avec Airflow.
 
 ## Scripts à disposition
@@ -46,10 +46,10 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 
 ## Démarrer avec Airflow
 
-- Modifier le fichier `/airflow/airflow.cfg`
+- Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
   - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`,
   - Changer la variable `load_examples` à `False`,
-  - Changer la variable `dag_dir_list_interval` à `30`.
+  - Changer la variable `dag_dir_list_interval` à `5`.
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -75,7 +75,8 @@ dag_dir_list_interval = 300
 ![launcher](./docs/tp4/launcher-airflow.png)
 
 L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet.
-- En ligne de commande dans l'environnement virtuel, lancer le scheduler avec `airflow scheduler -d`.
+
+- En ligne de commande dans l'environnement virtuel, lancer le scheduler avec `airflow scheduler`.
 
 L'interface graphique devrait désormais afficher 3 dags:
 

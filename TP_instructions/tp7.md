@@ -14,7 +14,7 @@ Duration: 1
 ### A l'issue de cette section, vous aurez découvert
 
 - Comment fonctionne une simple API Flask,
-- Le pattern d'exposition `modèle embarqué`,
+- Le pattern d'exposition `embedded model`,
 - Le pattern d'exposition `model as a service`,
 - Le pattern d'exposition `model published as data`,
 
@@ -35,11 +35,14 @@ Le serveur d'exposition est désormais disponible sur le port 5000 <http://local
 
 ![requete-healthcheck](./docs/tp7/ping-healthcheck.png)
 
+⚠ Le serveur Flask ne sera pas consultable dans votre navigateur !
+
 Dans votre terminal, avec l'outil en ligne de commande `cURL`, réalisez les requêtes HTTP suivantes:
 
+- explorez le code de l'API Flask dans `dsin2/exposition/model_as_a_service/inference.py`,
 - requêtez l'url de `healthcheck` du service pour s'assurer qu'il fonctionne (<http://localhost:5000/health>),
 - requêtez une prédiction sur <http://localhost:5000/predict>,
-- requêtez une prédiction pour une `Wind Speed` de 50.
+- requêtez une prédiction pour une `Wind Speed` de 0, 10, 50, 100.
 
 ## Démo: Exposition | model as a service
 
