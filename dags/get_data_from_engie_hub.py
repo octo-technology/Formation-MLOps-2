@@ -1,27 +1,20 @@
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
+from airflow.utils.dates import days_ago
 
 from formation_indus_ds_avancee.data_loading import get_data_from_csv
 
-default_args = {
-    'depends_on_past': False,
-    'email_on_failure': ['isma@octo.com', 'lena@octo.com'],
-    'retries': 0,
-}
-
-dag = DAG(
-    dag_id='data_generator',
-    default_args=default_args,
-    description='Get data every 2min from Engie hub',
-    start_date=datetime(2020, 6, 11),
-    schedule_interval=timedelta(minutes=2)
-)
+dag = DAG(dag_id='data_generator',
+          description='Get data every 2min from Engie hub CSV',
+          catchup=False,
+          start_date=days_ago(1),
+          schedule_interval=timedelta(minutes=2))
 
 get_data = PythonOperator(task_id='get_data_from_csv',
                           python_callable=get_data_from_csv,
-                          provide_context=False,
-                          dag=dag)
+                          dag=dag,
+                          provide_context=False)
 
 get_data
