@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 
-def monitor_with_io(predictions_folder: str, db_con_str: str, monitoring_table_name: str):
+def monitor_with_io(predictions_folder: str, db_con_str: str, monitoring_table_name: str) -> None:
     latest_predictions_path = os.path.join(predictions_folder, 'latest.csv')
     latest_predictions = pd.read_csv(latest_predictions_path,
                                      usecols=['predictions_time', 'predictions'],
