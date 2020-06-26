@@ -4,6 +4,7 @@ from unittest.mock import patch
 import pandas as pd
 from sqlalchemy import create_engine
 
+from dags.config import MONITORING_TABLE_NAME
 from formation_indus_ds_avancee.monitoring import monitor_with_io
 
 
@@ -19,10 +20,10 @@ def test_monitor_with_io_should_write_predictions_mean_to_db(mocked_read_csv):
     expected = pd.DataFrame({'predictions_time': [given_date], 'predictions': [13]})
 
     # When
-    monitor_with_io(predictions_folder, db_con_str)
+    monitor_with_io(predictions_folder, db_con_str, monitoring_table_name=MONITORING_TABLE_NAME)
     engine = create_engine(db_con_str)
     db_conn = engine.connect()
-    actual = pd.read_sql('SELECT * FROM monitoring', db_conn, parse_dates=['predictions_time'])
+    actual = pd.read_sql(f'SELECT * FROM {MONITORING_TABLE_NAME}', db_conn, parse_dates=['predictions_time'])
 
     # Then
     pd.testing.assert_frame_equal(expected, actual)
