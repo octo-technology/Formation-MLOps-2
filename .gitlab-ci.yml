@@ -1,15 +1,12 @@
 image: "python:3.8"
 
-stages:
-  - pages
-
 pages:
   script:
-  - mkdir .public
-  - cp -r TP_instructions/* .public
-  - mv .public public
+    - mkdir .public
+    - cp -r TP_instructions/* .public
+    - mv .public public
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
