@@ -17,6 +17,18 @@ Duration: 1
 - Comment créer et alimenter une DB avec les valeurs monitorées
 - Comment créer un dashboard de monitoring dans Grafana
 
+## Présentation des nouveautés sur la branche de ce TP
+
+Pour ce TP, utiliser la branch 8_starting_monitoring
+
+`git checkout 8_starting_monitoring`
+
+Sur cette branche, il y a maintenant : 
+- Un fichier `formation_indus_ds_avancee/monitoring.py` qui contient 2 fonctions `monitor_with_io` et `monitor`
+- Un fichier de tests correspondant : `tests/test_unit/test_monitoring.py` qui test la fonction `monitor_with_io`
+- Une tâche en plus dans le dag `dags/predict.py` qui est en charge d'excécuter le monitoring. 
+
+
 ## Monitoring des prédictions et enregistrement dans une DB
 
 - Définir une sonde de monitoring sous forme de fonction Python
@@ -24,6 +36,8 @@ Duration: 1
 Dans le fichier `formation_indus_ds_avancee/monitoring.py`, créer une fonction `monitor` qui retournera la valeur de
 votre choix à monitorer. Cette valeur sera enregistrée dans la DB PostreSQL grâce à la fonction `monitor_with_io`
 associée à une tâche Airflow.
+
+- Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour que il soit vert.
 
 - Spécifier la table postgreSQL dans laquelle enregistrer les valeurs à monitorer
 
