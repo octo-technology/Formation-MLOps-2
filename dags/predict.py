@@ -8,9 +8,8 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
-from dags.config import MODEL_PATH, FEATURES_PATH, GENERATED_DATA_PATH, PREDICTIONS_FOLDER, MONITORING_TABLE_NAME
+from dags.config import MODEL_PATH, FEATURES_PATH, GENERATED_DATA_PATH, PREDICTIONS_FOLDER
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
-from formation_indus_ds_avancee.monitoring import monitor_with_io
 from formation_indus_ds_avancee.train_and_predict import predict_with_io
 
 dag = DAG(dag_id='predict',
