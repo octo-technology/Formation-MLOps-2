@@ -28,11 +28,20 @@
                   feedback-link="https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new">
     
       <google-codelab-step label="Overview" duration="1">
-        <h2 is-upgraded>À l&#39;issue de cette section, vous aurez découvert :</h2>
+        <h2 is-upgraded>À l&#39;issue de cette section, vous aurez découvert:</h2>
 <ul>
 <li>Comment implémenter une sonde de monitoring de vos prédictions</li>
 <li>Comment créer et alimenter une DB avec les valeurs monitorées</li>
 <li>Comment créer un dashboard de monitoring dans Grafana</li>
+</ul>
+<h2 is-upgraded>Présentation des nouveautés sur la branche de ce TP</h2>
+<p>Pour ce TP, utiliser la branch 8_starting_monitoring</p>
+<p><code>git checkout 8_starting_monitoring</code></p>
+<p>Sur cette branche, il y a maintenant :</p>
+<ul>
+<li>Un fichier <code>formation_indus_ds_avancee/monitoring.py</code> qui contient 2 fonctions <code>monitor_with_io</code> et <code>monitor</code></li>
+<li>Un fichier de tests correspondant : <code>tests/test_unit/test_monitoring.py</code> qui test la fonction <code>monitor_with_io</code></li>
+<li>Une tâche en plus dans le dag <code>dags/predict.py</code> qui est en charge d&#39;excécuter le monitoring.</li>
 </ul>
 
 
@@ -44,6 +53,7 @@
 </ul>
 <p>Dans le fichier <code>formation_indus_ds_avancee/monitoring.py</code>, créer une fonction <code>monitor</code> qui retournera la valeur de votre choix à monitorer. Cette valeur sera enregistrée dans la DB PostreSQL grâce à la fonction <code>monitor_with_io</code> associée à une tâche Airflow.</p>
 <ul>
+<li>Mettre à jour le test unitaire dans <code>tests/test_unit/test_monitoring.py</code> pour que il soit vert.</li>
 <li>Spécifier la table postgreSQL dans laquelle enregistrer les valeurs à monitorer</li>
 </ul>
 <p>Dans le fichier <code>dags/config.py</code>, définir la constante <code>MONITORING_TABLE_NAME</code> avec un nom unique différent de celui des autres participants. Cette table sera désormais alimentée par la tâche <code>monitor</code> d&#39;Airflow.</p>
