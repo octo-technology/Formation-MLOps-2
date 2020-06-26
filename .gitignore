@@ -28,6 +28,7 @@ __pycache__/
 # Modèles sauvegardées dans la registry locale
 models/*
 !.gitkeep
+!models/model.joblib
 prepared_features
 
 # Ignore predictions
