@@ -1,3 +1,0 @@
-formation_indus_ds_avancee-1.0-py3-none-any.whl
-pandas==0.25.3
-streamlit==0.61.0
