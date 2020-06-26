@@ -17,8 +17,8 @@ def step_impl(context):
 
 @when('I launch the training')
 def step_impl(context):
-    prepare_features_with_io(training_data_path, features_path)
-    train_model_with_io(features_path, model_registry_folder)
+    # Complete function
+    pass
 
 
 @then('a model is added to the model registry')
