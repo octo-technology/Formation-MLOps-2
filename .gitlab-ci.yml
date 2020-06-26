@@ -1,0 +1,31 @@
+image: "python:3.8"
+
+stages:
+  - test
+  - qualite
+
+test:
+  stage: test
+  script:
+  - pip install -r requirements.txt
+  - pip install -r requirements_test.txt
+  - python -m pytest tests/test_unit
+  - behave tests/test_functional/features
+
+qualite:
+  stage: qualite
+  script:
+    - pip install -r requirements.txt && pip install -r requirements_test.txt
+    - make tests-unitaires  ## pour calculer le code coverage
+    - ./tests/tests_pyramid.sh  ## pour mesurer la pyramide de tests
+
+pages:
+  script:
+  - mkdir .public
+  - cp -r TP_instructions/* .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
