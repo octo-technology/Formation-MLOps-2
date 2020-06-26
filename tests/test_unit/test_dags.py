@@ -4,7 +4,6 @@ from pytest import mark
 from airflow.models import DagBag
 
 
-@mark.skip(reason='TODO: fix config import in dags')
 def test_airflow_should_not_return_import_errors_when_importing_dags():
     # Given
     given_dagbag = DagBag(os.path.dirname(
@@ -14,7 +13,6 @@ def test_airflow_should_not_return_import_errors_when_importing_dags():
     assert len(given_dagbag.import_errors) == 0
 
 
-@mark.skip(reason='TODO: fix config import in dags')
 def test_airflow_should_find_all_expected_dag_ids():
     # Given
     given_dagbag = DagBag(os.path.dirname(

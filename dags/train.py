@@ -1,10 +1,14 @@
+import os
+import sys
 from datetime import timedelta
+
+sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
-from dags.config import TRAIN_DATA_PATH, FEATURES_PATH, MODEL_REGISTRY_FOLDER
 
+from dags.config import TRAIN_DATA_PATH, FEATURES_PATH, MODEL_REGISTRY_FOLDER
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 from formation_indus_ds_avancee.train_and_predict import train_model_with_io
 
