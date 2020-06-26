@@ -18,6 +18,19 @@ Duration: 1
 - Savoir créer des `tasks` Airflow et les orchestrer,
 - Comprendre la gestion des `IO` avec Airflow.
 
+### Présentation des nouveautés sur la branche de ce TP
+
+Pour ce TP, utiliser la branch 4_starting_orchestration
+
+`git checkout 4_starting_orchestration`
+
+Sur cette branche, il y a maintenant : 
+- Un DAG `dags/train.py` qui permet d'entraîner un modèle
+- Un DAG `dags/predict.py` qui est incomplet et qui permettra de réaliser des prédictions
+- Les fonctions existantes dans `formation_indus_avancee/` ont été décoré avec des `read` et des `write` pour donner des 
+fonctions `function_name_with_io`
+ 
+
 ## Scripts à disposition
 
 Le dossier `dsin2/scripts` contient des scripts d'entraînement et de prédiction pour notre cas d'usage de Machine Learning.

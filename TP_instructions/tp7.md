@@ -18,6 +18,18 @@ Duration: 1
 - Le pattern d'exposition `model as a service`,
 - Le pattern d'exposition `model published as data`,
 
+### Présentation des nouveautés sur la branche de ce TP
+
+Pour ce TP, utiliser la branch 7_starting_exposition
+
+`git checkout 7_starting_exposition`
+
+Sur cette branche, il y a maintenant : 
+- Un dossier exposition qui contient trois format d'expositions
+- `embedded_model` une app streamlit qui permet de demander des prédictions
+- `exposing_predictions` une app streamlit qui permet de voir les prédictions réalisées précédement
+- `model_as_a_service` une api flask qui permet de demander des prédictions 
+
 ## Développement d'API avec Flask
 
 Flask est un microserveur d'application. Il est souvent utilisé en Python pour développer des APIs et exposer des ressources.

@@ -17,6 +17,12 @@ Duration: 1
 - Un timestamp est un bon moyen pour versionner les modèles,
 - Mais il est difficile de retrouver quel code a produit quel modèle.
 
+### Présentation des nouveautés sur la branche de ce TP
+
+Pour ce TP, utiliser la branch 5_starting_artifacts
+
+`git checkout 5_starting_artifacts`
+
 ## Versionner les modèles avec un timestamp
 
 Pour l'instant, les modèles sont sauvegardés par la fonction `train_model`.

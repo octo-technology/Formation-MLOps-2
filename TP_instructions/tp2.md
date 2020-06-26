@@ -17,6 +17,15 @@ Duration: 1
 - Comment se servir de `behave`,
 - Mesurer des indicateurs de qualité: code coverage et pyramide de tests,
 
+### Présentation des nouveautés sur la branche de ce TP
+
+Pour ce TP, utiliser la branch 2_starting_test_behave
+
+`git checkout 2_starting_test_behave`
+
+Sur cette branche, il y a maintenant : 
+- Un Dossier `tests/test_functional/` qui contient le squelette d'un test fonctionnel.
+
 ## Tests fonctionnels avec Behave
 
 Dans cette partie, nous allons rédiger un test fonctionnel avec l'outil `Behave`.

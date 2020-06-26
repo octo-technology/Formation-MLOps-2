@@ -21,6 +21,15 @@ Duration: 1
 - 📦Comment packager une application Python dans une chaîne de CI, au format `wheel` et `docker`,
 - 🐳Comment manipuler les registres gitlab pour Python et Docker.
 
+### Présentation des nouveautés sur la branche de ce TP
+
+Pour ce TP, utiliser la branch 1_starting_ci
+
+`git checkout 1_starting_ci`
+
+Sur cette branche, il y a maintenant : 
+- Un fichier `.gitlab-ci.yml` qui contient le squelette d'une CI. 
+
 ## Exécuter le pipeline de CI
 Duration: 1
 

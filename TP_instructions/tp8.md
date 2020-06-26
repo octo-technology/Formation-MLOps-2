@@ -17,7 +17,7 @@ Duration: 1
 - Comment créer et alimenter une DB avec les valeurs monitorées
 - Comment créer un dashboard de monitoring dans Grafana
 
-## Présentation des nouveautés sur la branche de ce TP
+### Présentation des nouveautés sur la branche de ce TP
 
 Pour ce TP, utiliser la branch 8_starting_monitoring
 
