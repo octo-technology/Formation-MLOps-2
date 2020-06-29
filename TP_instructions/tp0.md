@@ -45,6 +45,10 @@ Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs av
 
 ![bouton clonage](docs/tp1/gitlab-clone-button.png)
 
+Pour réaliser ce TP vous devant ensuite checkout la branche `0_initial_state` :
+
+`git checkout 0_initial_state`
+
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances:
 
 ```bash
