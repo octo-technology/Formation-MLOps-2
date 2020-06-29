@@ -17,7 +17,7 @@ def test_airflow_should_find_all_expected_dag_ids():
     # Given
     given_dagbag = DagBag(os.path.dirname(
         dags.__file__), include_examples=False)
-    expected_dag_ids = {'data_generator', 'train', 'predict'}
+    expected_dag_ids = {'data_generator', 'train'}
 
     # When
     found_dags = set(given_dagbag.dag_ids)
