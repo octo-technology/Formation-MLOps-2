@@ -1,60 +1,22 @@
 # Formation Industrialisation d'un projet de data science avancée
 
-## How do I install it
+Pour suivre ce TP nous allons utiliser les gitlab pages suivantes : 
 
-First, make sure you have miniconda or anaconda installed. If not, install it!
+[TP 0 Installation de l'environnement](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp0/index.html#0)
 
-Create a conda env
+[TP 1 Mise en place de la CI](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp1/index.html#0)
 
-```bash
-make conda-env
-conda activate python_indus_avancee
-```
+[TP 2 Test behave](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp2/index.html#0)
 
-Use the DAG Airflow 
+[TP 3 Infra as code](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp3/index.html#0)
 
-export AIRFLOW_HOME= {path}/dsind2
+[TP 4 Orchestration](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp4/index.html#0)
 
-# install from pypi using pip
-pip install apache-airflow
+[TP 5 Artefacts](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp5/index.html#0)
 
-# initialize the database
-airflow initdb
+[TP 6 Model registry](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp6/index.html#0)
 
-# start the web server, default port is 8080
-airflow webserver -p 8080
+[TP 7 Exposition](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp7/index.html#0)
 
-# start the scheduler
-airflow scheduler
+[TP 8 Monitoring](https://octo-technology.gitlab.io/octo-bda/cercle-formation/dsin2/tp8/index.html#0)
 
-
-Retrieve project from gitlab
-
-## How to follow it
-
-It is highly linked to the presentation of the formation.
-
-To navigate between steps change branch.
-
-To see all branches
-
-```sh
-git branch -a
-```
-
-To start the practical work you should checkout branch `0_initial_state`
-
-```sh
-git checkout 0_initial_state
-```
-
-## For windows users
-
-You will need a `git bash` terminal and a conda terminal :
-
-- All `git` commands should be executed in the `git bash` terminal.
-- All `python` and `conda` related commands should be executed in the conda terminal.
-
-## For linux users
-
-Every command can be executed in your terminal.
