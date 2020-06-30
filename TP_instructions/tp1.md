@@ -122,5 +122,5 @@ git config --global user.name "Your Name"
 
 Vous pourrez ensuite `commit` et `push`
 
-Pour `push` git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un 
+Pour `push` git demandera votre id et mot de passe de gitlab. Une alternative est de mettre en place une clef ssh ou un 
 personnal access token.
