@@ -52,7 +52,7 @@
       <google-codelab-step label="Exécuter le pipeline de CI" duration="1">
         <p>Un pipeline de CI est déjà présent dans ce repo, nous allons l&#39;exécuter.</p>
 <p>Dans le panneau de gauche, rendez-vous dans: <code>CI/CD</code> &gt; <code>Pipelines</code>.</p>
-<p>Puis cliquez sur <code>Run pipeline</code>: <img alt="run pipeline" src="img/4f9d773676d3f18a.png"> et valider le formulaire de déclenchement sur la branche <code>master</code>.</p>
+<p>Puis cliquez sur <code>Run pipeline</code>: <img alt="run pipeline" src="img/4f9d773676d3f18a.png"> et valider le formulaire de déclenchement sur la branche <code>1_starting_ci</code>.</p>
 <p>❌Malheureusement, le pipeline a échoué ...</p>
 <p class="image-container"><img alt="pipeline tests rouge" src="img/63608c92d274888c.png"></p>
 <p>Il va falloir le faire passer au vert !</p>
@@ -118,6 +118,13 @@ pages:
     
       <google-codelab-step label="Exercice: Compléter le pipeline de CI pour le faire passer au vert" duration="1">
         <p>Votre mission si vous l&#39;acceptez: éditez le fichier <code>.gitlab-ci.yml</code> à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.</p>
+<p>Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.</p>
+<p>Comme il s&#39;agit de notre premier commit il va falloir définir notre nom et notre adresse email :</p>
+<pre><code>git config --global user.email &#34;you@example.com&#34;
+git config --global user.name &#34;Your Name&#34;
+</code></pre>
+<p>Vous pourrez ensuite <code>commit</code> et <code>push</code></p>
+<p>Pour <code>push</code> git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un personnal access token.</p>
 
 
       </google-codelab-step>
