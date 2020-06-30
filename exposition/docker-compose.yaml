@@ -15,13 +15,17 @@ services:
 
   inference-service:
     image: inference-service:v1
-    build: ./model_as_a_service/dockerfile-inference-service
+    build:
+      context: .
+      dockerfile: ./model_as_a_service/dockerfile-inference-service
     ports:
       - 5000:5000
 
   app:
     image: app:v1
-    build: ./model_as_a_service/dockerfile-app
+    build:
+      context: ./model_as_a_service
+      dockerfile: dockerfile-app
     environment:
       - INFERENCE_HOST=inference-service
     ports:
