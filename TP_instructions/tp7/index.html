@@ -53,7 +53,7 @@
         <p>Flask est un microserveur d&#39;application. Il est souvent utilisé en Python pour développer des APIs et exposer des ressources.</p>
 <h2 is-upgraded>Exposition &#34;model as a service&#34;</h2>
 <ul>
-<li>Se rendre dans <code>dsin2/exposition/model_as_a_service/</code></li>
+<li>Se rendre dans <code>dsin2-public-ocac/exposition/model_as_a_service/</code></li>
 <li>Démarrer le serveur Flask d&#39;exposition avec <code>FLASK_APP=inference.py python -m flask run</code></li>
 </ul>
 <p>Le serveur d&#39;exposition est désormais disponible sur le port 5000 <a href="http://localhost:5000" target="_blank">http://localhost:5000</a>, avec:</p>
@@ -73,6 +73,7 @@
 <li>requêtez une prédiction sur <a href="http://localhost:5000/predict" target="_blank">http://localhost:5000/predict</a>,</li>
 <li>requêtez une prédiction pour une <code>Wind Speed</code> de 0, 10, 50, 100.</li>
 </ul>
+<p>Pour spécifier une valeur de <code>Wind Speed</code> il faut ajouter <code>&amp;Ws1_avg=&lt;Your value&gt;</code> à l&#39;adresse</p>
 
 
       </google-codelab-step>
