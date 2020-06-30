@@ -37,7 +37,7 @@ Un pipeline de CI est déjà présent dans ce repo, nous allons l'exécuter.
 
 Dans le panneau de gauche, rendez-vous dans: `CI/CD` > `Pipelines`.
 
-Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `master`.
+Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `1_starting_ci`.
 
 ❌Malheureusement, le pipeline a échoué ...
 
@@ -110,3 +110,17 @@ pages:
 Duration: 1
 
 Votre mission si vous l'acceptez: éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
+
+Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.
+
+Comme il s'agit de notre premier commit il va falloir définir notre nom et notre adresse email :
+
+```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+Vous pourrez ensuite `commit` et `push`
+
+Pour `push` git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un 
+personnal access token.

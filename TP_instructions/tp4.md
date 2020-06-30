@@ -60,7 +60,7 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`,
+  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2-public-ocac/dags`,
   - Changer la variable `load_examples` à `False`,
   - Changer la variable `dag_dir_list_interval` à `5`.
 
@@ -89,7 +89,7 @@ dag_dir_list_interval = 300
 
 L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet.
 
-- En ligne de commande dans l'environnement virtuel, lancer le scheduler avec `airflow scheduler`.
+- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
 
 L'interface graphique devrait désormais afficher 3 dags:
 
@@ -102,6 +102,10 @@ Afin de s'entraîner, il va nous falloir des données d'entraînement !
 Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande `make dataset`.
 
 Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-2017-2020.csv`.
+
+Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
+
+- Installer le package en ouvrant un nouveau terminal, `cd dsin2-public-ocac; pip install .`
 
 Pour lancer le dag `train`:
 

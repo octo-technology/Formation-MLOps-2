@@ -41,22 +41,25 @@ Rendez-vous sur votre environnement de développement.
 
 L'url de ce dernier vous sera communiqué pendant la formation.
 
-Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`. Vous trouverez l'URL de clonage en HTTPS sur gitlab, dans le repo que vous avez cloné:
+Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`. Vous trouverez l'URL de clonage en HTTPS sur gitlab, dans le repo que vous avez forké:
 
+Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis `terminal` puis `new terminal`. 
 ![bouton clonage](docs/tp1/gitlab-clone-button.png)
 
 Pour réaliser ce TP vous devant ensuite checkout la branche `0_initial_state` :
 
-`git checkout 0_initial_state`
+```bash
+cd dsin2-public-ocac
+git checkout 0_initial_state
+```
 
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances:
 
 ```bash
-cd dsin2
 conda create -yqf python=3.8 --name python_indus_avancee
-conda activate python_indus_avancee
+source activate python_indus_avancee
 pip install -e .
-pip install -r requirements.txt && pip install -r requirements_test.txt
+pip install -r requirements_test.txt
 ```
 
 Exécutons les tests pour s'assurer que tout marche !
