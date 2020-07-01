@@ -121,3 +121,7 @@ Inspecter le dag `train` en cliquant sur celui-ci, la tâche `prepare_features` 
 ## DAG de prédiction
 
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
+
+
+## Pour aller plus loin
+Pour aller plus loin en attendant les autres formés vous pouvez rearder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`. 
