@@ -110,7 +110,7 @@ Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre
 Pour lancer le dag `train`:
 
 - activer le DAG en appuyant sur le bouton `ON/OFF` (à gauche),
-- déclencher le DAG manuellement en cliquant sur l'icône `Play` (sur la droite).
+- déclencher le DAG manuellement en cliquant sur `Trigger Dag` dans les links (l'icône play)  (sur la droite).
 
 ![ui-airflow](./docs/tp4/ui-airflow-start.png)
 
