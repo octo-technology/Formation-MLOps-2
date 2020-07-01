@@ -60,9 +60,9 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2-public-ocac/dags`,
-  - Changer la variable `load_examples` à `False`,
-  - Changer la variable `dag_dir_list_interval` à `5`.
+  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2-public-ocac/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
+  - Changer la variable `load_examples` à `False`, cela permet d'éviter que airflow chargent les DAGs d'exemples.
+  - Changer la variable `dag_dir_list_interval` à `5`, cela permet de rafraichir les DAGs toutes les 5 secondes au lieu de toutes les 5 minutes (ce qui est pratique en phase de développement).
 
 ```toml
 # Fichier /airflow/airflow.cfg
