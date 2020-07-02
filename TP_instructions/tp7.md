@@ -56,7 +56,7 @@ Dans votre terminal, avec l'outil en ligne de commande `cURL`, réalisez les req
 - requêtez une prédiction sur <http://localhost:5000/predict>,
 - requêtez une prédiction pour une `Wind Speed` de 0, 10, 50, 100.
 
-Pour spécifier une valeur de `Wind Speed` il faut ajouter `&Ws1_avg=<Your value>` à l'adresse
+Pour spécifier une valeur de `Wind Speed` il faut ajouter `?&Ws1_avg=<Your value>` à l'adresse
 ## Démo: Exposition | model as a service
 
 > La manipulation sera faite par les formateurs
