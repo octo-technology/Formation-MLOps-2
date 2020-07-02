@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 import pandas as pd
@@ -9,6 +10,12 @@ def prepare_features_with_io(data_path: str, features_path: str, training_mode: 
     data = prepare_features(data, training_mode=training_mode)
 
     data.to_parquet(features_path)
+
+
+def prepare_features_on_last_file_with_io(data_folder: str, features_path: str, training_mode: bool = True) -> None:
+    last_file = max([file for file in os.listdir(data_folder) if file.startswith('2020')])
+    print(f"Preparing file {last_file}")
+    prepare_features_with_io(os.path.join(data_folder, last_file), features_path, training_mode=training_mode)
 
 
 def prepare_features(data: pd.DataFrame, training_mode: bool = True) -> pd.DataFrame:
