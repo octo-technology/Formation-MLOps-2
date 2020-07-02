@@ -124,7 +124,7 @@ Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` da
 
 
 ## Pour aller plus loin
-Pour aller plus loin en attendant les autres formés vous pouvez regarder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`.
+Pour aller plus loin en attendant les autres formés vous pouvez regarder comment utiliser les fichiers générés par le dag `get_data_from_engie_hub.py` dans le dag `predict`.
 
 Il s'agit de 
 - créer une nouvelle fonction qui permet de faire le prepare feature sur le dernier fichier généré.
