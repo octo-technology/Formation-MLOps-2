@@ -38,3 +38,5 @@ data/*
 # Ignore airflow
 dags/airflow*
 dags/unittests.cfg
+
+build/
