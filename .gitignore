@@ -42,3 +42,6 @@ dags/unittests.cfg
 # Packaging artefacts
 build/
 dist/
+
+# TP
+TP_instructions/tp*/
