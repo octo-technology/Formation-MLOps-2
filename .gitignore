@@ -39,4 +39,6 @@ data/*
 dags/airflow*
 dags/unittests.cfg
 
+# Packaging artefats
 build/
+dist/
