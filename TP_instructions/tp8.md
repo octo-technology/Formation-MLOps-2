@@ -53,7 +53,7 @@ notre fonction.
 
 Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table postgreSQL.
 
-- Accéder à Grafana sur le port `3000` et se connecter avec l'identifiant `admin` et le mot de passe `admin`
+- Accéder à Grafana sur le port `9000` et se connecter avec l'identifiant `admin` et le mot de passe `admin`
 
 - Créer la connexion à la DB postgreSQL
 
