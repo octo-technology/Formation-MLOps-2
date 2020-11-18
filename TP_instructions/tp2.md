@@ -46,6 +46,6 @@ Compléter la chaîne d'intégration continue avec une step `qualite` afin de
 - mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
   - `python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
 - mesurer la pyramide de tests en exécutant le script
-  - `./tests/tests_pyramide.sh`
+  - `./tests/tests_pyramid.sh`
 
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)
