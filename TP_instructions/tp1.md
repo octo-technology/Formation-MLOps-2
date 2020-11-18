@@ -37,7 +37,7 @@ Un pipeline de CI est déjà présent dans ce repo, nous allons l'exécuter.
 
 Dans le panneau de gauche, rendez-vous dans: `CI/CD` > `Pipelines`.
 
-Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `master`.
+Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `1_starting_ci`.
 
 ❌Malheureusement, le pipeline a échoué ...
 
