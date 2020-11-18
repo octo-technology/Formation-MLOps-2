@@ -9,7 +9,7 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP0 - Setup de l'environnement de travail
 
 ## Overview
-Duration: 1
+Duration: 15
 
 Cette partie permet de préparer l'environnement de travail pour les TPs.
 

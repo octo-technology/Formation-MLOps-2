@@ -9,7 +9,7 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP7 - Exposition de modèles
 
 ## Overview
-Duration: 1
+Duration: 30
 
 ### A l'issue de cette section, vous aurez découvert
 
