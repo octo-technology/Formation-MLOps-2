@@ -9,7 +9,7 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP5 - Artefacts
 
 ## Overview
-Duration: 1
+Duration: 15
 
 ### A l'issue de cette section, vous aurez découvert
 

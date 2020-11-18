@@ -9,7 +9,7 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP8 - Monitoring
 
 ## Overview
-Duration: 1
+Duration: 60
 
 ### À l'issue de cette section, vous aurez découvert:
 
