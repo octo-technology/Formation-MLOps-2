@@ -110,3 +110,17 @@ pages:
 Duration: 1
 
 Votre mission si vous l'acceptez: éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
+
+Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.
+
+Comme il s'agit de notre premier commit il va falloir définir notre nom et notre adresse email :
+
+```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+Vous pourrez ensuite `commit` et `push`
+
+Pour `push` git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un 
+personnal access token.
