@@ -9,7 +9,7 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP4 - Orchestration
 
 ## Overview
-Duration: 1
+Duration: 60
 
 ### A l'issue de cette section, vous aurez découvert
 
@@ -60,9 +60,9 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`,
-  - Changer la variable `load_examples` à `False`,
-  - Changer la variable `dag_dir_list_interval` à `5`.
+  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2-public-ocac/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
+  - Changer la variable `load_examples` à `False`, cela permet d'éviter que airflow chargent les DAGs d'exemples.
+  - Changer la variable `dag_dir_list_interval` à `5`, cela permet de rafraichir les DAGs toutes les 5 secondes au lieu de toutes les 5 minutes (ce qui est pratique en phase de développement).
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -89,7 +89,7 @@ dag_dir_list_interval = 300
 
 L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet.
 
-- En ligne de commande dans l'environnement virtuel, lancer le scheduler avec `airflow scheduler`.
+- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
 
 L'interface graphique devrait désormais afficher 3 dags:
 
@@ -103,10 +103,14 @@ Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la 
 
 Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-2017-2020.csv`.
 
+Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
+
+- Installer le package en ouvrant un nouveau terminal, `cd dsin2-public-ocac; pip install .`
+
 Pour lancer le dag `train`:
 
 - activer le DAG en appuyant sur le bouton `ON/OFF` (à gauche),
-- déclencher le DAG manuellement en cliquant sur l'icône `Play` (sur la droite).
+- déclencher le DAG manuellement en cliquant sur `Trigger Dag` dans les links (l'icône play)  (sur la droite).
 
 ![ui-airflow](./docs/tp4/ui-airflow-start.png)
 
@@ -117,3 +121,12 @@ Inspecter le dag `train` en cliquant sur celui-ci, la tâche `prepare_features` 
 ## DAG de prédiction
 
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
+
+
+## Pour aller plus loin
+Pour aller plus loin en attendant les autres formés vous pouvez rearder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`.
+
+Il s'agit de 
+- créer une nouvelle fonction qui permet de faire le prepare feature sur le dernier fichier généré.
+- appeler cette fonction dans le DAG de predict en lui passant le dossier de fichier généré.
+
