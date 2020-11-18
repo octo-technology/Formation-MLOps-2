@@ -9,7 +9,7 @@ Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin
 # TP4 - Orchestration
 
 ## Overview
-Duration: 1
+Duration: 60
 
 ### A l'issue de cette section, vous aurez découvert
 
@@ -130,4 +130,3 @@ Il s'agit de
 - créer une nouvelle fonction qui permet de faire le prepare feature sur le dernier fichier généré.
 - appeler cette fonction dans le DAG de predict en lui passant le dossier de fichier généré.
 
- 
