@@ -60,7 +60,7 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2-public-ocac/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
+  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
   - Changer la variable `load_examples` à `False`, cela permet d'éviter que airflow chargent les DAGs d'exemples.
   - Changer la variable `dag_dir_list_interval` à `5`, cela permet de rafraichir les DAGs toutes les 5 secondes au lieu de toutes les 5 minutes (ce qui est pratique en phase de développement).
 
@@ -105,7 +105,7 @@ Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-201
 
 Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
 
-- Installer le package en ouvrant un nouveau terminal, `cd dsin2-public-ocac; pip install .`
+- Installer le package en ouvrant un nouveau terminal, `cd dsin2; pip install .`
 
 Pour lancer le dag `train`:
 
@@ -124,7 +124,7 @@ Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` da
 
 
 ## Pour aller plus loin
-Pour aller plus loin en attendant les autres formés vous pouvez rearder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`.
+Pour aller plus loin en attendant les autres formés vous pouvez regarder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`.
 
 Il s'agit de 
 - créer une nouvelle fonction qui permet de faire le prepare feature sur le dernier fichier généré.
