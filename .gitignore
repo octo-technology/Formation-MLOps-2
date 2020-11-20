@@ -39,3 +39,7 @@ data/*
 # Ignore airflow
 dags/airflow*
 dags/unittests.cfg
+
+# Packaging artefacts
+build/
+dist/
