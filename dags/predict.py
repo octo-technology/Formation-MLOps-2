@@ -41,6 +41,6 @@ monitor = PythonOperator(task_id='monitor',
                          provide_context=False,
                          op_kwargs={'predictions_folder': PREDICTIONS_FOLDER,
                                     'monitoring_table_name': MONITORING_TABLE_NAME,
-                                    'db_con_str': 'postgresql://postgres:postgres@basa_hub_postgres_1:5432/postgres'})
+                                    'db_con_str': 'postgresql://postgres:postgres@postgres:5432/postgres'})
 
 prepare_features >> predict >> monitor
