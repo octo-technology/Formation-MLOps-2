@@ -3,9 +3,9 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-06-30T18:29:47+02:00",
+  "updated": "2021-04-06T16:16:28+02:00",
   "id": "tp7",
-  "duration": 1,
+  "duration": 30,
   "title": "TP7 - Exposition de modèles",
   "authors": "OCTO Technology",
   "summary": "TP7 - Exposition de modèles",
@@ -22,6 +22,6 @@
     "api",
     "flask"
   ],
-  "feedback": "https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new",
+  "feedback": "https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new",
   "url": "tp7"
 }

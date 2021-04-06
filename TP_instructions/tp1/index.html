@@ -25,9 +25,9 @@
                   id="tp1"
                   title="TP1 - Introduction à la CI/CD"
                   environment="web"
-                  feedback-link="https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new">
+                  feedback-link="https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new">
     
-      <google-codelab-step label="Overview" duration="1">
+      <google-codelab-step label="Overview" duration="30">
         <h2 is-upgraded>A l&#39;issue de cette section, vous aurez découvert:</h2>
 <ul>
 <li>📄Comment lire un fichier de pipeline <code>.gitlab-ci.yml</code>,</li>
@@ -63,11 +63,11 @@
       <google-codelab-step label="Un mot sur les pipelines Gitlab" duration="0">
         <p><code>Gitlab CI/CD</code> est un outil mis à disposition de Gitlab pour construire des pipelines de traitements.</p>
 <p>Ces pipelines peuvent être utilisés à des fins d&#39;intégration continue.</p>
-<p>Le pipeline est décrit au travers de code, dans un fichier <a href="../../.gitlab-ci.yml" target="_blank">.gitlab-ci.yml</a>, à la racine du repo en langage <a href="https://learnxinyminutes.com/docs/fr-fr/yaml-fr/" target="_blank"><br>YAML</a>, une spec de configuration similaire au <code>JSON</code>.</p>
+<p>Le pipeline est décrit au travers de code, dans un fichier <a href="../../.gitlab-ci.yml" target="_blank">.gitlab-ci.yml</a>, à la racine du repo en langage <a href="https://learnxinyminutes.com/docs/fr-fr/yaml-fr/" target="_blank"><code>YAML</code></a>, une spec de configuration similaire au <code>JSON</code>.</p>
 <p>La documentation de gitlab ainsi que les mot-clefs utilisables dans le <code>.gitlab-ci.yml</code> sont consultables sur <a href="https://docs.gitlab.com/ee/ci/yaml/README.html" target="_blank">https://docs.gitlab.com/ee/ci/yaml/README.html</a>.</p>
 <h2 is-upgraded>Exemple décrit en Python</h2>
 <p>Un exemple officiel en Python est disponible sur le repository Gitlab de Gitlab: <a href="https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml" target="_blank">https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml</a>, nous allons le décrire briévement ci-après:</p>
-<pre><code>## Un exemple de fichier .gitlab-ci.yml
+<pre><code language="language-yaml" class="language-yaml">## Un exemple de fichier .gitlab-ci.yml
 
 # Le pipeline va s&#39;exécuter dans une image docker.
 # En l&#39;ocurrence, il s&#39;agit de l&#39;image python officielle
@@ -120,7 +120,7 @@ pages:
         <p>Votre mission si vous l&#39;acceptez: éditez le fichier <code>.gitlab-ci.yml</code> à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.</p>
 <p>Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.</p>
 <p>Comme il s&#39;agit de notre premier commit il va falloir définir notre nom et notre adresse email :</p>
-<pre><code>git config --global user.email &#34;you@example.com&#34;
+<pre><code language="language-bash" class="language-bash">git config --global user.email &#34;you@example.com&#34;
 git config --global user.name &#34;Your Name&#34;
 </code></pre>
 <p>Vous pourrez ensuite <code>commit</code> et <code>push</code></p>

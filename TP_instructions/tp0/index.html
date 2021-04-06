@@ -25,9 +25,9 @@
                   id="tp0"
                   title="TP0 - Setup de l&#39;environnement de travail"
                   environment="web"
-                  feedback-link="https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new">
+                  feedback-link="https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new">
     
-      <google-codelab-step label="Overview" duration="1">
+      <google-codelab-step label="Overview" duration="15">
         <p>Cette partie permet de préparer l&#39;environnement de travail pour les TPs.</p>
 
 
@@ -39,7 +39,7 @@
 <p>Puis, cliquer sur <code>Register now</code>:</p>
 <p class="image-container"><img alt="Page de connexion à gitlab.com" src="img/c16bc7c2d3cb6a8.png"></p>
 <h2 is-upgraded>Fork du repo de TP dans votre espace personnel gitlab</h2>
-<p>Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation: <a href="https://..." target="_blank">https://...</a></p>
+<p>Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation: <a href="https://gitlab.com/mhouacine/dsin2" target="_blank">https://gitlab.com/mhouacine/dsin2</a></p>
 <p>Puis <code>forkez</code> le repo à l&#39;aide du bouton en haut à droite pour récupérer une copie de ce dernier dans votre espace gitlab personnel:</p>
 <p class="image-container"><img alt="bouton fork" src="img/d19ca7c9c9ac0377.png"></p>
 <p>🏁 Vous possédez désormais une copie personnelle du repo de code pour les TPs ! Nous allons désormais la cloner dans votre environnement de développement.</p>
@@ -50,20 +50,20 @@
       <google-codelab-step label="Préparer son environnement et cloner le repo" duration="3">
         <p>Rendez-vous sur votre environnement de développement.</p>
 <p>L&#39;url de ce dernier vous sera communiqué pendant la formation.</p>
-<p>Dans VSCode, ouvrez un terminal afin d&#39;y cloner le repository de code des TPs avec la commande <code>$&gt; git clone &lt;url&gt;;</code>. Vous trouverez l&#39;URL de clonage en HTTPS sur gitlab, dans le repo que vous avez forké:</p>
+<p>Dans VSCode, ouvrez un terminal afin d&#39;y cloner le repository de code des TPs avec la commande <code>$> git clone <url>;</code>. Vous trouverez l&#39;URL de clonage en HTTPS sur gitlab, dans le repo que vous avez forké:</p>
 <p>Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis <code>terminal</code> puis <code>new terminal</code>. <img alt="bouton clonage" src="img/29725cfd233d97ad.png"></p>
 <p>Pour réaliser ce TP vous devant ensuite checkout la branche <code>0_initial_state</code> :</p>
-<pre><code>cd dsin2-public-ocac
+<pre><code language="language-bash" class="language-bash">cd dsin2
 git checkout 0_initial_state
 </code></pre>
 <p>Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances:</p>
-<pre><code>conda create -yqf python=3.8 --name python_indus_avancee
+<pre><code language="language-bash" class="language-bash">conda create -yqf python=3.8 --name python_indus_avancee
 source activate python_indus_avancee
 pip install -e .
 pip install -r requirements_test.txt
 </code></pre>
 <p>Exécutons les tests pour s&#39;assurer que tout marche !</p>
-<pre><code>make tests-unitaires
+<pre><code language="language-bash" class="language-bash">make tests-unitaires
 </code></pre>
 
 

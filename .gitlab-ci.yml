@@ -1,18 +1,32 @@
-image: "python:3.8"
-
 stages:
+  - generate-tp-instructions
   - test
   - qualite
 
+pages:
+  image: golang:1.9
+  stage: generate-tp-instructions
+  script:
+    - go get github.com/googlecodelabs/tools/claat
+    - cd TP_instructions && claat export tp*.md && cd ..
+    - mkdir .public
+    - cp -r TP_instructions/* .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+
 test:
+  image: python:3.8
   stage: test
   script:
-  - pip install -r requirements.txt
-  - pip install -r requirements_test.txt
-  - python -m pytest tests/test_unit
-  - behave tests/test_functional/features
+    - pip install -r requirements.txt
+    - pip install -r requirements_test.txt
+    - python -m pytest tests/test_unit
+    - behave tests/test_functional/features
 
 qualite:
+  image: python:3.8
   stage: qualite
   script:
     - pip install -r requirements.txt && pip install -r requirements_test.txt
