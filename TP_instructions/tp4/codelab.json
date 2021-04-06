@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-04-06T16:16:28+02:00",
+  "id": "tp4",
+  "duration": 60,
+  "title": "TP4 - Orchestration",
+  "authors": "OCTO Technology",
+  "summary": "TP4",
+  "source": "tp4.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "tp",
+    "api"
+  ],
+  "tags": [
+    "api",
+    "flask"
+  ],
+  "feedback": "https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new",
+  "url": "tp4"
+}

@@ -1,0 +1,92 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>TP2 - Pyramide de tests</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="tp2"
+                  title="TP2 - Pyramide de tests"
+                  environment="web"
+                  feedback-link="https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new">
+    
+      <google-codelab-step label="Overview" duration="30">
+        <h2 is-upgraded>A l&#39;issue de cette section, vous aurez découvert</h2>
+<ul>
+<li>Comment écrire un test fonctionnel,</li>
+<li>Comment se servir de <code>behave</code>,</li>
+<li>Mesurer des indicateurs de qualité: code coverage et pyramide de tests,</li>
+</ul>
+<h2 is-upgraded>Présentation des nouveautés sur la branche de ce TP</h2>
+<p>Pour ce TP, utiliser la branch 2_starting_test_behave</p>
+<p><code>git checkout 2_starting_test_behave</code></p>
+<p>Sur cette branche, il y a maintenant :</p>
+<ul>
+<li>Un Dossier <code>tests/test_functional/</code> qui contient le squelette d&#39;un test fonctionnel.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Tests fonctionnels avec Behave" duration="0">
+        <p>Dans cette partie, nous allons rédiger un test fonctionnel avec l&#39;outil <code>Behave</code>.</p>
+<p>Pour cela, il y a un squelette de test fonctionnel à compléter dans <code>dsin2/tests/test_functional/features/training_workflow.feature</code>.</p>
+<p>Le test correspondant se trouve dans <code>dsin2/tests/test_functional/features/steps/training_workflow.py</code>.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Tests fonctionnels avec Behave dans la CI" duration="0">
+        <p>Compléter le squelette de test fonctionnel:</p>
+<ul>
+<li>✅ Il doit passer <strong>en local</strong> avec la commande <code>behave tests/test_functional/features</code>.</li>
+<li>✅ Compléter la chaîne d&#39;intégration continue en exécutant les tests fonctionnels dans le stage <code>test</code>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Mesure de la qualité du code" duration="0">
+        <p>Compléter la chaîne d&#39;intégration continue avec une step <code>qualite</code> afin de</p>
+<ul>
+<li>mesurer la couverture de tests avec <code>pytest</code> en rajoutant l&#39;argument <code>--cov</code>,  <ul>
+<li><code>python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings</code></li>
+</ul>
+</li>
+<li>mesurer la pyramide de tests en exécutant le script  <ul>
+<li><code>./tests/tests_pyramid.sh</code></li>
+</ul>
+</li>
+</ul>
+<p class="image-container"><img alt="test+qualite" src="img/4e15ca450df44386.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

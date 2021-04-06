@@ -1,0 +1,141 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>TP1 - Introduction à la CI/CD</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="tp1"
+                  title="TP1 - Introduction à la CI/CD"
+                  environment="web"
+                  feedback-link="https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new">
+    
+      <google-codelab-step label="Overview" duration="30">
+        <h2 is-upgraded>A l&#39;issue de cette section, vous aurez découvert:</h2>
+<ul>
+<li>📄Comment lire un fichier de pipeline <code>.gitlab-ci.yml</code>,</li>
+<li>🚀Comment exécuter un pipeline gitlab, manuellement ou via commit &amp; push</li>
+<li>🖊Comment éditer un pipeline gitlab,</li>
+<li>✅Comment tester le fonctionnement d&#39;une application Python dans une chaîne d&#39;intégration continue,</li>
+<li>✔ Comment mesurer la qualité d&#39;une application Python dans une chaîne de CI,</li>
+<li>📦Comment packager une application Python dans une chaîne de CI, au format <code>wheel</code> et <code>docker</code>,</li>
+<li>🐳Comment manipuler les registres gitlab pour Python et Docker.</li>
+</ul>
+<h2 is-upgraded>Présentation des nouveautés sur la branche de ce TP</h2>
+<p>Pour ce TP, utiliser la branch 1_starting_ci</p>
+<p><code>git checkout 1_starting_ci</code></p>
+<p>Sur cette branche, il y a maintenant :</p>
+<ul>
+<li>Un fichier <code>.gitlab-ci.yml</code> qui contient le squelette d&#39;une CI.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Exécuter le pipeline de CI" duration="1">
+        <p>Un pipeline de CI est déjà présent dans ce repo, nous allons l&#39;exécuter.</p>
+<p>Dans le panneau de gauche, rendez-vous dans: <code>CI/CD</code> &gt; <code>Pipelines</code>.</p>
+<p>Puis cliquez sur <code>Run pipeline</code>: <img alt="run pipeline" src="img/4f9d773676d3f18a.png"> et valider le formulaire de déclenchement sur la branche <code>1_starting_ci</code>.</p>
+<p>❌Malheureusement, le pipeline a échoué ...</p>
+<p class="image-container"><img alt="pipeline tests rouge" src="img/63608c92d274888c.png"></p>
+<p>Il va falloir le faire passer au vert !</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Un mot sur les pipelines Gitlab" duration="0">
+        <p><code>Gitlab CI/CD</code> est un outil mis à disposition de Gitlab pour construire des pipelines de traitements.</p>
+<p>Ces pipelines peuvent être utilisés à des fins d&#39;intégration continue.</p>
+<p>Le pipeline est décrit au travers de code, dans un fichier <a href="../../.gitlab-ci.yml" target="_blank">.gitlab-ci.yml</a>, à la racine du repo en langage <a href="https://learnxinyminutes.com/docs/fr-fr/yaml-fr/" target="_blank"><code>YAML</code></a>, une spec de configuration similaire au <code>JSON</code>.</p>
+<p>La documentation de gitlab ainsi que les mot-clefs utilisables dans le <code>.gitlab-ci.yml</code> sont consultables sur <a href="https://docs.gitlab.com/ee/ci/yaml/README.html" target="_blank">https://docs.gitlab.com/ee/ci/yaml/README.html</a>.</p>
+<h2 is-upgraded>Exemple décrit en Python</h2>
+<p>Un exemple officiel en Python est disponible sur le repository Gitlab de Gitlab: <a href="https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml" target="_blank">https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml</a>, nous allons le décrire briévement ci-après:</p>
+<pre><code language="language-yaml" class="language-yaml">## Un exemple de fichier .gitlab-ci.yml
+
+# Le pipeline va s&#39;exécuter dans une image docker.
+# En l&#39;ocurrence, il s&#39;agit de l&#39;image python officielle
+# la plus à jour dans le dockerhub: https://hub.docker.com/r/library/python/tags/
+image: python:latest
+
+# Il est possible de définir des variables d&#39;environnement
+# qui seront disponibles dans la suite du pipeline.
+variables:
+  PIP_CACHE_DIR: &#34;$CI_PROJECT_DIR/.cache/pip&#34;
+
+# Une étape nommée &#34;test&#34; est ajoutée au pipeline
+test:
+  script:
+    - python setup.py test
+    - pip install tox flake8  # you can also use tox
+    - tox -e py36,flake8
+
+# Une étape nommé &#34;run&#34; est ajoutée au pipeline.
+# Elle s&#39;exécutera si l&#39;étape &#34;test&#34; se termine avec succès.
+run:
+  script:
+    - python setup.py bdist_wheel
+  # La direction &#34;artifacts&#34; permet de sauvegarder
+  # des objets construits lors de l&#39;exécution du pipeline.
+  artifacts:
+    paths:
+      - dist/*.whl
+
+# Une étape nommé &#34;pages&#34; est ajoutée au pipeline.
+# Elle s&#39;exécutera si l&#39;étape &#34;run&#34; se termine avec succès.
+pages:
+  script:
+    - pip install sphinx sphinx-rtd-theme
+    - cd doc ; make html
+    - mv build/html/ ../public/
+  artifacts:
+    paths:
+      - public
+  # Cette étape &#34;pages&#34; ne s&#39;exécutera que si l&#39;étape précédente (&#34;run&#34;) est réussie
+  # ET si la branche d&#39;exécution du pipeline est master.
+  only:
+    - master
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Exercice: Compléter le pipeline de CI pour le faire passer au vert" duration="1">
+        <p>Votre mission si vous l&#39;acceptez: éditez le fichier <code>.gitlab-ci.yml</code> à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.</p>
+<p>Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.</p>
+<p>Comme il s&#39;agit de notre premier commit il va falloir définir notre nom et notre adresse email :</p>
+<pre><code language="language-bash" class="language-bash">git config --global user.email &#34;you@example.com&#34;
+git config --global user.name &#34;Your Name&#34;
+</code></pre>
+<p>Vous pourrez ensuite <code>commit</code> et <code>push</code></p>
+<p>Pour <code>push</code> git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un personnal access token.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
