@@ -3,9 +3,9 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-06-30T18:29:47+02:00",
+  "updated": "2021-04-06T16:16:28+02:00",
   "id": "tp0",
-  "duration": 6,
+  "duration": 20,
   "title": "TP0 - Setup de l'environnement de travail",
   "authors": "OCTO Technology",
   "summary": "TP0 - Setup de l’environnement de travail",
@@ -20,6 +20,6 @@
   "tags": [
     "setup"
   ],
-  "feedback": "https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new",
+  "feedback": "https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new",
   "url": "tp0"
 }

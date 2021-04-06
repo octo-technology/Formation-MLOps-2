@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-06-24T13:55:54+02:00",
+  "updated": "2021-04-06T16:16:28+02:00",
   "id": "tp6",
   "duration": 1,
   "title": "TP6 - Model registry",
@@ -22,6 +22,6 @@
     "api",
     "flask"
   ],
-  "feedback": "https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new",
+  "feedback": "https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new",
   "url": "tp6"
 }
