@@ -1,0 +1,16 @@
+pages:
+  image: golang:1.9
+  stage: generer-les-instructions-de-tp
+  script:
+    - go get github.com/googlecodelabs/tools/claat
+    - cd TP_instructions && claat export tp*.md && cd ..
+    - mkdir .public
+    - cp -r TP_instructions/* .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    refs:
+      - dev
+      - merge_requests
