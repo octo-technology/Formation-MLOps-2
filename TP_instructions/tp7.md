@@ -4,7 +4,7 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP7 - Exposition de modèles
 
@@ -36,7 +36,7 @@ Flask est un microserveur d'application. Il est souvent utilisé en Python pour 
 
 ### Exposition "model as a service"
 
-- Se rendre dans `dsin2/exposition/model_as_a_service/`
+- Se rendre dans `dsin2-public-ocac/exposition/model_as_a_service/`
 - Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
 
 Le serveur d'exposition est désormais disponible sur le port 5000 <http://localhost:5000>, avec:
@@ -56,6 +56,7 @@ Dans votre terminal, avec l'outil en ligne de commande `cURL`, réalisez les req
 - requêtez une prédiction sur <http://localhost:5000/predict>,
 - requêtez une prédiction pour une `Wind Speed` de 0, 10, 50, 100.
 
+Pour spécifier une valeur de `Wind Speed` il faut ajouter `?Ws1_avg=<Your value>` à l'adresse
 ## Démo: Exposition | model as a service
 
 > La manipulation sera faite par les formateurs

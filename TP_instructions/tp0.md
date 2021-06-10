@@ -4,7 +4,7 @@ categories: setup
 tags: setup
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP0 - Setup de l'environnement de travail
 

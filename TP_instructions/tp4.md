@@ -4,12 +4,12 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP4 - Orchestration
 
 ## Overview
-Duration: 1
+Duration: 60
 
 ### A l'issue de cette section, vous aurez découvert
 
@@ -103,7 +103,7 @@ Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-201
 
 Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
 
-- Installer le package en ouvrant un nouveau terminal, `cd dsin2-public-ocac; pip install .`
+- Installer le package en ouvrant un nouveau terminal, `cd dsin2; pip install .`
 
 Pour lancer le dag `train`:
 
