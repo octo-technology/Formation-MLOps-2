@@ -1,7 +1,8 @@
 from setuptools import setup
 
 with open('requirements.txt', 'r') as requirements_file:
-    requirements = requirements_file.read().split()
+    requirements = [requirement for requirement in requirements_file.read().split('\n') if
+                    not requirement.startswith('# ')]
 
 with open('requirements_test.txt', 'r') as requirements_file:
     test_requirements = requirements_file.read().split()
