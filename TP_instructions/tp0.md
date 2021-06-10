@@ -34,6 +34,28 @@ Puis `forkez` le repo à l'aide du bouton en haut à droite pour récupérer une
 
 🏁 Vous possédez désormais une copie personnelle du repo de code pour les TPs ! Nous allons désormais la cloner dans votre environnement de développement.
 
+## Prise en main de jupyterhub l'environnement de tp.
+Duration: 3
+
+Pour vous connecter sur l'interface de TP, l'instructeur vous aura donner votre identifiant mot de passe :
+![Connection](docs/tp0/connection.png)
+
+Une fois connecté, une page de chargement apparaît pendant ce temps votre environment de tp est crée : 
+![StartingServer](docs/tp0/starting_server.png)
+
+Cela peut prendre 1 à 2 minutes, mais pas plus. Si votre environment ne démarre pas vous pouvez essayer d'actualiser puis faire appel à votre formateur.
+
+Une fois que le serveur est démarré vous êtes redirigés vers la page principale :
+![HomePage](docs/tp0/homepage.png)
+
+Depuis cette page vous pouvez ouvrir :
+- Un terminal : dans other / terminal
+- Un éditeur de code en ligne : dans Notebook / VS Code
+- Airflow que nous manipulerons
+- MLFlow que nous seront amené à manipuler
+
+
+
 ## Préparer son environnement et cloner le repo
 Duration: 3
 
@@ -67,3 +89,5 @@ Exécutons les tests pour s'assurer que tout marche !
 ```bash
 make tests-unitaires
 ```
+
+

@@ -61,8 +61,6 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
   - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
-  - Changer la variable `load_examples` à `False`, cela permet d'éviter que airflow chargent les DAGs d'exemples.
-  - Changer la variable `dag_dir_list_interval` à `5`, cela permet de rafraichir les DAGs toutes les 5 secondes au lieu de toutes les 5 minutes (ce qui est pratique en phase de développement).
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -124,9 +122,4 @@ Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` da
 
 
 ## Pour aller plus loin
-Pour aller plus loin en attendant les autres formés vous pouvez regarder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`.
-
-Il s'agit de 
-- créer une nouvelle fonction qui permet de faire le prepare feature sur le dernier fichier généré.
-- appeler cette fonction dans le DAG de predict en lui passant le dossier de fichier généré.
-
+Pour aller plus loin en attendant les autres formés vous pouvez rearder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`. 
