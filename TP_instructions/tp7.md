@@ -4,12 +4,12 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP7 - Exposition de modèles
 
 ## Overview
-Duration: 1
+Duration: 30
 
 ### A l'issue de cette section, vous aurez découvert
 
@@ -56,7 +56,7 @@ Dans votre terminal, avec l'outil en ligne de commande `cURL`, réalisez les req
 - requêtez une prédiction sur <http://localhost:5000/predict>,
 - requêtez une prédiction pour une `Wind Speed` de 0, 10, 50, 100.
 
-Pour spécifier une valeur de `Wind Speed` il faut ajouter `&Ws1_avg=<Your value>` à l'adresse
+Pour spécifier une valeur de `Wind Speed` il faut ajouter `?Ws1_avg=<Your value>` à l'adresse
 ## Démo: Exposition | model as a service
 
 > La manipulation sera faite par les formateurs

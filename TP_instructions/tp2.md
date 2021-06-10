@@ -4,12 +4,12 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP2 - Pyramide de tests
 
 ## Overview
-Duration: 1
+Duration: 30
 
 ### A l'issue de cette section, vous aurez découvert
 
@@ -48,6 +48,6 @@ Compléter la chaîne d'intégration continue avec une step `qualite` afin de
 - mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
   - `python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
 - mesurer la pyramide de tests en exécutant le script
-  - `./tests/tests_pyramide.sh`
+  - `./tests/tests_pyramid.sh`
 
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)

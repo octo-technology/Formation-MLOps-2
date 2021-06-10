@@ -4,12 +4,12 @@ categories: CI
 tags: CI,CD,gitlab
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP1 - Introduction à la CI/CD
 
 ## Overview
-Duration: 1
+Duration: 30
 
 ### A l'issue de cette section, vous aurez découvert:
 

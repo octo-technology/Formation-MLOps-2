@@ -4,12 +4,12 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP8 - Monitoring
 
 ## Overview
-Duration: 1
+Duration: 60
 
 ### À l'issue de cette section, vous aurez découvert:
 
@@ -53,7 +53,7 @@ notre fonction.
 
 Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table postgreSQL.
 
-- Accéder à Grafana sur le port `3000` et se connecter avec l'identifiant `admin` et le mot de passe `admin`
+- Accéder à Grafana sur le port `9000` et se connecter avec l'identifiant `admin` et le mot de passe `admin`
 
 - Créer la connexion à la DB postgreSQL
 

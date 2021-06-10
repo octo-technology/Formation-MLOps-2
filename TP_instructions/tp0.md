@@ -4,12 +4,12 @@ categories: setup
 tags: setup
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP0 - Setup de l'environnement de travail
 
 ## Overview
-Duration: 1
+Duration: 15
 
 Cette partie permet de préparer l'environnement de travail pour les TPs.
 
@@ -26,7 +26,7 @@ Puis, cliquer sur `Register now`:
 
 ### Fork du repo de TP dans votre espace personnel gitlab
 
-Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation: <https://...>
+Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation: <https://gitlab.com/mhouacine/dsin2>
 
 Puis `forkez` le repo à l'aide du bouton en haut à droite pour récupérer une copie de ce dernier dans votre espace gitlab personnel:
 
@@ -71,7 +71,7 @@ Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à 
 Pour réaliser ce TP vous devant ensuite checkout la branche `0_initial_state` :
 
 ```bash
-cd dsin2-public-ocac
+cd dsin2
 git checkout 0_initial_state
 ```
 
