@@ -4,12 +4,12 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/octo-bda/cercle-formation/dsin2/-/issues/new
+Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
 # TP4 - Orchestration
 
 ## Overview
-Duration: 1
+Duration: 60
 
 ### A l'issue de cette section, vous aurez découvert
 
@@ -60,9 +60,7 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques:
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2-public-ocac/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
-  - Changer la variable `load_examples` à `False`, cela permet d'éviter que airflow chargent les DAGs d'exemples.
-  - Changer la variable `dag_dir_list_interval` à `5`, cela permet de rafraichir les DAGs toutes les 5 secondes au lieu de toutes les 5 minutes (ce qui est pratique en phase de développement).
+  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -105,7 +103,7 @@ Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-201
 
 Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
 
-- Installer le package en ouvrant un nouveau terminal, `cd dsin2-public-ocac; pip install .`
+- Installer le package en ouvrant un nouveau terminal, `cd dsin2; pip install .`
 
 Pour lancer le dag `train`:
 

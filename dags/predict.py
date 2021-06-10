@@ -1,35 +1,37 @@
 import os
 import sys
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
+from airflow.decorators import dag, task
 from airflow.utils.dates import days_ago
 
-from dags.config import MODEL_PATH, FEATURES_PATH, GENERATED_DATA_PATH, PREDICTIONS_FOLDER
-from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
+from formation_indus_ds_avancee.monitoring import monitor_with_io
 from formation_indus_ds_avancee.train_and_predict import predict_with_io
 
-dag = DAG(dag_id='predict',
-          description='Prediction DAG',
-          catchup=False,
-          start_date=days_ago(1),
-          schedule_interval=timedelta(minutes=15))
+sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
-prepare_features = PythonOperator(task_id='prepare_features',
-                                  python_callable=prepare_features_with_io,
-                                  dag=dag,
-                                  provide_context=False,
-                                  op_kwargs={'data_path': GENERATED_DATA_PATH,
-                                             'features_path': FEATURES_PATH,
-                                             'training_mode': False})
-
-# Start completing predict task
-# predict = PythonOperator()
-# End completing predict task
+from dags.config import GENERATED_DATA_PATH, DATA_FOLDER, MODEL_PATH, PREDICTIONS_FOLDER, MONITORING_TABLE_NAME
+from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 
 
-# Add predict after prepare features
-prepare_features
+@dag(default_args={'owner': 'airflow'}, schedule_interval=timedelta(minutes=2), start_date=days_ago(1))
+def predict():
+    @task
+    def prepare_features_with_io_task():
+        features_path = os.path.join(DATA_FOLDER, f'prepared_features_{datetime.now()}.parquet')
+        prepare_features_with_io(data_path=GENERATED_DATA_PATH,
+                                 features_path=features_path,
+                                 training_mode=False)
+        return features_path
+
+    # Start completing predict task
+    # predict = PythonOperator()
+    # End completing predict task
+
+    feature_path = prepare_features_with_io_task()
+    # predict_with_io_task(feature_path=feature_path)
+
+
+predict_dag = predict()
