@@ -36,7 +36,7 @@ Flask est un microserveur d'application. Il est souvent utilisé en Python pour 
 
 ### Exposition "model as a service"
 
-- Se rendre dans `dsin2-public-ocac/exposition/model_as_a_service/`
+- Se rendre dans `dsin2/exposition/model_as_a_service/`
 - Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
 
 Le serveur d'exposition est désormais disponible sur le port 5000 <http://localhost:5000>, avec:
