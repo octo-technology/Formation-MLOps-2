@@ -87,7 +87,8 @@ Les identifiants de connection à airflow sont `admin` `admin`
 
 ![launcher](./docs/tp4/launcher-airflow.png)
 
-L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet.
+L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet, un message d'alerte vous préviendra que le 
+`scheduler` ne répond pas, car il n'est pas démarré.
 
 - En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
 
