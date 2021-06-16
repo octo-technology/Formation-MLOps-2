@@ -83,6 +83,8 @@ dag_dir_list_interval = 300
 
 - Dans le `Launcher`, lancer le service `Airflow`.
 
+Les identifiants de connection à airflow sont `admin` `admin`
+
 ![launcher](./docs/tp4/launcher-airflow.png)
 
 L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet.
