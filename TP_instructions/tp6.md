@@ -30,7 +30,7 @@ s'ouvrir dans un nouvel onglet.
 
 ![mlflow-ui](./docs/tp6/mlflowui.png)
 
-### Intégrer MLFlow dans le code de training
+## Intégrer MLFlow dans le code de training
 
 Pour logger le résultat des expérimentations dans MLFlow tracking il faut ajouter un peu de code sur le code d'entraînement.
 
@@ -46,7 +46,7 @@ with mlflow.start_run() as run:
 
 Une fois que vous avez intégré ce code, vous pouvez retourner dans l'interface airflow et trigger un entraînement.
 
-### Explorer le run créé dans MLFlow
+## Explorer le run créé dans MLFlow
 Actualiser la page de MLFlow pour voir les runs apparaître
 
 ![MLFLOW-run](./docs/tp6/one_experiment.png)
@@ -57,7 +57,7 @@ Ensuite en cliquant sur le run, vous pouvez aller voir plus de détail et en des
 
 ![MLFLOW-artefact](./docs/tp6/artifact.png)
 
-### Explorer le système de dossier de MLFlow
+## Explorer le système de dossier de MLFlow
 
 En fait MLFlow est basé sur un système de dossier / fichiers plats qui contiennent tout ce que l'on vient de voir.
 
@@ -83,7 +83,7 @@ ls /mlruns/0/<hashcode>
 ```
 
 
-### Pour aller plus loin
+## Pour aller plus loin
 
 - Ajouter le log d'une métrique ou d'un paramètre manuellement avec `mlflow.log_metric` `mlflow.log_param`
 - Essayer de configurer une expérimentations
