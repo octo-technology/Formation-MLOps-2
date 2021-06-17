@@ -42,3 +42,16 @@ Pour suivre ces TPs, nous allons utiliser les pages gitlab suivantes :
 
 [TP 8 Monitoring](https://octo-technology.gitlab.io/les-bg-de-la-data/s-s-all/formation/dsin2/tp8#0)
 
+## Modifier les TPs, 
+
+La branche de dev est la branche principale qui contient toutes les solutions, les autre branches contiennent une version 
+partielle du code pour faire un TP.
+
+Si vous souhaitez apporter des modifications, il convient de la faire sur dev puis de la propager sur toutes les branches 
+pertinentes en faisant `git log --oneline` sur dev pour récupérer le hash de commit, puis sur chaque branche
+
+```shell
+git checkout branch
+git cherry-pick <commihash>
+git push
+```
