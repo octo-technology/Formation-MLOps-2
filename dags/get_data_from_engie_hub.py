@@ -1,8 +1,9 @@
 import os
 import sys
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 from airflow.decorators import dag, task
+from airflow.utils.dates import days_ago
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
@@ -10,7 +11,7 @@ from dags.config import TRAIN_DATA_PATH, GENERATED_DATA_FOLDER
 from formation_indus_ds_avancee.data_loading import get_data_from_csv
 
 
-@dag(default_args={'owner': 'airflow'}, schedule_interval=timedelta(minutes=2), start_date=datetime.now())
+@dag(default_args={'owner': 'airflow'}, schedule_interval=timedelta(minutes=2), start_date=days_ago(n=0, hour=1))
 def data_generator():
     @task
     def get_data_from_csv_task():
