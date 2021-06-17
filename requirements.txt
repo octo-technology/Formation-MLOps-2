@@ -16,4 +16,7 @@ streamlit==0.61.0
 # Airflow
 apache-airflow==2.1.0
 
+# Mlflow
+mlflow==1.17.0
+
 werkzeug==1.0.1
