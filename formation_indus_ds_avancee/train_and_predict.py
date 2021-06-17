@@ -2,6 +2,7 @@ import os
 import time
 
 import joblib
+import mlflow
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
@@ -16,8 +17,10 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
     target = 'Ba_avg'
     X = features.drop(columns=[target])
     y = features[target]
-    model = RandomForestRegressor(n_estimators=1, max_depth=10, n_jobs=1)
-    model.fit(X, y)
+    with mlflow.start_run() as run:
+        mlflow.sklearn.autolog(log_models=True)
+        model = RandomForestRegressor(n_estimators=1, max_depth=10, n_jobs=1)
+        model.fit(X, y)
     time_str = time.strftime('%Y%m%d-%H%M%S')
     joblib.dump(model, os.path.join(model_registry_folder, time_str + '.joblib'))
 
