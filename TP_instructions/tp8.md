@@ -37,7 +37,10 @@ Dans le fichier `formation_indus_ds_avancee/monitoring.py`, créer une fonction 
 votre choix à monitorer. Cette valeur sera enregistrée dans la DB PostreSQL grâce à la fonction `monitor_with_io`
 associée à une tâche Airflow.
 
-- Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour que il soit vert.
+Vous devez écrire une ligne par run, donc créer un data frame qui contient 1 ligne et au moins 2 colonnes le `prediction_time` et un indicateur agrégé
+par exemple la moyenne de prédictions calculées à ce moment-là
+
+- Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour qu’il soit vert.
 
 - Spécifier la table postgreSQL dans laquelle enregistrer les valeurs à monitorer
 
@@ -57,14 +60,13 @@ Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à part
 
 - Créer la connexion à la DB postgreSQL
 
-La connexion à définir est la même pour l'ensemble des participants à la formation : cette tâche doit donc être réalisée
-en mob programming avec les formateurs.
-
 Nous allons ajouter une *Data Source* de type *postgreSQL* et spécifier les paramètres suivants :
 
-![streamlit-embedded-model](./docs/tp8/data-source-grafana.png)
+![sdata-source-grafana](./docs/tp8/data-source-grafana.png)
 
-*Note : Dans le cadre du TP, le paramètre `Host` sera communiqué par le formateur.*
+- Host : postgres:5432
+- Username: postges
+- Password: postgres
 
 - Créer un simple dashboard de monitoring.
 
