@@ -26,8 +26,9 @@ def predict_with_io(features_path: str, model_path: str, predictions_folder: str
     features = predict(features, model_path)
     time_str = time.strftime('%Y%m%d-%H%M%S')
     features['predictions_time'] = time_str
-    features.to_csv(os.path.join(predictions_folder, time_str + '.csv'), index=False)
-    features.to_csv(os.path.join(predictions_folder, 'latest.csv'), index=False)
+    features[['predictions', 'predictions_time']].to_csv(os.path.join(predictions_folder, time_str + '.csv'),
+                    index=False)
+    features[['predictions', 'predictions_time']].to_csv(os.path.join(predictions_folder, 'latest.csv'), index=False)
 
 
 def predict(features: pd.DataFrame, model_path: str) -> pd.DataFrame:
