@@ -39,6 +39,12 @@ Dans le panneau de gauche, rendez-vous dans: `CI/CD` > `Pipelines`.
 
 Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `1_starting_ci`.
 
+Si la CI ne se lance pas est que Gitlab demande de saisir une carte banquaire, il faut aller dans 
+`settings` >>  `CI/CD`, puis décocher `Enable shared runners for this project`
+
+![Disable-runners](./docs/tp1/disable_shared_runners.png)
+
+
 ❌Malheureusement, le pipeline a échoué ...
 
 ![pipeline tests rouge](./docs/tp1/gitlab-pipeline-tests-rouge.png)
