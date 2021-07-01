@@ -17,7 +17,7 @@ pages:
       - public
 
 test:
-  image: python:3.8
+  image: python:3.9
   stage: test
   script:
     - pip install -r requirements.txt
@@ -26,7 +26,7 @@ test:
     - behave tests/test_functional/features
 
 qualite:
-  image: python:3.8
+  image: python:3.9
   stage: qualite
   script:
     - pip install -r requirements.txt && pip install -r requirements_test.txt
