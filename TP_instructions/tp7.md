@@ -57,13 +57,15 @@ Dans votre terminal, avec l'outil en ligne de commande `cURL`, réalisez les req
 - requêtez une prédiction pour une `Wind Speed` de 0, 10, 50, 100.
 
 Pour spécifier une valeur de `Wind Speed` il faut ajouter `?Ws1_avg=<Your value>` à l'adresse
-## Démo: Exposition | model as a service
 
-> La manipulation sera faite par les formateurs
+## Démo: Exposition | model as a service
 
 Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-Une fois lancée, l'application streamlit est accessible sur <http://localhost:8092> et le service Flask est disponible sur <http://localhost:5000/health>.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environment de TP. Si vous avez docker et docker-compose vous pouvez le faire sur votre machine personnel. 
+Sinon, le formateur à déjà fait cela à dans l'EC2 de TP. 
+
+Une fois lancée, l'application streamlit est accessible sur <http://<machine-ip>:15002> et le service Flask est disponible sur <http://<machine-ip>:15003>.
 
 Dans le dossier `exposition/model_as_a_service/` se trouve la définition de ces 2 services:
 
@@ -79,11 +81,12 @@ L'application streamlit permet d'afficher une prédiction à la demande selon la
 
 ## Démo: Exposition | embedded model
 
-> La manipulation sera faite par les formateurs
-
 Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-Une fois lancée, l'application streamlit avec modèle embarqué est accessible sur <http://localhost:8091>.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environment de TP. Si vous avez docker et docker-compose vous pouvez le faire sur votre machine personnel. 
+Sinon, le formateur à déjà fait cela à dans l'EC2 de TP. 
+
+Une fois lancée, l'application streamlit avec modèle embarqué est accessible sur <http://<machine-ip>:15001>.
 
 Dans le dossier `exposition/embedded_model/` se trouve la définition de ce service de dashboarding:
 
@@ -99,11 +102,12 @@ L'application streamlit permet d'afficher une prédiction à la demande selon la
 
 ## Démo: Exposition | Exposing predictions
 
-> La manipulation sera faite par les formateurs
-
 Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-Une fois lancée, l'application streamlit est accessible sur <http://localhost:8090>.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environment de TP. Si vous avez docker et docker-compose vous pouvez le faire sur votre machine personnel. 
+Sinon, le formateur à déjà fait cela à dans l'EC2 de TP. 
+
+Une fois lancée, l'application streamlit est accessible sur <http://<machine-ip>:15000>.
 
 Dans le dossier `exposition/exposing_predictions/` se trouve la définition de ce service de dashboarding dans `display_predictions.py`.
 
