@@ -1,4 +1,4 @@
-FROM python:3.8.0-slim as builder
+FROM python:3.9.6-slim as builder
 RUN apt-get update \
     && apt-get install -y gcc \
     && apt-get clean \
@@ -8,7 +8,7 @@ WORKDIR /app
 RUN pip install --user -U pip \
     && pip install --user --no-cache-dir -r requirements-inference-service.txt
 
-FROM python:3.8.0-slim as app
+FROM python:3.9.6-slim as app
 COPY --from=builder /root/.local /root/.local
 COPY --from=builder /app /app
 WORKDIR /app
