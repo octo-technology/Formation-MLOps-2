@@ -78,7 +78,7 @@ git checkout 0_initial_state
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances:
 
 ```bash
-conda create -yqf python=3.8 --name python_indus_avancee
+conda create -yqf python=3.9 --name python_indus_avancee
 source activate python_indus_avancee
 pip install -e .
 pip install -r requirements_test.txt
