@@ -57,8 +57,8 @@ La route predict n'est actuellement pas implémenté.
 Codez le contenu de cette route.
 
 Quelques informations relatives à la construction de route d'api: 
-  - Pour passer un argument dans l'appel à la route ajouter `?<arg_name>=<value>` à la route (exemple : <http://localhost:5000/predict?Ws1_avg=10>)
-  - Pour récupérer la valeur d'un argument dans le code utiliser `request.args.get('<argument_name>')` (exemple : `received_wind_speed_avg = request.args.get('Ws1_avg')`)
+  - Pour passer un argument dans l'appel à la route ajouter `?arg_name=value` à la route (exemple : <http://localhost:5000/predict?Ws1_avg=10>)
+  - Pour récupérer la valeur d'un argument dans le code utiliser `request.args.get('argument_name')` (exemple : `received_wind_speed_avg = request.args.get('Ws1_avg')`)
   - Pour retourner un résultat dans une API flask vous devez utiliser `jsonify` (exemple : `jsonify(prediction)`)  
 
 Comme le modèle prend de nombreuses variables en input, pour simplifier le TP nous vous proposons de passer que 1 ou 2 arguments à la route d'API et fixer les autres par défaut. Pour cela voici un code qui créé un `dataframe` avec des valeurs par défaut pour toutes les variables : 
