@@ -60,8 +60,9 @@ Ensuite en cliquant sur le run, vous pouvez aller voir plus de détail et en des
 ## Explorer le système de dossier de MLFlow
 
 En fait MLFlow est basé sur un système de dossier / fichiers plats qui contiennent tout ce que l'on vient de voir.
+En plus de cela, MLFlow se sert d'une base de donnée local pour stocker les metadata liés aux runs
 
-ALler dans cotre terminal et 
+Allez dans votre terminal et 
 ```shell
 ls /home/jovyan/mlruns/
 ```
@@ -69,23 +70,31 @@ ls /home/jovyan/mlruns/
 cela donne vos différentes expérimentations. Vous pouvez alors
 
 ```shell
-ls /mlruns/0
+ls /home/jovyan/mlruns/0
 ```
 
-cela contient vos différents runs au sein de cette expérimentation. Vous pouvez alors 
+cela contient vos différents runs au sein de cette expérimentation.
+
+Vous pouvez parcourir les metadata en explorant le fichier mlflow.db à la racine
 ```shell
-cat /mlruns/0/metadata.yml
+sqlite3 mlflow.db
 ```
 
-ou 
+Listez les tables avec commande
 ```shell
-ls /mlruns/0/<hashcode>
+.tables
+```
+
+ou faire une requête SQL qui liste toutes vos experimentations
+```shell
+SELECT * FROM experiments;
 ```
 
 
 ## Pour aller plus loin
 
-- Ajouter le log d'une métrique ou d'un paramètre manuellement avec `mlflow.log_metric` `mlflow.log_param`
+- Ajouter le log du modèle avec `mlflow.sklearn.log_model` pour que celui ci apparaisse dans la Model Registry
+- Lancez l'entrainement plusieurs fois et regardez la version du modèle s'incrémenter dans la Model Registry
 - Essayer de configurer une expérimentations
 - Vous renseigner sur les URI et les différentes façons de mettre à disposition MLFlow (une db plutôt qu'un système de 
   fichier, MLFlow hébergé sur un serveur distant)/
