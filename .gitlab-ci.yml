@@ -4,10 +4,9 @@ stages:
   - qualite
 
 pages:
-  image: golang:1.9
+  image: golang:1.17.2
   stage: generate-tp-instructions
   script:
-    - go env
     - go get github.com/googlecodelabs/tools/claat
     - cd TP_instructions && claat export tp*.md && cd ..
     - mkdir .public
