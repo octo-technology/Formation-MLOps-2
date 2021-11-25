@@ -7,6 +7,7 @@ pages:
   image: golang:1.9
   stage: generate-tp-instructions
   script:
+    - go env
     - go get github.com/googlecodelabs/tools/claat
     - cd TP_instructions && claat export tp*.md && cd ..
     - mkdir .public
