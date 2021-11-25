@@ -1,3 +1,5 @@
+import subprocess
+
 from behave import *
 import os
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
