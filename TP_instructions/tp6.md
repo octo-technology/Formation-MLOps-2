@@ -96,5 +96,3 @@ SELECT * FROM experiments;
 - Ajouter le log du modèle avec `mlflow.sklearn.log_model` pour que celui ci apparaisse dans la Model Registry
 - Lancez l'entrainement plusieurs fois et regardez la version du modèle s'incrémenter dans la Model Registry
 - Essayer de configurer une expérimentations
-- Vous renseigner sur les URI et les différentes façons de mettre à disposition MLFlow (une db plutôt qu'un système de 
-  fichier, MLFlow hébergé sur un serveur distant)/
