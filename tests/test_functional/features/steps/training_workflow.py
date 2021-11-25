@@ -2,6 +2,7 @@ import subprocess
 
 from behave import *
 import os
+from unittest.mock import patch
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 from formation_indus_ds_avancee.train_and_predict import train_model_with_io
 
@@ -18,7 +19,8 @@ def step_impl(context):
 
 
 @when('I launch the training')
-def step_impl(context):
+@patch('mlflow.sklearn.log_model')
+def step_impl(context, mlflow_mock):
     prepare_features_with_io(training_data_path, features_path)
     train_model_with_io(features_path, model_registry_folder)
 
