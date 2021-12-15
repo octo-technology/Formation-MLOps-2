@@ -1,5 +1,4 @@
 import os
-from unittest.mock import patch
 
 from behave import given, when, then
 
@@ -19,8 +18,7 @@ def step_impl_given(context):
 
 
 @when('I launch the training')
-@patch('mlflow.sklearn.log_model')
-def step_impl_when(context, mlflow_mock):
+def step_impl_when(context):
     prepare_features_with_io(training_data_path, features_path)
     train_model_with_io(features_path, model_registry_folder)
 
