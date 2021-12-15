@@ -37,7 +37,7 @@ def predict_with_io(features_path: str, model_path: str, predictions_folder: str
     time_str = time.strftime('%Y%m%d-%H%M%S')
     features['predictions_time'] = time_str
     features[['predictions', 'predictions_time']].to_csv(os.path.join(predictions_folder, time_str + '.csv'),
-                    index=False)
+                                                         index=False)
     features[['predictions', 'predictions_time']].to_csv(os.path.join(predictions_folder, 'latest.csv'), index=False)
 
 
