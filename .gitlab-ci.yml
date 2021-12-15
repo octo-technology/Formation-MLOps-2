@@ -9,8 +9,8 @@ test:
   script:
     - pip install -r requirements.txt
     - pip install -r requirements_test.txt
-    - flake8 formation_indus_ds_avancee tests scripts dags
-    - vulture formation_indus_ds_avancee scripts dags --min-confidence 100
+    - flake8 formation_indus_ds_avancee tests scripts
+    - vulture formation_indus_ds_avancee scripts --min-confidence 100
     - python -m pytest tests/test_unit
     # Add behave command
 
