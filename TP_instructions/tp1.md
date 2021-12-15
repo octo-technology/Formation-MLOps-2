@@ -130,3 +130,9 @@ Vous pourrez ensuite `commit` et `push`
 
 Pour `push` git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un 
 personnal access token.
+
+## Pour aller plus loin
+
+Ajouter à votre CI :
+- Une détection d'inadéquations au standards pep8 avec la librairie `flake8`
+- Une détection de code mort avec la librairie `vuluture`
