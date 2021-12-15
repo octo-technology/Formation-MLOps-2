@@ -1,13 +1,9 @@
-import random
 import pandas as pd
 import streamlit as st
-from formation_indus_ds_avancee.train_and_predict import predict
+
+from config import MODEL_PATH
 from formation_indus_ds_avancee.feature_engineering import prepare_features
-
-import glob
-import os
-
-from config import PREDICTIONS_FOLDER, MODEL_PATH
+from formation_indus_ds_avancee.train_and_predict import predict
 
 st.title('My Wind Turbine App with an embedded model')
 

@@ -1,10 +1,5 @@
-import random
-import pandas as pd
-import streamlit as st
 import requests
-
-import glob
-import os
+import streamlit as st
 
 from config import INFERENCE_HOST
 
