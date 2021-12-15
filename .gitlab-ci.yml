@@ -7,5 +7,5 @@ test:
   stage: test
   script:
   - pip install -r requirements.txt
-  - install test requierements
-  - which to trigger tests
+  # - install test requirements
+  # - Trigger tests
