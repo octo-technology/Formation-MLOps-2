@@ -1,7 +1,8 @@
 import os
-import dags
-from pytest import mark
+
 from airflow.models import DagBag
+
+import dags
 
 
 def test_airflow_should_not_return_import_errors_when_importing_dags():
