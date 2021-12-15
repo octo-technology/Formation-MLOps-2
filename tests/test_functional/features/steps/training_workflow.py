@@ -1,8 +1,8 @@
-import subprocess
-
-from behave import *
 import os
 from unittest.mock import patch
+
+from behave import given, when, then
+
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 from formation_indus_ds_avancee.train_and_predict import train_model_with_io
 
