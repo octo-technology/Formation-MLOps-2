@@ -134,5 +134,5 @@ personnal access token.
 ## Pour aller plus loin
 
 Ajouter à votre CI :
-- Une détection d'inadéquations au standards pep8 avec la librairie `flake8`
-- Une détection de code mort avec la librairie `vuluture`
+- Une détection d'inadéquations au standards pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
+- Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
