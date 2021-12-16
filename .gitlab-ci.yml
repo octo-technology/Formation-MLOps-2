@@ -1,5 +1,6 @@
 stages:
   - generate-tp-instructions
+  - move-instructions-to-master
   - test
   - qualite
 
@@ -37,3 +38,23 @@ qualite:
     - pip install -r requirements.txt && pip install -r requirements_test.txt
     - make tests-unitaires  ## pour calculer le code coverage
     - ./tests/tests_pyramid.sh  ## pour mesurer la pyramide de tests
+
+moveinstructionstomaster:
+  stage: move-instructions-to-master
+  variables:
+    GIT_STRATEGY: clone
+  script:
+    - git fetch # To be able to checkout master
+    - git config --global user.email "this-is-the-ci@example.com"
+    - git config --global user.name "I'm the CI"
+    - mkdir ../tmp
+    - rm -rf public # Remove generated instructions
+    - cp -r TP_instructions/ ../tmp/TP_instructions
+    - git checkout master
+    - rm -rf TP_instructions
+    - cp -r ../tmp/TP_instructions/ .
+    - rm -rf ../tmp
+    - echo "Updated on $(date)" >> TP_instructions/update_date.md
+    - git add .; git commit -m "Automatic update of instructions from dev";
+    - git push -q "https://etoulemonde:${GITLAB_TOKEN_TO_PUSH}@${CI_REPOSITORY_URL#*@}"
+
