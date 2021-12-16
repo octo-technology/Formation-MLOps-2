@@ -3,6 +3,9 @@ stages:
   - test
   - qualite
 
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
 pages:
   image: golang:1.17.2
   stage: generate-tp-instructions
