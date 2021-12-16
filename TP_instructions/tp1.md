@@ -138,3 +138,6 @@ Ajouter à votre CI :
 - Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
 
 Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.gitlab.com/ee/ci/quick_start/) documentation.
+
+Finalement vous pouvez explorer comment ajouter des vérifications de sécurités dans votre ci avec le template SAST en lisant [cette](https://docs.gitlab.com/ee/user/application_security/sast/#configure-sast-manually) documentation.
+
