@@ -136,3 +136,5 @@ personnal access token.
 Ajouter à votre CI :
 - Une détection d'inadéquations au standards pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
 - Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
+
+Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.gitlab.com/ee/ci/quick_start/) documentation.

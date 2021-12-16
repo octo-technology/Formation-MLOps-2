@@ -44,6 +44,11 @@ Pour suivre ces TPs, nous allons utiliser les pages gitlab suivantes :
 
 ## Modifier les TPs, 
 
+### Modifier les instructions
+Si tu souhaites modifier les instructions, il faut modifier les `.md` dans la branche de dev puis push. La CI s'occupera 
+propager les modifications sur master et de publier les pages.
+
+### Modifier le code
 La branche de dev est la branche principale qui contient toutes les solutions, les autre branches contiennent une version 
 partielle du code pour faire un TP.
 
