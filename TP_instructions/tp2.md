@@ -8,18 +8,18 @@ Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/form
 
 # TP2 - Pyramide de tests
 
-## Overview
-Duration: 30
+## Vue d'ensemble
+Durée : 30 min
 
-### A l'issue de cette section, vous aurez découvert
+### À l'issue de cette section, vous aurez découvert
 
 - Comment écrire un test fonctionnel,
 - Comment se servir de `behave`,
-- Mesurer des indicateurs de qualité: code coverage et pyramide de tests,
+- Mesurer des indicateurs de qualité : code coverage et pyramide de tests,
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utiliser la branch 2_starting_test_behave
+Pour ce TP, utilisez la branch 2_starting_test_behave
 
 `git checkout 2_starting_test_behave`
 
@@ -36,7 +36,7 @@ Le test correspondant se trouve dans `dsin2/tests/test_functional/features/steps
 
 ## Tests fonctionnels avec Behave dans la CI
 
-Compléter le squelette de test fonctionnel:
+Compléter le squelette de test fonctionnel :
 
 - ✅ Il doit passer **en local** avec la commande `behave tests/test_functional/features`.
 - ✅ Compléter la chaîne d'intégration continue en exécutant les tests fonctionnels dans le stage `test`.

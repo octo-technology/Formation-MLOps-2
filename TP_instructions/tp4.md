@@ -8,10 +8,10 @@ Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/form
 
 # TP4 - Orchestration
 
-## Overview
-Duration: 60
+## Vue d'ensemble
+Durée : 60 min
 
-### A l'issue de cette section, vous aurez découvert
+### À l'issue de cette section, vous aurez découvert
 
 - Découvrir l'orchestration avec Airflow,
 - Savoir créer un `DAG` et les scheduler,
@@ -20,14 +20,14 @@ Duration: 60
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utiliser la branch 4_starting_orchestration
+Pour ce TP, utilisez la branch 4_starting_orchestration
 
 `git checkout 4_starting_orchestration`
 
 Sur cette branche, il y a maintenant : 
 - Un DAG `dags/train.py` qui permet d'entraîner un modèle
 - Un DAG `dags/predict.py` qui est incomplet et qui permettra de réaliser des prédictions
-- Les fonctions existantes dans `formation_indus_avancee/` ont été décoré avec des `read` et des `write` pour donner des 
+- Les fonctions existantes dans `formation_indus_avancee/` ont été décorées avec des `read` et des `write` pour donner des 
 fonctions `function_name_with_io`
  
 
@@ -52,7 +52,7 @@ Pour répondre à ce problème, nous avons décoré la fonction de prédiction a
 
 A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_indus_ds_avancee`, nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
 
-Les prédictions réalisées sont écrites dans 2 fichiers identiques:
+Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 
 - {date}.csv où la date est au format `%Y%m%d-%H%M%S`, exemple:
 - latest.csv
@@ -87,12 +87,12 @@ Les identifiants de connection à airflow sont `admin` `admin`
 
 ![launcher](./docs/tp4/launcher-airflow.png)
 
-L'interface graphique d'Airflow devrait s'ouvrir dans un nouveau onglet, un message d'alerte vous préviendra que le 
+L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet, un message d'alerte vous préviendra que le 
 `scheduler` ne répond pas, car il n'est pas démarré.
 
 - En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
 
-L'interface graphique devrait désormais afficher 3 dags:
+L'interface graphique devrait désormais afficher 3 DAGs :
 
 ![ui-airflow](./docs/tp4/ui-airflow-start.png)
 
@@ -102,20 +102,20 @@ Afin de s'entraîner, il va nous falloir des données d'entraînement !
 
 Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande `make dataset`.
 
-Les données sont désormais disponible dans `dsin2/data/la-haute-borne-data-2017-2020.csv`.
+Les données sont désormais disponibles dans `dsin2/data/la-haute-borne-data-2017-2020.csv`.
 
 Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
 
 - Installer le package en ouvrant un nouveau terminal, `cd dsin2; pip install .`
 
-Pour lancer le dag `train`:
+Pour lancer le DAG `train`:
 
 - activer le DAG en appuyant sur le bouton `ON/OFF` (à gauche),
 - déclencher le DAG manuellement en cliquant sur `Trigger Dag` dans les links (l'icône play)  (sur la droite).
 
 ![ui-airflow](./docs/tp4/ui-airflow-start.png)
 
-Inspecter le dag `train` en cliquant sur celui-ci, la tâche `prepare_features` devrait avoir commencé:
+Inspecter le DAG `train` en cliquant sur celui-ci, la tâche `prepare_features` devrait avoir commencé :
 
 ![train-dag](./docs/tp4/train-prepare-features.png)
 
@@ -125,4 +125,4 @@ Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` da
 
 
 ## Pour aller plus loin
-Pour aller plus loin en attendant les autres formés vous pouvez rearder comment utiliser les fichiers géénrés par le dag `get_data_from_engie_hub.py` dans le dag `predict`. 
+Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder comment utiliser les fichiers générés par le DAG `get_data_from_engie_hub.py` dans le DAG `predict`. 

@@ -8,10 +8,10 @@ Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/form
 
 # TP7 - Exposition de modèles
 
-## Overview
-Duration: 30
+## Vue d'ensemble
+Durée : 30 min
 
-### A l'issue de cette section, vous aurez découvert
+### À l'issue de cette section, vous aurez découvert
 
 - Comment fonctionne une simple API Flask,
 - Le pattern d'exposition `embedded model`,
@@ -20,15 +20,15 @@ Duration: 30
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utiliser la branch 7_starting_exposition
+Pour ce TP, utilisez la branch 7_starting_exposition
 
 `git checkout 7_starting_exposition`
 
 Sur cette branche, il y a maintenant : 
-- Un dossier exposition qui contient trois format d'expositions
-- `embedded_model` une app streamlit qui permet de demander des prédictions
-- `exposing_predictions` une app streamlit qui permet de voir les prédictions réalisées précédement
-- `model_as_a_service` une api flask qui permet de demander des prédictions 
+- Un dossier exposition qui contient trois formats d'exposition
+- `embedded_model` une app Streamlit qui permet de demander des prédictions
+- `exposing_predictions` une app Streamlit qui permet de voir les prédictions réalisées précédemment
+- `model_as_a_service` une API Flask qui permet de demander des prédictions 
 
 ## Développement d'API avec Flask
 
@@ -41,27 +41,27 @@ Flask est un microserveur d'application. Il est souvent utilisé en Python pour 
 
 ⚠ Le serveur Flask ne sera pas consultable dans votre navigateur !
 
-Le serveur d'exposition est désormais disponible sur le port 5000 <http://localhost:5000>, avec:
+Le serveur d'exposition est désormais disponible sur le port 5000 <http://localhost:5000>, avec :
  - la route de healthcheck `/health` pour vérifier que le service est fonctionnel,
  - la route predict `/predict` pour obtenir des prédictions
 
-Dans votre terminal, avec l'outil en ligne de commande `cURL`, requêtez l'url de `healthcheck` du service pour s'assurer qu'il fonctionne (<http://localhost:5000/health>).
+Dans votre terminal, avec l'outil en ligne de commande `cURL`, requêtez l'URL de `healthcheck` du service pour s'assurer qu'il fonctionne (<http://localhost:5000/health>).
 
 
 ![requete-healthcheck](./docs/tp7/ping-healthcheck.png)
 
 ### Implémenter la route predict
 
-La route predict n'est actuellement pas implémenté. 
+La route `predict` n'est actuellement pas implémentée. 
 
 Codez le contenu de cette route.
 
-Quelques informations relatives à la construction de route d'api: 
-  - Pour passer un argument dans l'appel à la route ajouter `?arg_name=value` à la route (exemple : <http://localhost:5000/predict?Ws1_avg=10>)
-  - Pour récupérer la valeur d'un argument dans le code utiliser `request.args.get('argument_name')` (exemple : `received_wind_speed_avg = request.args.get('Ws1_avg')`)
-  - Pour retourner un résultat dans une API flask vous devez utiliser `jsonify` (exemple : `jsonify(prediction)`)  
+Quelques informations relatives à la construction de route d'API :  
+  - Pour passer un argument dans l'appel à la route, ajoutez `?arg_name=value` à la route (exemple : <http://localhost:5000/predict?Ws1_avg=10>)
+  - Pour récupérer la valeur d'un argument dans le code, utilisez `request.args.get('argument_name')` (exemple : `received_wind_speed_avg = request.args.get('Ws1_avg')`)
+  - Pour retourner un résultat dans une API flask, utilisez `jsonify` (exemple : `jsonify(prediction)`)  
 
-Comme le modèle prend de nombreuses variables en input, pour simplifier le TP nous vous proposons de passer que 1 ou 2 arguments à la route d'API et fixer les autres par défaut. Pour cela voici un code qui créé un `dataframe` avec des valeurs par défaut pour toutes les variables : 
+Comme le modèle prend de nombreuses variables en entrée, pour simplifier le TP nous vous proposons de ne passer que 1 ou 2 arguments à la route d'API et fixer les autres par défaut. Pour cela voici un code qui créé un `dataframe` avec des valeurs par défaut pour toutes les variables : 
 
 ```python
 received_data_df = pd.DataFrame(
@@ -91,63 +91,63 @@ received_data_df = pd.DataFrame(
         index=[0])
 ```
 
-Utiliser les méthodes `prepare_features` et `predict` pour réaliser une prédiction.
+Utilisez les méthodes `prepare_features` et `predict` pour réaliser une prédiction.
 
-Pour tester votre code éteignez l'API et redémarrez là avec la commande `FLASK_APP=inference.py python -m flask run`  puis requêtez une prédiction sur <http://localhost:5000/predict>.
+Pour tester votre code éteignez l'API et redémarrez-la avec la commande `FLASK_APP=inference.py python -m flask run`  puis requêtez une prédiction sur <http://localhost:5000/predict>.
 
 ## Démo: Exposition | model as a service
 
 Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environment de TP. Si vous avez docker et docker-compose vous pouvez le faire sur votre machine personnel. 
-Sinon, le formateur à déjà fait cela à dans l'EC2 de TP. 
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. 
+Sinon, le formateur a déjà fait cela dans l'EC2 de TP. 
 
-Une fois lancée, l'application streamlit est accessible sur <http://<machine-ip>:15002> et le service Flask est disponible sur <http://<machine-ip>:15003>.
+Une fois lancée, l'application Streamlit est accessible sur <http://<machine-ip>:15002> et le service Flask est disponible sur <http://<machine-ip>:15003>.
 
-Dans le dossier `exposition/model_as_a_service/` se trouve la définition de ces 2 services:
+Dans le dossier `exposition/model_as_a_service/` se trouve la définition de ces 2 services :
 
-- une application de dashboarding construite avec Streamlit dans `app.py`,
+- une application de Dashboarding construite avec Streamlit dans `app.py`,
 - un service d'inférence construit avec Flask dans `inference.py`.
 
-L'application streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
+L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
 
 ![streamlit-model-as-a-service](./docs/tp7/streamlit-model-as-a-service.png)
 
-- Modifier la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demander une prédiction
-- Observer les logs de docker-compose, et constater que le service Flask réalise les prédictions quand Streamlit les demande.
+- Modifiez la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demander une prédiction
+- Observez les logs de docker-compose et constatez que le service Flask réalise les prédictions quand Streamlit les demande.
 
 ## Démo: Exposition | embedded model
 
-Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
+Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environment de TP. Si vous avez docker et docker-compose vous pouvez le faire sur votre machine personnel. 
-Sinon, le formateur à déjà fait cela à dans l'EC2 de TP. 
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. 
+Sinon, le formateur a déjà fait cela dans l'EC2 de TP. 
 
-Une fois lancée, l'application streamlit avec modèle embarqué est accessible sur <http://<machine-ip>:15001>.
+Une fois lancée, l'application Streamlit avec modèle embarqué est accessible sur <http://<machine-ip>:15001>.
 
-Dans le dossier `exposition/embedded_model/` se trouve la définition de ce service de dashboarding:
+Dans le dossier `exposition/embedded_model/` se trouve la définition de ce service de Dashboarding :
 
-- une application de dashboarding construite avec Streamlit dans `embedded_model.py`,
+- une application de Dashboarding construite avec Streamlit dans `embedded_model.py`,
 - il n'y a pas de service d'inférence.
 
-L'application streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
+L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
 
 ![streamlit-embedded-model](./docs/tp7/streamlit-embedded-model.png)
 
-- Modifier la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demander une prédiction
-- Observer les logs de docker-compose, et constater que le service Flask ne réalise pas de prédictions quand Streamlit les demande.
+- Modifiez la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demandez une prédiction
+- Observez les logs de docker-compose et constatez que le service Flask ne réalise pas de prédictions quand Streamlit les demande.
 
 ## Démo: Exposition | Exposing predictions
 
-Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
+Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environment de TP. Si vous avez docker et docker-compose vous pouvez le faire sur votre machine personnel. 
-Sinon, le formateur à déjà fait cela à dans l'EC2 de TP. 
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. 
+Sinon, le formateur a déjà fait cela dans l'EC2 de TP. 
 
-Une fois lancée, l'application streamlit est accessible sur <http://<machine-ip>:15000>.
+Une fois lancée, l'application Streamlit est accessible sur <http://<machine-ip>:15000>.
 
-Dans le dossier `exposition/exposing_predictions/` se trouve la définition de ce service de dashboarding dans `display_predictions.py`.
+Dans le dossier `exposition/exposing_predictions/` se trouve la définition de ce service de Dashboarding dans `display_predictions.py`.
 
-L'application streamlit affiche des prédictions déjà réalisées.
+L'application Streamlit affiche des prédictions déjà réalisées.
 
 ![streamlit-exposing-predictions](./docs/tp7/streamlit-exposing-predictions.png)

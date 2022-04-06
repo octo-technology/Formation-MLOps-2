@@ -8,22 +8,22 @@ Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/form
 
 # TP1 - Introduction à la CI/CD
 
-## Overview
-Duration: 30
+## Vue d'ensemble
+Durée : 30 min
 
-### A l'issue de cette section, vous aurez découvert:
+### À l'issue de cette section, vous aurez découvert :
 
 - 📄Comment lire un fichier de pipeline `.gitlab-ci.yml`,
 - 🚀Comment exécuter un pipeline gitlab, manuellement ou via commit & push
 - 🖊Comment éditer un pipeline gitlab,
 - ✅Comment tester le fonctionnement d'une application Python dans une chaîne d'intégration continue,
 - ✔ Comment mesurer la qualité d'une application Python dans une chaîne de CI,
-- 📦Comment packager une application Python dans une chaîne de CI, au format `wheel` et `docker`,
+- 📦Comment packager une application Python dans une chaîne de CI, aux formats `wheel` et `docker`,
 - 🐳Comment manipuler les registres gitlab pour Python et Docker.
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utiliser la branch 1_starting_ci
+Pour ce TP, utilisez la branch 1_starting_ci
 
 `git checkout 1_starting_ci`
 
@@ -35,11 +35,11 @@ Duration: 1
 
 Un pipeline de CI est déjà présent dans ce repo, nous allons l'exécuter.
 
-Dans le panneau de gauche, rendez-vous dans: `CI/CD` > `Pipelines`.
+Dans le panneau de gauche, rendez-vous dans : `CI/CD` > `Pipelines`.
 
 Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `1_starting_ci`.
 
-Si la CI ne se lance pas est que Gitlab demande de saisir une carte banquaire, il faut aller dans 
+Si la CI ne se lance pas est que Gitlab demande de saisir une carte bancaire, il faut aller dans 
 `settings` >>  `CI/CD`, puis décocher `Enable shared runners for this project`
 
 ![Disable-runners](./docs/tp1/disable_shared_runners.png)
@@ -113,9 +113,9 @@ pages:
 ```
 
 ## Exercice: Compléter le pipeline de CI pour le faire passer au vert
-Duration: 1
+Durée : 1 min
 
-Votre mission si vous l'acceptez: éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
+Votre mission si vous l'acceptez : éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
 
 Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.
 
@@ -128,16 +128,16 @@ git config --global user.name "Your Name"
 
 Vous pourrez ensuite `commit` et `push`
 
-Pour `push` git demandera votre id et mot de passe ge gitlab. Une alternative est de mettre en place une clef ssh ou un 
-personnal access token.
+Pour `push`, Git demandera vos identifiants et mot de passe de Gitlab. Une alternative est de mettre en place une clef SSH ou un 
+personal access token.
 
 ## Pour aller plus loin
 
 Ajouter à votre CI :
-- Une détection d'inadéquations au standards pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
+- Une détection d'inadéquations au standard pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
 - Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
 
 Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.gitlab.com/ee/ci/quick_start/) documentation.
 
-Finalement vous pouvez explorer comment ajouter des vérifications de sécurités dans votre ci avec le template SAST en lisant [cette](https://docs.gitlab.com/ee/user/application_security/sast/#configure-sast-manually) documentation.
+Finalement vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://docs.gitlab.com/ee/user/application_security/sast/#configure-sast-manually) documentation.
 

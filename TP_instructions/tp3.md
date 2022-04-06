@@ -6,10 +6,10 @@ status: Published
 authors: OCTO Technology
 Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
 
-# TP3 - DevOps, Cloud et Infra-Code
+# TP3 - DevOps, Cloud et Infra-as-Code
 
-## Overview
-Duration: 20
+## Vue d'ensemble
+Durée : 20 min
 
 Les manipulations seront faites par les formateurs pour ce TP.
 
