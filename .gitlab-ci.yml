@@ -6,7 +6,8 @@ stages:
 test:
   stage: test
   script:
-  - pip install -r requirements.txt
-  - echo "TODO: install test requirements"
-  - echo "TODO: Trigger tests"
-  - bash -c "exit 1"
+    - pip install -r requirements.txt
+    - echo "TODO install test requirements"
+    - echo "TODO Trigger tests"
+    - bash -c "exit 1"
+
