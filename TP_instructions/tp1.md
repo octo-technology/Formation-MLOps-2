@@ -28,7 +28,7 @@ Pour ce TP, utilisez la branch 1_starting_ci
 `git checkout 1_starting_ci`
 
 Sur cette branche, il y a maintenant : 
-- Un fichier `.gitlab-ci.yml` qui contient le squelette d'une CI. 
+- Un fichier `.github/workflows/ci.yml` qui contient le squelette d'une CI. 
 
 ## Exécuter le pipeline de CI
 Duration: 1
@@ -40,7 +40,7 @@ Dans le panneau de gauche, rendez-vous dans : `CI/CD` > `Pipelines`.
 Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `1_starting_ci`.
 
 Si la CI ne se lance pas est que Gitlab demande de saisir une carte bancaire, il faut aller dans 
-`settings` >>  `CI/CD`, puis décocher `Enable shared runners for this project`
+`Actions` >>  `CI/CD`, puis décocher `Enable shared runners for this project`
 
 ![Disable-runners](./docs/tp1/disable_shared_runners.png)
 
