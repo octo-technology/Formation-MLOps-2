@@ -35,89 +35,17 @@ Duration: 1
 
 Un pipeline de CI est déjà présent dans ce repo, nous allons l'exécuter.
 
-Dans le panneau de gauche, rendez-vous dans : `CI/CD` > `Pipelines`.
+Comme vous avez forké un repo existant, github actions a besoin d'une notification de création de fichier dans `.github/workflows` 
+pour qu'il détecte qu'il y a une CI à exécuter.
 
-Puis cliquez sur `Run pipeline`: ![run pipeline](./docs/tp1/gitlab-run-pipeline.png) et valider le formulaire de déclenchement sur la branche `1_starting_ci`.
+Pour cela renommez le fichier `ci.yml` en `ci-workflow.yml`. (Le fichier peut avoir n'importe quel nom, tant qu'il est dans le bon repository cela marchera).
 
-Si la CI ne se lance pas est que Gitlab demande de saisir une carte bancaire, il faut aller dans 
-`Actions` >>  `CI/CD`, puis décocher `Enable shared runners for this project`
-
-![Disable-runners](./docs/tp1/disable_shared_runners.png)
-
-
-❌Malheureusement, le pipeline a échoué ...
-
-![pipeline tests rouge](./docs/tp1/gitlab-pipeline-tests-rouge.png)
-
-Il va falloir le faire passer au vert !
-
-## Un mot sur les pipelines Gitlab
-
-`Gitlab CI/CD` est un outil mis à disposition de Gitlab pour construire des pipelines de traitements.
-
-Ces pipelines peuvent être utilisés à des fins d'intégration continue.
-
-Le pipeline est décrit au travers de code, dans un fichier [.gitlab-ci.yml](../../.gitlab-ci.yml), à la racine du repo en langage [`YAML`](https://learnxinyminutes.com/docs/fr-fr/yaml-fr/), une spec de configuration similaire au `JSON`.
-
-La documentation de gitlab ainsi que les mot-clefs utilisables dans le `.gitlab-ci.yml` sont consultables sur <https://docs.gitlab.com/ee/ci/yaml/README.html>.
-
-### Exemple décrit en Python
-
-Un exemple officiel en Python est disponible sur le repository Gitlab de Gitlab: <https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml>, nous allons le décrire briévement ci-après:
-
-```yaml
-## Un exemple de fichier .gitlab-ci.yml
-
-# Le pipeline va s'exécuter dans une image docker.
-# En l'ocurrence, il s'agit de l'image python officielle
-# la plus à jour dans le dockerhub: https://hub.docker.com/r/library/python/tags/
-image: python:latest
-
-# Il est possible de définir des variables d'environnement
-# qui seront disponibles dans la suite du pipeline.
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
-# Une étape nommée "test" est ajoutée au pipeline
-test:
-  script:
-    - python setup.py test
-    - pip install tox flake8  # you can also use tox
-    - tox -e py36,flake8
-
-# Une étape nommé "run" est ajoutée au pipeline.
-# Elle s'exécutera si l'étape "test" se termine avec succès.
-run:
-  script:
-    - python setup.py bdist_wheel
-  # La direction "artifacts" permet de sauvegarder
-  # des objets construits lors de l'exécution du pipeline.
-  artifacts:
-    paths:
-      - dist/*.whl
-
-# Une étape nommé "pages" est ajoutée au pipeline.
-# Elle s'exécutera si l'étape "run" se termine avec succès.
-pages:
-  script:
-    - pip install sphinx sphinx-rtd-theme
-    - cd doc ; make html
-    - mv build/html/ ../public/
-  artifacts:
-    paths:
-      - public
-  # Cette étape "pages" ne s'exécutera que si l'étape précédente ("run") est réussie
-  # ET si la branche d'exécution du pipeline est master.
-  only:
-    - master
+Commitez et pushez ce changement
+```shell
+git add .github/workflows/ci.yml
+git commit -m "Rename workflow file"
+git push
 ```
-
-## Exercice: Compléter le pipeline de CI pour le faire passer au vert
-Durée : 1 min
-
-Votre mission si vous l'acceptez : éditez le fichier `.gitlab-ci.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
-
-Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.
 
 Comme il s'agit de notre premier commit il va falloir définir notre nom et notre adresse email :
 
@@ -126,10 +54,79 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-Vous pourrez ensuite `commit` et `push`
-
-Pour `push`, Git demandera vos identifiants et mot de passe de Gitlab. Une alternative est de mettre en place une clef SSH ou un 
+Pour `push`, Git demandera vos identifiants et mot de passe de Github. Une alternative est de mettre en place une clef SSH ou un 
 personal access token.
+
+Puis allez dans l'onglet github actions
+![onglet Actions](./docs/tp1/onglet-actions.png)
+
+❌Malheureusement, le pipeline a échoué ...
+
+![pipeline tests rouge](./docs/tp1/failed-ci.png)
+
+Il va falloir le faire passer au vert !
+
+## Un mot sur les pipelines Github
+
+`Github actions` est un outil mis à disposition de Github pour construire des pipelines de traitements.
+
+Ces pipelines peuvent être utilisés à des fins d'intégration continue.
+
+Le pipeline est décrit au travers de code, dans un fichier dans le dossier `.github/workflows` en langage [`YAML`](https://learnxinyminutes.com/docs/fr-fr/yaml-fr/), une spec de configuration similaire au `JSON`.
+
+La documentation des github Actions ainsi que les mot-clefs utilisables dans les workflows sont consultables sur <https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>.
+
+### Exemple décrit en Python
+
+Un exemple officiel en Python est disponible sur le repository Github: <https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>, nous allons le décrire briévement ci-après:
+
+```yaml
+# Nom du workflow tel que visible dans l'interface
+name: Python package
+
+# Evènements qui vont lancer la CI
+on: [push]
+
+jobs:
+  build:
+    # Configuration de la machine utilisée pour lancer la CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
+
+    steps:
+      # Pull du code
+      - uses: actions/checkout@v3
+      # Mise en place de python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest
+        run: |
+          pytest
+```
+
+## Exercice: Compléter le pipeline de CI pour le faire passer au vert
+Durée : 1 min
+
+Votre mission si vous l'acceptez : éditez le fichier `.github/workflow/ci-workflow.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
+
+Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.
+
+Vous pourrez ensuite `commit` et `push`
 
 ## Pour aller plus loin
 
