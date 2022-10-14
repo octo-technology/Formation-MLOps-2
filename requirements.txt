@@ -20,3 +20,4 @@ apache-airflow==2.1.0
 mlflow==1.17.0
 
 werkzeug==1.0.1
+protobuf==3.20.3
