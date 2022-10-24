@@ -33,7 +33,7 @@ fonctions `function_name_with_io`
 
 ## Scripts à disposition
 
-Le dossier `dsin2/scripts` contient des scripts d'entraînement et de prédiction pour notre cas d'usage de Machine Learning.
+Le dossier `ocac-mlops2/scripts` contient des scripts d'entraînement et de prédiction pour notre cas d'usage de Machine Learning.
 
 Nous allons désormais voir comment orchestrer ces tâches grâce à `Airflow`.
 
@@ -60,7 +60,7 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/dsin2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
+  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/ocac-mlops2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -102,11 +102,11 @@ Afin de s'entraîner, il va nous falloir des données d'entraînement !
 
 Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande `make dataset`.
 
-Les données sont désormais disponibles dans `dsin2/data/la-haute-borne-data-2017-2020.csv`.
+Les données sont désormais disponibles dans `ocac-mlops2/data/la-haute-borne-data-2017-2020.csv`.
 
 Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
 
-- Installer le package en ouvrant un nouveau terminal, `cd dsin2; pip install .`
+- Installer le package en ouvrant un nouveau terminal, `cd ocac-mlops2; pip install .`
 
 Pour lancer le DAG `train`:
 

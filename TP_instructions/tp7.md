@@ -36,7 +36,7 @@ Flask est un microserveur d'application. Il est souvent utilisé en Python pour 
 
 ### Lancer l'API et requêter la route health
 
-- Se rendre dans `dsin2-public-ocac/exposition/model_as_a_service/`
+- Se rendre dans `ocac-mlops2/exposition/model_as_a_service/`
 - Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
 
 ⚠ Le serveur Flask ne sera pas consultable dans votre navigateur !
