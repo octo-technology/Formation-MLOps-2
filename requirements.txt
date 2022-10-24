@@ -3,7 +3,7 @@ pandas==1.2.4
 pyarrow==4.0.1
 
 # Model manipulation
-scikit-learn==0.24.2
+scikit-learn==1.1.2
 joblib==1.0.1
 
 # Data base
@@ -20,3 +20,4 @@ apache-airflow==2.1.0
 mlflow==1.17.0
 
 werkzeug==1.0.1
+protobuf==3.20.3
