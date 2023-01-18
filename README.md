@@ -60,3 +60,8 @@ git checkout branch
 git cherry-pick <commihash>
 git push
 ```
+
+Or to run it on many branches at once, here on branch 0 to 7
+```shell
+ git branch -a  | grep remotes/origin/[0-7] | cut  -c18- | xargs -d $'\n' sh -c 'for arg do git checkout "$arg"; git cherry-pick >>commit-hash<<²; git push; done' 
+```
