@@ -1,9 +1,0 @@
-image: "python:3.8"
-
-stages:
-  - test
-
-test:
-  stage: test
-  script:
-  - pip install -r requirements.txt
