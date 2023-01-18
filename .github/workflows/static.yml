@@ -1,0 +1,45 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - dev
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get claat
+        run: |
+          wget https://github.com/googlecodelabs/tools/releases/download/v2.0.2/claat-linux-amd64
+          chmod +x claat-linux-amd64 
+          
+      - name: Run claat
+        run: |
+          cd TP_instructions
+          ../claat-linux-amd64 export tp*.md
+          sed -i 's/codelab-elements\//codelab-elements-tmp\//' tp*/index.html # Tmp fix linked to an issue with codelab elements see https://github.com/googlecodelabs/tools/issues/796
+
+      - name: Create public directory
+        run: mkdir _site
+
+      - name: Copy files to public directory
+        run: | 
+          cp -r TP_instructions/* _site
+          ls _site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
