@@ -22,6 +22,6 @@ def test_airflow_should_find_all_expected_dag_ids():
 
     # When
     found_dags = set(given_dagbag.dag_ids)
-
+    print(found_dags)
     # Then
     assert expected_dag_ids.issubset(found_dags)
