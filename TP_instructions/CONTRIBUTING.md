@@ -14,7 +14,7 @@ Il n'est pas pérenne de modifier les fichiers HTML directement, ils seront écr
 Il est préférable de les générer comme suit:
 
 ```bash
-cd dsin2/TP_instructions;
+cd TP_instructions;
 claat export tp*.md;
 ```
 

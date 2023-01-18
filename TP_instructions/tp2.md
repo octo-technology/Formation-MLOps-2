@@ -4,7 +4,7 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
+Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
 
 # TP2 - Pyramide de tests
 
@@ -30,9 +30,9 @@ Sur cette branche, il y a maintenant :
 
 Dans cette partie, nous allons rédiger un test fonctionnel avec l'outil `Behave`.
 
-Pour cela, il y a un squelette de test fonctionnel à compléter dans `dsin2/tests/test_functional/features/training_workflow.feature`.
+Pour cela, il y a un squelette de test fonctionnel à compléter dans `tests/test_functional/features/training_workflow.feature`.
 
-Le test correspondant se trouve dans `dsin2/tests/test_functional/features/steps/training_workflow.py`.
+Le test correspondant se trouve dans `tests/test_functional/features/steps/training_workflow.py`.
 
 ## Tests fonctionnels avec Behave dans la CI
 

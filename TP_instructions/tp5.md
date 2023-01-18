@@ -4,7 +4,7 @@ categories: tp, artifacts
 tags: artifacts
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
+Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
 
 # TP5 - Artefacts
 

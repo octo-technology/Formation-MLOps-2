@@ -4,7 +4,7 @@ readonly APP_DIRECTORY=${SCRIPT_DIRECTORY}/..
 
 function main
 {
-    echo "[*] Measure tests pyramid for dsin2 repository.";
+    echo "[*] Measure tests pyramid for MLOps 2 repository.";
 
     set -o errexit
     set -o pipefail

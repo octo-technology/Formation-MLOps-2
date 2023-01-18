@@ -8,7 +8,7 @@ On retrouve dans ce dépôt de code, tout le code relatif aux TPs de la formatio
  - [ ] Déployer et installer l'environnement de TP sur AWS
  
 ### Récupérer les slides de la formation
-Les dernières slides de la formation DSIN2 sont disponibles sur le [Drive d'OCAC](https://drive.google.com/drive/folders/1yeeUWUCE1QPrsFcvEKmdHeq_hxnewpql). 
+Les dernières slides de la formation formation MLOps 2 sont disponibles sur le [Drive d'OCAC](https://drive.google.com/drive/folders/1yeeUWUCE1QPrsFcvEKmdHeq_hxnewpql). 
 
 Cette version des slides est utilisée par tous les formateurs, il est donc préférable de ne pas la modifier directement.
 

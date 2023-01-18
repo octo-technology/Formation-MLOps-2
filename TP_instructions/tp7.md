@@ -4,7 +4,7 @@ categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
-Feedback Link: https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/formation/dsin2/-/issues/new
+Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
 
 # TP7 - Exposition de modèles
 
@@ -36,7 +36,7 @@ Flask est un microserveur d'application. Il est souvent utilisé en Python pour 
 
 ### Lancer l'API et requêter la route health
 
-- Se rendre dans `dsin2-public-ocac/exposition/model_as_a_service/`
+- Se rendre dans `exposition/model_as_a_service/`
 - Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
 
 ⚠ Le serveur Flask ne sera pas consultable dans votre navigateur !
