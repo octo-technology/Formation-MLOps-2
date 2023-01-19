@@ -24,5 +24,6 @@ jobs:
       - name: Run Vulture
         run: vulture formation_indus_ds_avancee scripts exposition dags --min-confidence 100
       - name: Run tests
+        continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
         run: python -m pytest tests/test_unit
 
