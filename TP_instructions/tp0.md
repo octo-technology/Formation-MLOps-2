@@ -86,3 +86,6 @@ make tests-unitaires
 ```
 
 
+## Lien vers le TP suivant
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp1#0)

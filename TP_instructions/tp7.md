@@ -151,3 +151,7 @@ Dans le dossier `exposition/exposing_predictions/` se trouve la définition de c
 L'application Streamlit affiche des prédictions déjà réalisées.
 
 ![streamlit-exposing-predictions](./docs/tp7/streamlit-exposing-predictions.png)
+
+## Lien vers le TP suivant
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp8#0)

@@ -19,3 +19,7 @@ Le formateur montre les différents éléments d'infrastructure déployés avec 
 - Ansible,
 - Docker,
 - Docker-compose
+
+## Lien vers le TP suivant
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp4#0)

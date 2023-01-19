@@ -126,3 +126,7 @@ Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` da
 
 ## Pour aller plus loin
 Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder comment utiliser les fichiers générés par le DAG `get_data_from_engie_hub.py` dans le DAG `predict`. 
+
+## Lien vers le TP suivant
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp5#0)

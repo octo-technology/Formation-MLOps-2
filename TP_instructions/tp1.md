@@ -138,3 +138,6 @@ Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cet
 
 Finalement vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://docs.gitlab.com/ee/user/application_security/sast/#configure-sast-manually) documentation.
 
+## Lien vers le TP suivant
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp2#0)

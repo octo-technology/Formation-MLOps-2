@@ -51,3 +51,7 @@ Compléter la chaîne d'intégration continue avec une step `qualite` afin de
   - `./tests/tests_pyramid.sh`
 
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)
+
+## Lien vers le TP suivant
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp3#0)
