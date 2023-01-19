@@ -32,7 +32,7 @@ Sur cette branche, il y a maintenant :
 
 ## Monitoring des prédictions et enregistrement dans une DB
 
-- Définir une sonde de monitoring sous forme de fonction Python
+### Définir une sonde de monitoring sous forme de fonction Python
 
 Dans le fichier `formation_indus_ds_avancee/monitoring.py`, créez une fonction `monitor` qui retournera la valeur de
 votre choix à monitorer. Cette valeur sera enregistrée dans la DB PostgreSQL grâce à la fonction `monitor_with_io`
@@ -42,9 +42,13 @@ Vous devez écrire une ligne par run, donc créer un dataframe qui contient 1 li
 le `prediction_time` et un indicateur agrégé,
 par exemple la moyenne de prédictions calculée à ce moment-là
 
-- Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour qu’il soit vert.
+### Tester
 
-- Spécifier la table PostgreSQL dans laquelle enregistrer les valeurs à monitorer
+Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour qu’il soit vert.
+
+### Choisir la table dans la base de données
+
+Spécifier la table PostgreSQL dans laquelle enregistrer les valeurs à monitorer
 
 Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique
 différent de celui des autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
@@ -53,7 +57,9 @@ Une fois cela fait, retirer du fichier `.github/worflows/ci.yml` la
 ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"`
 qui permettait d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
 
-- Relancer Airflow et le DAG de prédiction
+### Re-démarrer Airflow
+
+Relancer Airflow et le DAG de prédiction
 
 La tâche `monitor` devrait s'exécuter. Il nous faut désormais créer un dashboard de suivi des valeurs renvoyées par
 notre fonction.
