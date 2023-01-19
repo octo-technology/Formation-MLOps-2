@@ -1,4 +1,4 @@
-# Formation Industrialisation d'un projet de data science avancée
+# Formation MLOps 2 : Mise en production de modèle de ML
 
 Pour suivre ce TP nous allons utiliser les GitHub pages suivantes : 
 
