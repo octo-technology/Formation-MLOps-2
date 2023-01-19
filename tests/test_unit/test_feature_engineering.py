@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pandas as pd
 import numpy as np
 from formation_indus_ds_avancee.feature_engineering import create_date_features, get_season, \
@@ -7,7 +9,7 @@ from pandas.testing import assert_frame_equal
 
 def test_create_date_features_should_create_features_year_month_season():
     # Given
-    input_df = pd.DataFrame({'Date_time': [pd.datetime(2020, 6, 21)]})
+    input_df = pd.DataFrame({'Date_time': [datetime(2020, 6, 21)]})
 
     # When
     df_output = create_date_features(input_df)
