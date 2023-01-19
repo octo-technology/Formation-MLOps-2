@@ -1,4 +1,4 @@
-# Formation Industrialisation d'un projet de data science avancée
+# Formation MLOps 2 : Mise en production de modèle de ML
 
 ## Introduction
 On retrouve dans ce dépôt de code, tout le code relatif aux TPs de la formation DSIN2. Ces TPs sont à réaliser sur l'environnement de TP nommé dslab.
