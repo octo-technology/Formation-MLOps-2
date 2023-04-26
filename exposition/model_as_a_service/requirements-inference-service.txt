@@ -1,2 +1,2 @@
-Flask==1.1.2
-formation_indus_ds_avancee-1.0-py3-none-any.whl
+Flask==2.2.2
+formation_indus_ds_avancee-1.1-py3-none-any.whl
