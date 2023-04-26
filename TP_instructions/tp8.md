@@ -68,7 +68,8 @@ notre fonction.
 
 Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table PostgreSQL.
 
-- Accéder à Grafana sur le port `9000` et se connecter avec l'identifiant `admin` et le mot de passe `admin`
+- Accéder à Grafana à l'adresse `https://lab.aws.octo.training/grafana` et se connecter avec l'identifiant `admin` et le
+  mot de passe `admin`
 
 - Créer la connexion à la DB PostgreSQL
 

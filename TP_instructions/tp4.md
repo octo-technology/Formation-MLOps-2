@@ -9,6 +9,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 # TP4 - Orchestration
 
 ## Vue d'ensemble
+
 Durée : 60 min
 
 ### À l'issue de cette section, vous aurez découvert
@@ -24,12 +25,13 @@ Pour ce TP, utilisez la branch 4_starting_orchestration
 
 `git checkout 4_starting_orchestration`
 
-Sur cette branche, il y a maintenant : 
+Sur cette branche, il y a maintenant :
+
 - Un DAG `dags/train.py` qui permet d'entraîner un modèle
 - Un DAG `dags/predict.py` qui est incomplet et qui permettra de réaliser des prédictions
-- Les fonctions existantes dans `formation_indus_avancee/` ont été décorées avec des `read` et des `write` pour donner des 
-fonctions `function_name_with_io`
- 
+- Les fonctions existantes dans `formation_indus_avancee/` ont été décorées avec des `read` et des `write` pour donner
+  des
+  fonctions `function_name_with_io`
 
 ## Scripts à disposition
 
@@ -50,7 +52,8 @@ Pour répondre à ce problème, nous avons décoré la fonction de prédiction a
 - une fonction permettant de lire un fichier en entrée,
 - et d'écrire le résultat de la tâche dans un fichier en sortie.
 
-A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_indus_ds_avancee`, nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
+A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_indus_ds_avancee`,
+nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
 
 Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 
@@ -60,7 +63,8 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 ## Démarrer avec Airflow
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
-  - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/Formation-MLOps-2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
+    - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/Formation-MLOps-2/dags`, cela permet d'indiquer à
+      airflow où se situent vos DAGs
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -87,7 +91,7 @@ Les identifiants de connection à airflow sont `admin` `admin`
 
 ![launcher](./docs/tp4/launcher-airflow.png)
 
-L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet, un message d'alerte vous préviendra que le 
+L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet, un message d'alerte vous préviendra que le
 `scheduler` ne répond pas, car il n'est pas démarré.
 
 - En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
@@ -104,7 +108,7 @@ Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la 
 
 Les données sont désormais disponibles dans `data/la-haute-borne-data-2017-2020.csv`.
 
-Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie 
+Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie
 
 - Installer le package en ouvrant un nouveau terminal, `cd Formation-MLOps-2; pip install .`
 
@@ -123,9 +127,10 @@ Inspecter le DAG `train` en cliquant sur celui-ci, la tâche `prepare_features` 
 
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
 
-
 ## Pour aller plus loin
-Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder comment utiliser les fichiers générés par le DAG `get_data_from_engie_hub.py` dans le DAG `predict`. 
+
+Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder comment utiliser les fichiers générés par
+le DAG `get_data_from_engie_hub.py` dans le DAG `predict`.
 
 ## Lien vers le TP suivant
 
