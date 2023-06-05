@@ -14,7 +14,7 @@ Durée : 15 min
 
 Cette partie permet de préparer l'environnement de travail pour les TPs.
 
-## Créer un compte sur Gitlab
+## Créer un compte sur Github
 
 Durée : 2 min
 
@@ -25,15 +25,15 @@ un : <https://github.com/login>.
 
 Puis, cliquez sur `Create account`:
 
-![Page de connexion à gitlab.com](./docs/tp0/github-sign-in-page.png)
+![Page de connexion à github.com](./docs/tp0/github-sign-in-page.png)
 
-### Fork du repository de TP dans votre espace personnel Gitlab
+### Fork du repository de TP dans votre espace personnel Github
 
 Une fois votre compte créé, rendez-vous sur la page du repository de code de cette
 formation : <https://github.com/octo-technology/Formation-MLOps-2>
 
 Puis `forkez` le repo à l'aide du bouton `Fork` en haut à droite pour récupérer une copie de ce dernier dans votre
-espace Gitlab personnel :
+espace Github personnel :
 
 ![bouton fork](docs/tp0/github-fork-button.png)
 
@@ -73,7 +73,7 @@ Rendez-vous sur votre environnement de développement.
 L'URL de ce dernier vous sera communiqué pendant la formation.
 
 Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`.
-Vous trouverez l'URL de clonage en HTTPS sur gitlab, dans le repo que vous avez forké :
+Vous trouverez l'URL de clonage en HTTPS sur github, dans le repo que vous avez forké :
 
 Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis `terminal`
 puis `new terminal`.
@@ -95,6 +95,25 @@ Exécutons les tests pour s'assurer que tout fonctionne !
 ```bash
 make tests-unitaires
 ```
+
+## Créer un token d'authentification
+
+Durée : 5min
+
+Depuis peu, github ne supporte plus l'authentification en username-password, notamment pour pousser son code. 
+
+Il est possible d'utiliser une clé ssh et un token d'authentification, c'est ce que nous allons faire.
+
+Allez sur github.com, puis en étant connecté(e), allez dans les paramètres 
+![bouton params](docs/tp0/github_settings.png)
+
+Puis, scrollez et allez dans la section "Developer settings"
+![bouton params](docs/tp0/github_developer_settings.png)
+
+Puis dans "personal acess tokens/Tokens (classic)", générez un nouveau token avec les droits sur les repo et sur les workflows
+![bouton params](docs/tp0/github_tokens.png)
+
+Copiez-collez votre token, vous n'y aurez plus accès ensuite, vous l'utiliserez pour pousser votre code 
 
 ## Lien vers le TP suivant
 

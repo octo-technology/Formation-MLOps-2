@@ -1,7 +1,7 @@
 summary: TP1 - Introduction à la CI/CD
 id: tp1
 categories: CI
-tags: CI,CD,gitlab
+tags: CI,CD
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
@@ -13,13 +13,13 @@ Durée : 30 min
 
 ### À l'issue de cette section, vous aurez découvert :
 
-- 📄Comment lire un fichier de pipeline `.gitlab-ci.yml`,
-- 🚀Comment exécuter un pipeline gitlab, manuellement ou via commit & push
-- 🖊Comment éditer un pipeline gitlab,
+- 📄Comment lire un fichier de pipeline `ci.yml`,
+- 🚀Comment exécuter un pipeline github Actions, manuellement ou via commit & push
+- 🖊Comment éditer un pipeline github,
 - ✅Comment tester le fonctionnement d'une application Python dans une chaîne d'intégration continue,
 - ✔ Comment mesurer la qualité d'une application Python dans une chaîne de CI,
 - 📦Comment packager une application Python dans une chaîne de CI, aux formats `wheel` et `docker`,
-- 🐳Comment manipuler les registres gitlab pour Python et Docker.
+- 🐳Comment manipuler les registres github pour Python et Docker.
 
 ### Présentation des nouveautés sur la branche de ce TP
 
@@ -124,7 +124,7 @@ Durée : 1 min
 
 Votre mission si vous l'acceptez : éditez le fichier `.github/workflow/ci-workflow.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
 
-Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur gitlab.
+Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur github.
 
 Vous pourrez ensuite `commit` et `push`
 
@@ -134,9 +134,9 @@ Ajouter à votre CI :
 - Une détection d'inadéquations au standard pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
 - Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
 
-Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.gitlab.com/ee/ci/quick_start/) documentation.
+Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.github.com/fr/actions/quickstart) documentation.
 
-Finalement vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://docs.gitlab.com/ee/user/application_security/sast/#configure-sast-manually) documentation.
+Finalement vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://github.com/marketplace/actions/sast-scan) documentation.
 
 ## Lien vers le TP suivant
 
