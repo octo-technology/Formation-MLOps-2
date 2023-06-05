@@ -54,8 +54,9 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-Pour `push`, Git demandera vos identifiants et mot de passe de Github. Une alternative est de mettre en place une clef SSH ou un 
-personal access token.
+Pour `push`, Git demandera vos identifiants et un mot de passe. Le mot de passe est le token que vous avez généré au TP0.
+
+Une alternative est de mettre en place une clef SSH.
 
 Puis allez dans l'onglet github actions
 ![onglet Actions](./docs/tp1/onglet-actions.png)
