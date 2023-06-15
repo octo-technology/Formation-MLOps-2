@@ -1,3 +1,3 @@
-formation_indus_ds_avancee-1.1-py3-none-any.whl
+formation_indus_ds_avancee-1.2-py3-none-any.whl
 pandas==1.5.2
-streamlit==1.17.0
+streamlit==1.23.1
