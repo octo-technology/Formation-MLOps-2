@@ -69,7 +69,7 @@ notre fonction.
 Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table PostgreSQL.
 
 - Accéder à Grafana à l'adresse `https://lab.aws.octo.training/grafana` et se connecter avec l'identifiant `admin` et le
-  mot de passe `admin`
+  mot de passe sera fourni par les formateurs.
 
 - Créer la connexion à la DB PostgreSQL
 
