@@ -9,7 +9,8 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 # TP3 - DevOps, Cloud et Infra-as-Code
 
 ## Vue d'ensemble
-Durée : 20 min
+
+Duration: 0:30:00
 
 Les manipulations seront faites par les formateurs pour ce TP.
 
@@ -21,5 +22,7 @@ Le formateur montre les différents éléments d'infrastructure déployés avec 
 - Docker-compose
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp4#0)

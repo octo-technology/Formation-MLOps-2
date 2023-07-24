@@ -9,7 +9,8 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 # TP1 - Introduction à la CI/CD
 
 ## Vue d'ensemble
-Durée : 30 min
+
+Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert :
 
@@ -31,7 +32,8 @@ Sur cette branche, il y a maintenant :
 - Un fichier `.github/workflows/ci.yml` qui contient le squelette d'une CI. 
 
 ## Exécuter le pipeline de CI
-Duration: 1
+
+Duration: 0:05:00
 
 Un pipeline de CI est déjà présent dans ce repo, nous allons l'exécuter.
 
@@ -69,6 +71,8 @@ Il va falloir le faire passer au vert !
 
 ## Un mot sur les pipelines Github
 
+Duration: 0:05:00
+
 `Github actions` est un outil mis à disposition de Github pour construire des pipelines de traitements.
 
 Ces pipelines peuvent être utilisés à des fins d'intégration continue.
@@ -78,6 +82,8 @@ Le pipeline est décrit au travers de code, dans un fichier dans le dossier `.gi
 La documentation des github Actions ainsi que les mot-clefs utilisables dans les workflows sont consultables sur <https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>.
 
 ### Exemple décrit en Python
+
+Duration: 0:05:00
 
 Un exemple officiel en Python est disponible sur le repository Github: <https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>, nous allons le décrire briévement ci-après:
 
@@ -121,7 +127,8 @@ jobs:
 ```
 
 ## Exercice: Compléter le pipeline de CI pour le faire passer au vert
-Durée : 1 min
+
+Duration: 0:10:00
 
 Votre mission si vous l'acceptez : éditez le fichier `.github/workflow/ci-workflow.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
 
@@ -130,6 +137,8 @@ Une fois que vous aurez apporté vos modifications, vous devrez commiter cela su
 Vous pourrez ensuite `commit` et `push`
 
 ## Pour aller plus loin
+
+Duration: 0:15:00
 
 Ajouter à votre CI :
 - Une détection d'inadéquations au standard pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
@@ -140,5 +149,7 @@ Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cet
 Finalement vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://github.com/marketplace/actions/sast-scan) documentation.
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp2#0)

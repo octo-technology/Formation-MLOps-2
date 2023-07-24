@@ -10,7 +10,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 60 min
+Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert :
 
@@ -31,6 +31,8 @@ Sur cette branche, il y a maintenant :
 - Une tâche en plus dans le DAG `dags/predict.py` qui exécute le monitoring.
 
 ## Monitoring des prédictions et enregistrement dans une DB
+
+Duration: 0:15:00
 
 ### Définir une sonde de monitoring sous forme de fonction Python
 
@@ -65,6 +67,8 @@ La tâche `monitor` devrait s'exécuter. Il nous faut désormais créer un dashb
 notre fonction.
 
 ## Affichage d'un dashboard de monitoring dans Grafana
+
+Duration: 0:15:00
 
 Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table PostgreSQL.
 

@@ -10,7 +10,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 30 min
+Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
@@ -32,12 +32,13 @@ Sur cette branche, il y a maintenant :
 - `exposing_predictions` une app Streamlit qui permet de voir les prédictions réalisées précédemment
 - `model_as_a_service` une API Flask qui permet de demander des prédictions
 
-## Développement d'API avec Flask
+
+## Lancer l'API et requêter la route health
+
+Duration: 0:15:00
 
 Flask est un microserveur d'application. Il est souvent utilisé en Python pour développer des APIs et exposer des
 ressources.
-
-### Lancer l'API et requêter la route health
 
 - Se rendre dans `exposition/model_as_a_service/`
 - Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
@@ -54,7 +55,9 @@ qu'il fonctionne (<http://localhost:5000/health>).
 
 ![requete-healthcheck](./docs/tp7/ping-healthcheck.png)
 
-### Implémenter la route predict
+## Implémenter la route predict
+
+Duration: 0:15:00
 
 La route `predict` n'est actuellement pas implémentée.
 
@@ -107,11 +110,11 @@ puis requêtez une prédiction sur <http://localhost:5000/predict>.
 
 ## Démo: Exposition | model as a service
 
+Duration: 0:10:00
+
 Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose
-vous pouvez le faire sur votre machine personnelle.
-Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose  vous pouvez le faire sur votre machine personnelle.  Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
 
 Une fois lancée, l'API est accessible à l'adresse https://lab.aws.octo.training/inference-api/predict et l'interface
 streamlit à l'adresse https://lab.aws.octo.training/inference-app.
@@ -121,8 +124,7 @@ Dans le dossier `exposition/model_as_a_service/` se trouve la définition de ces
 - une application de Dashboarding construite avec Streamlit dans `app.py`,
 - un service d'inférence construit avec Flask dans `inference.py`.
 
-L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par
-l'utilisateur.
+L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
 
 ![streamlit-model-as-a-service](./docs/tp7/streamlit-model-as-a-service.png)
 
@@ -132,11 +134,11 @@ l'utilisateur.
 
 ## Démo: Exposition | embedded model
 
+Duration: 0:10:00
+
 Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose
-vous pouvez le faire sur votre machine personnelle.
-Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
 
 Une fois lancée, l'application Streamlit avec modèle embarqué est accessible à l'
 adresse https://lab.aws.octo.training/embedded-model.
@@ -146,8 +148,7 @@ Dans le dossier `exposition/embedded_model/` se trouve la définition de ce serv
 - une application de Dashboarding construite avec Streamlit dans `embedded_model.py`,
 - il n'y a pas de service d'inférence.
 
-L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par
-l'utilisateur.
+L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
 
 ![streamlit-embedded-model](./docs/tp7/streamlit-embedded-model.png)
 
@@ -157,21 +158,22 @@ l'utilisateur.
 
 ## Démo: Exposition | Exposing predictions
 
+Duration: 0:10:00
+
 Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose
-vous pouvez le faire sur votre machine personnelle.
-Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
 
 Une fois lancée, l'application Streamlit est accessible à l'adresse https://lab.aws.octo.training/exposing-predictions.
 
-Dans le dossier `exposition/exposing_predictions/` se trouve la définition de ce service de Dashboarding
-dans `display_predictions.py`.
+Dans le dossier `exposition/exposing_predictions/` se trouve la définition de ce service de Dashboarding  dans `display_predictions.py`.
 
 L'application Streamlit affiche des prédictions déjà réalisées.
 
 ![streamlit-exposing-predictions](./docs/tp7/streamlit-exposing-predictions.png)
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp8#0)

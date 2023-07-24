@@ -9,10 +9,11 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 # TP6 - Model registry
 
 ## Vue d'ensemble
-Durée : 30 min
+
+Duration: 0:05:00
 
 
-### A l'issue de cette section, vous aurez découvert
+### À l'issue de cette section, vous aurez découvert
 
 - L'interface MLFlow tracking,
 - Comment stocker vos expérimentations dans MLFlow,
@@ -32,6 +33,8 @@ s'ouvrir dans un nouvel onglet.
 
 ## Intégrer MLFlow dans le code de training
 
+Duration: 0:05:00
+
 Pour logger le résultat des expérimentations dans MLFlow tracking il faut ajouter un peu de code sur le code d'entraînement.
 
 
@@ -47,6 +50,9 @@ with mlflow.start_run() as run:
 Une fois que vous avez intégré ce code, vous pouvez retourner dans l'interface Airflow et déclencher un entraînement.
 
 ## Explorer le run créé dans MLFlow
+
+Duration: 0:05:00
+
 Actualiser la page de MLFlow pour voir les runs apparaître
 
 ![MLFLOW-run](./docs/tp6/one_experiment.png)
@@ -58,6 +64,8 @@ Ensuite en cliquant sur le run, vous pouvez aller voir plus de détails et en de
 ![MLFLOW-artefact](./docs/tp6/artifact.png)
 
 ## Explorer le système de dossier de MLFlow
+
+Duration: 0:10:00
 
 En fait MLFlow est basé sur un système de dossier / fichiers plats qui contiennent tout ce que l'on vient de voir.
 En plus de cela, MLFlow se sert d'une base de donnée locale pour stocker les métadonnées liés aux runs
@@ -93,5 +101,7 @@ SELECT * FROM metrics;
 - Essayer de configurer une expérimentation
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp7#0)

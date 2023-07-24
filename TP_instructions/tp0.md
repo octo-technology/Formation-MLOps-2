@@ -10,13 +10,13 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 15 min
+Duration: 0:15:00
 
 Cette partie permet de préparer l'environnement de travail pour les TPs.
 
 ## Créer un compte sur Github
 
-Durée : 2 min
+Duration: 0:05:00
 
 ### Création du compte
 
@@ -42,7 +42,7 @@ dans votre environnement de développement.
 
 ## Prise en main de Jupyterhub, l'environnement de TP
 
-Durée : 3 min
+Duration: 0:05:00
 
 Pour vous connecter sur l'interface de TP, l'instructeur vous aura donné votre identifiant/mot de passe :
 ![Connection](docs/tp0/connection.png)
@@ -66,7 +66,7 @@ Vous pouvez également changer votre mot de passe [ici](https://lab.aws.octo.tra
 
 ## Préparer son environnement et cloner le repo
 
-Durée : 3min
+Duration: 0:05:00
 
 Rendez-vous sur votre environnement de développement.
 
@@ -98,7 +98,7 @@ make tests-unitaires
 
 ## Créer un token d'authentification
 
-Durée : 5min
+Duration: 0:05:00
 
 Depuis peu, github ne supporte plus l'authentification en username-password, notamment pour pousser son code. 
 

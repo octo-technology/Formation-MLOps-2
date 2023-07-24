@@ -9,7 +9,8 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 # TP2 - Pyramide de tests
 
 ## Vue d'ensemble
-Durée : 30 min
+
+Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
@@ -28,6 +29,8 @@ Sur cette branche, il y a maintenant :
 
 ## Tests fonctionnels avec Behave
 
+Duration: 0:05:00
+
 Dans cette partie, nous allons rédiger un test fonctionnel avec l'outil `Behave`.
 
 Pour cela, il y a un squelette de test fonctionnel à compléter dans `tests/test_functional/features/training_workflow.feature`.
@@ -36,6 +39,8 @@ Le test correspondant se trouve dans `tests/test_functional/features/steps/train
 
 ## Tests fonctionnels avec Behave dans la CI
 
+Duration: 0:15:00
+
 Compléter le squelette de test fonctionnel :
 
 - ✅ Il doit passer **en local** avec la commande `behave tests/test_functional/features`.
@@ -43,7 +48,9 @@ Compléter le squelette de test fonctionnel :
 
 ## Mesure de la qualité du code
 
-Compléter la chaîne d'intégration continue avec une step `qualite` afin de
+Duration: 0:05:00
+
+Compléter la chaîne d'intégration continue avec une étape `qualite` afin de
 
 - mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
   - `python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
@@ -53,5 +60,7 @@ Compléter la chaîne d'intégration continue avec une step `qualite` afin de
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp3#0)

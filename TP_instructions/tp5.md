@@ -9,7 +9,8 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 # TP5 - Artefacts
 
 ## Vue d'ensemble
-Durée : 15 min
+
+Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
@@ -24,6 +25,8 @@ Pour ce TP, utilisez la branch 5_starting_artifacts
 `git checkout 5_starting_artifacts`
 
 ## Versionner les modèles avec un timestamp
+
+Duration: 0:05:00
 
 Pour l'instant, les modèles sont sauvegardés par la fonction `train_model`.
 
@@ -48,5 +51,7 @@ Exécuter plusieurs entraînements devrait produire plusieurs modèles identifia
 - Quelles limitations voyez-vous à cette technique ?
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp6#0)

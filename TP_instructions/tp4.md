@@ -10,7 +10,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 60 min
+Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
@@ -35,15 +35,21 @@ Sur cette branche, il y a maintenant :
 
 ## Scripts à disposition
 
+Duration: 0:05:00
+
 Le dossier `scripts` contient des scripts d'entraînement et de prédiction pour notre cas d'usage de Machine Learning.
 
 Nous allons désormais voir comment orchestrer ces tâches grâce à `Airflow`.
 
 ## Revue de code avec les formateurs
 
+Duration: 0:10:00
+
 Revue de code avec les formateurs pour introduire les concepts de DAGs et de tâches dans le code.
 
 ### Gestion des IO
+
+Duration: 0:10:00
 
 Il n'est pas conseillé de passer de la donnée d'une tâche à l'autre dans un DAG Airflow.
 
@@ -61,6 +67,8 @@ Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 - latest.csv
 
 ## Démarrer avec Airflow
+
+Duration: 0:10:00
 
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
     - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/Formation-MLOps-2/dags`, cela permet d'indiquer à
@@ -102,6 +110,8 @@ L'interface graphique devrait désormais afficher 3 DAGs :
 
 ## Lancer un premier DAG d'entraînement
 
+Duration: 0:05:00
+
 Afin de s'entraîner, il va nous falloir des données d'entraînement !
 
 Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande `make dataset`.
@@ -125,6 +135,8 @@ Inspecter le DAG `train` en cliquant sur celui-ci, la tâche `prepare_features` 
 
 ## DAG de prédiction
 
+Duration: 0:15:00
+
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
 
 ## Pour aller plus loin
@@ -133,5 +145,7 @@ Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder co
 le DAG `get_data_from_engie_hub.py` dans le DAG `predict`.
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp5#0)
