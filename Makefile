@@ -48,10 +48,10 @@ instructions:
 
 .PHONY: dataset  ## 🔽 télécharge les données
 dataset:
-	wget https://media.githubusercontent.com/media/EluciDATALab/elucidatalab.datasets/e8f874638103365a76d2156d9cd10d975cade185/data/D3.4/la-haute-borne-data-2013-2016.csv -o ./data/la-haute-borne-data-2013-2016.csv
-	# NOTE: solution de contournement a ameliorer en passant sur une source que nous maitrisons comme un repo octo
-	# le lien initiel ne fonctionne plus curl -L https://opendata-renewables.engie.com/media/datasets/01c55756-5cd6-4f60-9f63-2d771bb25a1a.zip
-
+	# le lien d'origine https://opendata-renewables.engie.com/media/datasets/01c55756-5cd6-4f60-9f63-2d771bb25a1a.zip est mort
+	# solution de contournement en hébergeant le dataset directement sur github
+	curl -L https://github.com/Loubout/la_haute_borne_data/raw/main/la-haute-borne-data-2017-2020.csv \
+  		-o data/la-haute-borne-data-2017-2020.csv
 
 .PHONY: airflow-setup  ## 💨  Initialize airflow backend: initdb > variables > connections
 airflow-setup:
