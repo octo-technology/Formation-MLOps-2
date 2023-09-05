@@ -37,6 +37,8 @@ espace Github personnel :
 
 ![bouton fork](docs/tp0/github-fork-button.png)
 
+⚠️ Attention : Veillez à décocher "Copy the 0_initial_state branch only" ⚠️
+
 🏁 Vous possédez désormais une copie personnelle du repository de code pour les TPs ! Nous allons désormais la cloner
 dans votre environnement de développement.
 
