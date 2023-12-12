@@ -37,12 +37,15 @@ Duration: 0:15:00
 ### Définir une sonde de monitoring sous forme de fonction Python
 
 Dans le fichier `formation_indus_ds_avancee/monitoring.py`, créez une fonction `monitor` qui retournera la valeur de
-votre choix à monitorer. Cette valeur sera enregistrée dans la DB PostgreSQL grâce à la fonction `monitor_with_io`
-associée à une tâche Airflow.
+votre choix à monitorer. 
 
-Vous devez écrire une ligne par run, donc créer un dataframe qui contient 1 ligne et au moins 2 colonnes
-le `prediction_time` et un indicateur agrégé,
-par exemple la moyenne de prédictions calculée à ce moment-là
+Retourner un data frame avec deux colonnes : 
+
+| prediction_time | Nom de votre indicateur (ex: prediction)        |
+|-----------------|-------------------------------------------------|
+| Datetime        | Une valeur aggrégée par run (exemple : moyenne) |
+
+Cette valeur sera enregistrée dans la DB PostgreSQL grâce à la fonction `monitor_with_io` associée à une tâche Airflow.
 
 ### Tester
 
@@ -52,12 +55,12 @@ Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour q
 
 Spécifier la table PostgreSQL dans laquelle enregistrer les valeurs à monitorer
 
-Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique
-différent de celui des autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
+Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique différent de celui des
+autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
 
 Une fois cela fait, retirer du fichier `.github/worflows/ci.yml` la
-ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"`
-qui permettait d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
+ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"` qui permettait
+d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
 
 ### Re-démarrer Airflow
 

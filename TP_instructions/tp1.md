@@ -41,10 +41,13 @@ Comme vous avez forké un repo existant, github actions a besoin d'une notificat
 pour qu'il détecte qu'il y a une CI à exécuter.
 
 Pour cela renommez le fichier `ci.yml` en `ci-workflow.yml`. (Le fichier peut avoir n'importe quel nom, tant qu'il est dans le bon repository cela marchera).
+```shell
+mv .github/workflows/ci.yml .github/workflows/ci-workflow.yml
+```
 
 Commitez et pushez ce changement
 ```shell
-git add .github/workflows/ci.yml
+git add .github/workflows/ci-workflow.yml
 git commit -m "Rename workflow file"
 git push
 ```
