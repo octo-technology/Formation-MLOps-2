@@ -86,7 +86,7 @@ En tapant la commande `git branch` vous pourrez constater que vous êtes sur la 
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances :
 
 ```bash
-conda create -yqf python=3.9 --name python_indus_avancee
+conda create -yqf python=3.10 --name python_indus_avancee
 source activate python_indus_avancee
 pip install -e .
 pip install -r requirements_test.txt
