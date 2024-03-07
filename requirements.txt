@@ -14,7 +14,7 @@ psycopg2-binary==2.9.5
 streamlit==1.23.1
 
 # Airflow
-apache-airflow==2.7.3
+apache-airflow==2.8.0
 
 # Mlflow
 mlflow==2.4.1
