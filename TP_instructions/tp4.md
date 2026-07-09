@@ -139,6 +139,26 @@ Duration: 0:15:00
 
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
 
+## Découvrir une implémentation légère d'un système événementiel
+
+Duration: 0:05:00
+
+Pour illustrer ce à quoi ressemble une architecture événementiel nous allons ouvrir deux terminals.
+1. L'émetteur : Il envoi des messages
+   - Ouvrir un terminal
+   - Créer la queue d'évènement : `touch /tmp/event.txt`
+   - Envoyez un message : `echo "Hello World" >> /tmp/event.txt`
+2. Le listener: il écoute les évènements et les traites. 
+  - Ouvrir un terminal
+  - Lancer la commande : `tail -f -n 1 /tmp/event.txt | xargs -I {} sh -c 'echo "{}" | wc -c'`
+  - Elle capture la dernière ligne du fichier event.txt, et cexécute une fonction métier, ici le nombre de lettre dans l'évènement.
+3. Essayer d'envoyer des nouveaux messages en observant le comportement du listener
+
+
+Cette implémentation basique est une illustration du comportement d'un système événementiel, si il y a un nouveau message il agit, sinon il ne fait rien. A la différnece d'un CRON qui tentera toujours de faire quelque chose, dont parfois constater la différence avec la précédente exé&cution.
+
+Les systèmes événementiels tels que Kafka, RabbitMQ... offre bien entendu plus de fonctionnalité, de robustesse, de scalabilité.
+
 ## Pour aller plus loin
 
 Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder comment utiliser les fichiers générés par
