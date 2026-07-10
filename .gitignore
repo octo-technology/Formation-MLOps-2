@@ -39,3 +39,4 @@ formation_mlops_2.egg-info/
 # Mlflow
 mlruns/
 mlartifacts/
+mlflow.db
