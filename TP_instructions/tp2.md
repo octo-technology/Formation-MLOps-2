@@ -17,6 +17,7 @@ Duration: 0:05:00
 - Comment écrire un test fonctionnel,
 - Comment se servir de `behave`,
 - Mesurer des indicateurs de qualité : code coverage et pyramide de tests,
+- Implémenter un test d'architecture.
 
 ### Présentation des nouveautés sur la branche de ce TP
 
