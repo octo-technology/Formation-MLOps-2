@@ -17,7 +17,7 @@ coverage.xml
 __pycache__/
 
 # Modèles sauvegardées dans la registry locale
-models/
+models/*
 !.gitkeep
 !models/20260710-112838.joblib
 prepared_features
