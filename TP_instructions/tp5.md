@@ -139,7 +139,7 @@ mlflow.sklearn.log_model(
 
 Lancez l'entraînement plusieurs fois et regardez la version du modèle s'incrémenter dans la Model Registry
 
-Parcourez le dossier `/home/jovyan/mlruns/0` pour voir vos artefacts organisés par run
+Parcourez le dossier `/home/jovyan/mlartifacts/0` pour voir vos artefacts organisés par run
 
 
 ## Lien vers le TP suivant
