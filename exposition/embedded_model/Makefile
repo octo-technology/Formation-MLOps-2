@@ -11,7 +11,7 @@ help:
 
 .PHONY: server  ## 🐍 lance l'application streamlit
 server:
-	streamlit run embedded_model.py
+	uv run streamlit run embedded_model.py
 
 .PHONY: docker-build  ## 🐳 pour builder l'image docker
 docker-build:

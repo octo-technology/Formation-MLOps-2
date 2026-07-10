@@ -11,9 +11,9 @@ help:
 
 .PHONY: inference-service  ## 🐍 lancer le service d'inférence
 inference-service:
-	FLASK_APP=inference.py python -m flask run --host='0.0.0.0'
+	uv run uvicorn inference:app --host 0.0.0.0 --port 5000
 
-.PHONY: docker-build-inference-service  ## 🐳 pour builder l'image docker du service d'inférence (Flask)
+.PHONY: docker-build-inference-service  ## 🐳 pour builder l'image docker du service d'inférence (FastAPI)
 docker-build-inference-service:
 	docker build -f dockerfile-inference-service -t inference-service:v1 .
 
@@ -23,7 +23,7 @@ docker-inference-service:
 
 .PHONY: app  ## 🐍 lancer l'application de dashboarding (app streamlit)
 app:
-	streamlit run app.py --server.port 8092
+	uv run streamlit run app.py --server.port 8092
 
 .PHONY: docker-build-app  ## 🐳 pour builder l'image docker de l'application de dashboarding (app streamlit)
 docker-build-app:

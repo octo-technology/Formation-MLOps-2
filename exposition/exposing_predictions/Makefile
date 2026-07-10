@@ -11,7 +11,7 @@ help:
 
 .PHONY: server  ## 🐍 lance l'application streamlit
 server:
-	streamlit run display_predictions.py
+	uv run streamlit run display_predictions.py
 
 .PHONY: docker-build  ## 🐳 pour builder l'image docker
 docker-build:

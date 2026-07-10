@@ -1,7 +1,7 @@
 summary: TP7 - Exposition de modèles
 id: tp7
 categories: tp, api
-tags: api, flask
+tags: api, fastapi
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
@@ -14,7 +14,7 @@ Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
-- Comment fonctionne une simple API Flask,
+- Comment fonctionne une simple API FastAPI,
 - Le pattern d'exposition `embedded model`,
 - Le pattern d'exposition `model as a service`,
 - Le pattern d'exposition `model published as data`,
@@ -30,20 +30,18 @@ Sur cette branche, il y a maintenant :
 - Un dossier exposition qui contient trois formats d'exposition
 - `embedded_model` une app Streamlit qui permet de demander des prédictions
 - `exposing_predictions` une app Streamlit qui permet de voir les prédictions réalisées précédemment
-- `model_as_a_service` une API Flask qui permet de demander des prédictions
+- `model_as_a_service` une API FastAPI qui permet de demander des prédictions
 
 
 ## Lancer l'API et requêter la route health
 
 Duration: 0:15:00
 
-Flask est un microserveur d'application. Il est souvent utilisé en Python pour développer des APIs et exposer des
-ressources.
+FastAPI est un framework Python permettant de développer des APIs et d'exposer des ressources. Il s'appuie sur
+uvicorn, un serveur ASGI, pour être exécuté.
 
 - Se rendre dans `exposition/model_as_a_service/`
-- Démarrer le serveur Flask d'exposition avec `FLASK_APP=inference.py python -m flask run`
-
-⚠ Le serveur Flask ne sera pas consultable dans votre navigateur !
+- Démarrer le serveur d'exposition avec `uv run uvicorn inference:app --host 0.0.0.0 --port 5000`
 
 Le serveur d'exposition est désormais disponible sur le port 5000 <http://localhost:5000>, avec :
 
@@ -67,9 +65,11 @@ Quelques informations relatives à la construction de route d'API :
 
 - Pour passer un argument dans l'appel à la route, ajoutez `?arg_name=value` à la route (
   exemple : <http://localhost:5000/predict?Ws1_avg=10>)
-- Pour récupérer la valeur d'un argument dans le code, utilisez `request.args.get('argument_name')` (
-  exemple : `received_wind_speed_avg = request.args.get('Ws1_avg')`)
-- Pour retourner un résultat dans une API flask, utilisez `jsonify` (exemple : `jsonify(prediction)`)
+- Pour récupérer la valeur d'un argument dans le code, déclarez-le directement comme paramètre typé de la fonction de
+  route, FastAPI l'extrait automatiquement de la query string (
+  exemple : `def predict_endpoint(Ws1_avg: str):`)
+- Pour retourner un résultat dans une API FastAPI, retournez directement l'objet Python (dict, liste, etc.), il sera
+  automatiquement sérialisé en JSON (exemple : `return prediction`)
 
 Comme le modèle prend de nombreuses variables en entrée, pour simplifier le TP nous vous proposons de ne passer que 1 ou
 2 arguments à la route d'API et fixer les autres par défaut. Pour cela voici un code qui créé un `dataframe` avec des
@@ -105,16 +105,16 @@ received_data_df = pd.DataFrame(
 
 Utilisez les méthodes `prepare_features` et `predict` pour réaliser une prédiction.
 
-Pour tester votre code éteignez l'API et redémarrez-la avec la commande `FLASK_APP=inference.py python -m flask run`
-puis requêtez une prédiction sur <http://localhost:5000/predict>.
+Pour tester votre code éteignez l'API et redémarrez-la avec la commande `uv run uvicorn inference:app --host 0.0.0.0 --port 5000`
+ puis requêtez une prédiction sur <http://localhost:5000/predict>.
 
 ## Démo: Exposition | model as a service
 
 Duration: 0:10:00
 
-Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
+Dans le dossier `exposition/` se trouvent un fichier `docker-compose.yaml`, exécutable avec `docker compose up --build`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose  vous pouvez le faire sur votre machine personnelle.  Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker vous pouvez le faire sur votre machine personnelle.  Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
 
 Une fois lancée, l'API est accessible à l'adresse https://lab.aws.octo.training/inference-api/predict et l'interface
 streamlit à l'adresse https://lab.aws.octo.training/inference-app.
@@ -122,23 +122,23 @@ streamlit à l'adresse https://lab.aws.octo.training/inference-app.
 Dans le dossier `exposition/model_as_a_service/` se trouve la définition de ces 2 services :
 
 - une application de Dashboarding construite avec Streamlit dans `app.py`,
-- un service d'inférence construit avec Flask dans `inference.py`.
+- un service d'inférence construit avec FastAPI dans `inference.py`.
 
 L'application Streamlit permet d'afficher une prédiction à la demande selon la valeur de `Ws1_avg` spécifiée par l'utilisateur.
 
 ![streamlit-model-as-a-service](./docs/tp7/streamlit-model-as-a-service.png)
 
 - Modifiez la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demander une prédiction
-- Observez les logs de docker-compose et constatez que le service Flask réalise les prédictions quand Streamlit les
+- Observez les logs de docker compose et constatez que le service FastAPI réalise les prédictions quand Streamlit les
   demande.
 
 ## Démo: Exposition | embedded model
 
 Duration: 0:10:00
 
-Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
+Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker compose up --build`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker vous pouvez le faire sur votre machine personnelle. Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
 
 Une fois lancée, l'application Streamlit avec modèle embarqué est accessible à l'
 adresse https://lab.aws.octo.training/embedded-model.
@@ -153,16 +153,16 @@ L'application Streamlit permet d'afficher une prédiction à la demande selon la
 ![streamlit-embedded-model](./docs/tp7/streamlit-embedded-model.png)
 
 - Modifiez la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demandez une prédiction
-- Observez les logs de docker-compose et constatez que le service Flask ne réalise pas de prédictions quand Streamlit
-  les demande.
+- Observez les logs de docker compose et constatez qu'aucun service FastAPI ne réalise de prédictions quand Streamlit
+  les demande (le modèle est chargé directement dans l'application Streamlit).
 
 ## Démo: Exposition | Exposing predictions
 
 Duration: 0:10:00
 
-Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker-compose up`.
+Dans le dossier `exposition/` se trouve un fichier `docker-compose.yaml`, exécutable avec `docker compose up --build`.
 
-NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker et Docker-compose vous pouvez le faire sur votre machine personnelle. Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
+NB : Il n'est pas possible d'exécuter cette commande dans l'environnement de TP. Si vous avez Docker vous pouvez le faire sur votre machine personnelle. Sinon, le formateur a déjà fait cela dans l'EC2 de TP.
 
 Une fois lancée, l'application Streamlit est accessible à l'adresse https://lab.aws.octo.training/exposing-predictions.
 

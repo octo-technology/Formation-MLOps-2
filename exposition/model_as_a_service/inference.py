@@ -1,23 +1,21 @@
 import pandas as pd
 from config import MODEL_PATH
-from flask import Flask, jsonify, request
+from fastapi import FastAPI
 
 from formation_mlops_2.feature_engineering import prepare_features
 from formation_mlops_2.train_and_predict import predict
 
-app = Flask(__name__)
+app = FastAPI()
 
 
-@app.route('/health')
+@app.get("/health")
 def health():
-    return jsonify({
-        "status": "ok"
-    })
+    return {"status": "ok"}
 
 
-@app.route('/predict')
-def predict_endpoint():
-    received_wind_speed_avg = request.args.get('Ws1_avg')
+@app.get("/predict")
+def predict_endpoint(Ws1_avg: str):  # noqa: N803
+    received_wind_speed_avg = Ws1_avg
     received_data = {
         "Wind_turbine_name": "R80721",
         "Date_time": "2017-02-08T08:00:00+01:00",
@@ -93,7 +91,7 @@ def predict_endpoint():
         "Yt_min": 20.5,
         "Yt_max": 20.799999,
         "Yt_std": 0.079999998,
-        "": received_wind_speed_avg,
+        "Ws1_avg": received_wind_speed_avg,
         "Ws1_min": 0.0,
         "Ws1_max": 1.9400001,
         "Ws1_std": 0.44,
@@ -156,11 +154,9 @@ def predict_endpoint():
         "Na_c_avg": 358.04999,
         "Na_c_min": None,
         "Na_c_max": None,
-        "Na_c_std": None
+        "Na_c_std": None,
     }
     received_data_df = pd.DataFrame(received_data, index=[0])
-    prepared_features_df = prepare_features(
-        received_data_df, training_mode=False)
-    prediction = predict(prepared_features_df, MODEL_PATH)[
-        'predictions'].to_dict()
-    return jsonify(prediction)
+    prepared_features_df = prepare_features(received_data_df, training_mode=False)
+    prediction = predict(prepared_features_df, MODEL_PATH)["predictions"].to_dict()
+    return prediction

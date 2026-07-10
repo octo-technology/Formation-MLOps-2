@@ -1,3 +1,5 @@
-formation_indus_ds_avancee-1.2-py3-none-any.whl
-pandas==1.5.2
-streamlit==1.23.1
+pandas==2.3.3
+scikit-learn>=1.9.0
+joblib>=1.5.3
+mlflow==3.13
+streamlit>=1.59.1

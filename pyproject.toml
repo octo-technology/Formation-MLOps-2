@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "formation-mlops-2"
 version = "0.1.0"
@@ -18,7 +22,7 @@ dependencies = [
 ]
 
 [tool.setuptools]
-py-modules = ['formation_mlops_2']
+packages = ['formation_mlops_2']
 
 [dependency-groups]
 dev = [
