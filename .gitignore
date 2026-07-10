@@ -40,3 +40,7 @@ formation_mlops_2.egg-info/
 mlruns/
 mlartifacts/
 mlflow.db
+
+# Secrets locaux (credentials, API keys)
+.env
+demos/.env
