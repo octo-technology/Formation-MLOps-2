@@ -106,27 +106,21 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-      # Pull du code
-      - uses: actions/checkout@v3
-      # Mise en place de python
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with flake8
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      - name: Test with pytest
-        run: |
-          pytest
+        # Pull du code
+        - uses: actions/checkout@v6
+        - name: Set up Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.x'
+        - name: Install the code linting and formatting tool Ruff
+          run: pipx install ruff
+        - name: Lint code with Ruff
+          run: ruff check --output-format=github --target-version=py39
+        - name: Check code formatting with Ruff
+          run: ruff format --diff --target-version=py39
+          continue-on-error: true
+        - name: Test with pytest
+          run: pytest
 ```
 
 ## Exercice: Compléter le pipeline de CI pour le faire passer au vert
@@ -144,12 +138,12 @@ Vous pourrez ensuite `commit` et `push`
 Duration: 0:15:00
 
 Ajouter à votre CI :
-- Une détection d'inadéquations au standard pep8 avec la librairie `flake8` ([disponible sur pypi](https://pypi.org/project/flake8/))
+- Une détection d'inadéquations au standard pep8 avec la librairie `ruff` ([disponible sur pypi](https://pypi.org/project/ruff/))
 - Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
 
 Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.github.com/fr/actions/quickstart) documentation.
 
-Finalement vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://github.com/marketplace/actions/sast-scan) documentation.
+Finalement, vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://github.com/marketplace/actions/sast-scan) documentation.
 
 ## Lien vers le TP suivant
 

@@ -59,6 +59,20 @@ Compléter la chaîne d'intégration continue avec une étape `qualite` afin de
 
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)
 
+## Mettre en place un test d'architecture
+
+Duration: 0:10:00
+
+Grâce aux agents de code, nous sommes capables d'écrire des tests complexes qui permettent de valider le respect de standard d'architecture.
+
+Dans le dossier tests/test_architecture, ajouter un test qui valide que l'ensemble des écritures avec les méthode `to_csv` utilisent bien l'argument `index=False` qui évite d'écrire l'index comme colonne.
+
+N'hésitez pas à demander à un assistant de code pour vous aider : 
+1. Lui demander de coder le test
+2. Tester le cas vert : tout marche
+3. Introduire un problème et vérifier que le test est rouge.
+
+
 ## Lien vers le TP suivant
 
 Duration: 0:01:00
