@@ -36,11 +36,14 @@ Pour suivre ces TPs, nous allons utiliser les pages gitlab suivantes :
 
 [TP 5 Artefacts](https://octo-technology.github.io/Formation-MLOps-2/tp5#0)
 
-[TP 6 Model registry](https://octo-technology.github.io/Formation-MLOps-2/tp6#0)
+[TP 6 Couplage / découplage, async / sync](https://octo-technology.github.io/Formation-MLOps-2/tp6#0)
 
 [TP 7 Exposition](https://octo-technology.github.io/Formation-MLOps-2/tp7#0)
 
 [TP 8 Monitoring](https://octo-technology.github.io/Formation-MLOps-2/tp8#0)
+[TP 9 Traces d'un agent](https://octo-technology.github.io/Formation-MLOps-2/tp9#0)
+[TP 10 Pydantic](https://octo-technology.github.io/Formation-MLOps-2/tp10#0)
+[TP 11 Shadow production](https://octo-technology.github.io/Formation-MLOps-2/tp11#0)
 
 ## Modifier les TPs, 
 

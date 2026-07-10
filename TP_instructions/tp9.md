@@ -1,12 +1,12 @@
-summary: TP6
-id: tp6
+summary: TP9
+id: tp9
 categories: tp, api
 tags: api, flask
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
 
-# TP6 - Couplage / Découplage / Async / Sync
+# TP9 - Traces d'un agent
 
 ## Vue d'ensemble
 
@@ -24,12 +24,6 @@ Duration: 0:05:00
 
 Duration: 0:05:00
 // TODO
-
-## Démonstration de l'utilisation de Async / Sync
-
-Duration: 0:05:00
-// TODO
-
 
 
 
