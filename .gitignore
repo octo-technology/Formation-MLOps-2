@@ -2,20 +2,11 @@
 .idea/
 airflow_home/__init__.py
 dags/__pycache__/
-formation_indus_ds_avancee.egg-info/
 formation_mlops_2/__pycache__/
 formation_mlops_2/unittests.cfg
-la-haute-borne-data-2017-2020.csv
-tests/__pycache__/
-data/la-haute-borne-data-2013-2016.csv
-data/la-haute-borne-data-2017-2020.csv
+
 */logs/*
 logs/
-la-haute-borne-data-2013-2016.csv
-scripts/.ipynb_checkpoints/
-scripts/__init__.py
-scripts/random_forest.joblib
-scripts/submission.csv
 
 # Rapports produits par pytest
 htmlcov/
@@ -26,8 +17,9 @@ coverage.xml
 __pycache__/
 
 # Modèles sauvegardées dans la registry locale
-models/*
+models/
 !.gitkeep
+!models/20260710-112838.joblib
 prepared_features
 
 # Ignore predictions
@@ -42,6 +34,8 @@ dags/unittests.cfg
 # Packaging artefacts
 build/
 dist/
+formation_mlops_2.egg-info/
+
+# Mlflow
 mlruns/
 mlartifacts/
-formation_mlops_2.egg-info/
