@@ -121,9 +121,37 @@ app = FastAPI(lifespan=lifespan)
 
 Relancer les temps sur les méthodes de sync et non-blocking.
 
-## Pour aller plus loin
+### Schéma d'illustration
 
-// TODO
+Le schéma ci-dessous montre, pour un worker uvicorn, qui exécute chaque type de route :
+
+```mermaid
+flowchart TB
+    Client["Client (curl)"]
+
+    subgraph W1["Worker uvicorn"]
+        Route1["/blocking, /nonblocking<br/>(async def)"]
+        Route2["/sync<br/>(def)"]
+
+        Route1 -->|"exécuté directement par"| EL1["Event loop asyncio<br/>1 seul thread"]
+        Route2 -->|"délégué à"| TP1
+
+        subgraph TP1["Threadpool"]
+            direction LR
+            T1a["Thread 1"]
+            T1b["Thread 2"]
+            T1c["Thread N"]
+        end
+    end
+
+    Client --> W1
+```
+
+Points clés à retenir :
+- Le client appelle une route, qui détermine ensuite **où** elle va s'exécuter : `/blocking` et `/nonblocking` sont des coroutines (`async def`), donc l'event loop les exécute lui-même, sur son unique thread. `/sync` est une fonction classique (`def`), donc elle est déléguée à un thread du threadpool.
+- Un seul **event loop** (un seul thread) par worker → si `/blocking` bloque ce thread avec `time.sleep`, tout le worker gèle.
+- Le **threadpool** a plusieurs threads → les appels à `/sync` peuvent s'exécuter en parallèle, chacun dans son propre thread (limité par défaut à ~40 threads, ou 1 quand on le restreint plus bas dans ce TP).
+- En augmentant le nombre de worker, on pourrait augmenter le nombre de threads du threadpool.
 
 ## Lien vers le TP suivant
 
