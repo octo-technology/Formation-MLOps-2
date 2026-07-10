@@ -1,6 +1,6 @@
 """Utilitaire de diagnostic : liste les modèles Bedrock disponibles
 (et les profils d'inférence) sur le compte/région configurés dans
-demos/.env, pour trouver le bon `modelId` à utiliser dans agent_mlflow.py.
+demos/.env, pour trouver le bon `modelId` à utiliser dans integration_mlflow_agent.py.
 
 Lancer avec :
     uv run python demos/list_bedrock_models.py

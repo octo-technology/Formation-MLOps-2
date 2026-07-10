@@ -1,34 +1,17 @@
-"""Démo : un agent minimaliste (Amazon Bedrock) dont les traces sont
-loguées automatiquement dans MLflow.
-
-Pré-requis :
-- MLflow qui tourne sur http://localhost:5000
-- Un fichier `demos/.env` (non versionné, voir `.env.example`) contenant :
-    AWS_BEARER_TOKEN_BEDROCK=<ta clé Bedrock>
-    AWS_REGION=<ta région>
-
-Lancer avec :
-    uv run python demos/agent_mlflow.py
-"""
-
 import json
 import os
 from pathlib import Path
 
 import boto3
-import mlflow
 import mlflow.bedrock
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent / ".env")
 
-MODEL_ID = "amazon.nova-lite-v1:0"  # modèle Bedrock peu cher
+MODEL_ID = os.getenv("MODEL_ID")
 
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("agent-demo")
-
-# mlflow.bedrock.autolog() capture automatiquement chaque appel au modèle
-# (prompt, réponse, tool calls) et les envoie comme trace dans MLflow.
 mlflow.bedrock.autolog()
 
 bedrock = boto3.client("bedrock-runtime", region_name=os.environ.get("AWS_REGION"))
@@ -67,8 +50,7 @@ TOOL_CONFIG = {
 def run_agent(question: str) -> str:
     messages = [{"role": "user", "content": [{"text": question}]}]
 
-    # 1er appel : le modèle peut soit répondre directement, soit demander
-    # à utiliser l'outil get_weather.
+    # 1er appel : le modèle peut soit répondre directement, soit demander à utiliser l'outil get_weather.
     response = bedrock.converse(modelId=MODEL_ID, messages=messages, toolConfig=TOOL_CONFIG)
     output_message = response["output"]["message"]
     messages.append(output_message)
