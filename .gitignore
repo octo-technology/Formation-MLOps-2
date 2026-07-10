@@ -42,4 +42,5 @@ dags/unittests.cfg
 # Packaging artefacts
 build/
 dist/
-mlruns/*
+mlruns/
+mlartifacts/

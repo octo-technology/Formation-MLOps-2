@@ -24,8 +24,9 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
         model.fit(df_x, y)
         mlflow.sklearn.log_model(
             sk_model=model,
-            artifact_path="sklearn_model",
-            registered_model_name="sklearn_model"
+            name="sklearn_model",
+            registered_model_name="sklearn_model",
+            
         )
     time_str = time.strftime('%Y%m%d-%H%M%S')
     joblib.dump(model, os.path.join(model_registry_folder, time_str + '.joblib'))
