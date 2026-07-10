@@ -14,33 +14,26 @@ help:
 	grep -E '^\.PHONY: [a-zA-Z0-9_-]+ .*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = "(: |##)"}; {printf "\033[36m%-30s\033[0m %s\n", $$2, $$3}'
 
-.PHONY: conda-env  ## 🐍 créé l'environnement conda python_indus_avancee, et le récréé s'il existe déjà
-conda-env:
-	conda create -yqf python=3.9 --name python_indus_avancee
+.PHONY: install  ## 🐍 créé l'environnement conda python_indus_avancee, et le récréé s'il existe déjà
+install:
+	uv sync --locked --all-groups
 
-.PHONY: dependencies  ## ⏬ installe les dépendances de production
-dependences:
-	pip install -r requirements.txt
-
-.PHONY: dependences-de-test  ## 🧪 installe toutes les dépendances, y compris celles de test
-dependences-de-test:
-	$(MAKE) dependences && pip install -r requirements_test.txt && pip install -e .
-
-.PHONY: tests  ## ✅ lance tous les tests
-tests:
+.PHONY: validation  ## ✅ lance tous les validation
+validation:
+	uv run ruff check .
 	$(MAKE) tests-unitaires && $(MAKE) tests-fonctionnels
 
 .PHONY: tests-unitaires  ## ✅ lance les tests unitaires
 tests-unitaires:
-	python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings
+	uv run pytest
 
 .PHONY: tests-fonctionnels  ## ✅ lance les tests fonctionnels
 tests-fonctionnels:
-	python -m behave tests/test_functional/features
+	uv run behave tests/test_functional/features/
 
 .PHONY: distribution  ## 📦 crée le package au format wheel
 distribution:
-	python3 setup.py sdist bdist_wheel
+	uv build
 
 .PHONY: instructions  ## 📄 Génère les instructions de TPs au format codelabs
 instructions:
@@ -56,13 +49,22 @@ dataset:
 .PHONY: airflow-setup  ## 💨  Initialize airflow backend: initdb > variables > connections
 airflow-setup:
 	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
-	airflow initdb
+	uv run airflow db
 
 .PHONY: airflow-webserver  ## 🌐  Run airflow web server
 airflow-webserver:
 	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
-	airflow webserver --port 8080
+	uv run airflow api-server
 
+.PHONY: airflow-scheduler  ## 🌐  Run airflow scheduler
 airflow-scheduler:
 	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
-	airflow scheduler
+	uv run airflow scheduler
+
+
+
+.PHONY: airflow-pod-processor  ## 🌐  Run airflow pod-processor
+airflow-pod-processor:
+	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
+	uv run airflow pod-processor
+

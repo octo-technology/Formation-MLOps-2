@@ -44,3 +44,4 @@ build/
 dist/
 mlruns/
 mlartifacts/
+formation_mlops_2.egg-info/

@@ -17,6 +17,9 @@ dependencies = [
     "streamlit>=1.59.1",
 ]
 
+[tool.setuptools]
+py-modules = ['formation_mlops_2']
+
 [dependency-groups]
 dev = [
     "behave>=1.3.3",

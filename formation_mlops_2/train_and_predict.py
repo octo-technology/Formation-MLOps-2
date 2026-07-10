@@ -26,7 +26,6 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
             sk_model=model,
             name="sklearn_model",
             registered_model_name="sklearn_model",
-            
         )
     time_str = time.strftime('%Y%m%d-%H%M%S')
     joblib.dump(model, os.path.join(model_registry_folder, time_str + '.joblib'))
