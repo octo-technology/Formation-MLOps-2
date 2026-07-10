@@ -12,7 +12,7 @@ permissions:
 
 
 jobs:
-  build:
+  build-pages:
     runs-on: ubuntu-latest
 
     steps:
