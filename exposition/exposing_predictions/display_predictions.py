@@ -1,9 +1,8 @@
-import pandas as pd
-import streamlit as st
-
 import glob
 import os
 
+import pandas as pd
+import streamlit as st
 from config import PREDICTIONS_FOLDER
 
 predictions_files = glob.glob(os.path.join(PREDICTIONS_FOLDER, '*.csv'))

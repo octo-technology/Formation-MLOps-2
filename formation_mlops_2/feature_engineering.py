@@ -1,5 +1,5 @@
+import logging
 import os
-from typing import List
 
 import pandas as pd
 
@@ -14,16 +14,13 @@ def prepare_features_with_io(data_path: str, features_path: str, training_mode: 
 
 def prepare_features_on_last_file_with_io(data_folder: str, features_path: str, training_mode: bool = True) -> None:
     last_file = max([file for file in os.listdir(data_folder) if file.startswith('2020')])
-    print(f"Preparing file {last_file}")
+    logging.info(f"Preparing file {last_file}")
     prepare_features_with_io(os.path.join(data_folder, last_file), features_path, training_mode=training_mode)
 
 
 def prepare_features(data: pd.DataFrame, training_mode: bool = True) -> pd.DataFrame:
     target = 'Ba_avg'
-    if training_mode:
-        data = data.dropna(subset=[target], axis=0)
-    else:
-        data = data.drop(columns=[target], errors='ignore')
+    data = data.dropna(subset=[target], axis=0) if training_mode else  data.drop(columns=[target], errors='ignore')
     data = create_date_features(data)
     data = data.sort_values(by='date')
     features = ['Q_avg', 'Q_min', 'Q_max', 'Q_std']
@@ -51,25 +48,25 @@ def get_season(month: int) -> int:
     return (month % 12 + 3) // 3
 
 
-def fillna_with_previous_values(features: List[str], df: pd.DataFrame) -> pd.DataFrame:
+def fillna_with_previous_values(features: list[str], df: pd.DataFrame) -> pd.DataFrame:
     for feature in features:
-        df[feature] = df[feature].fillna(method='ffill')
+        df[feature] = df[feature].ffill()
     return df
 
 
-def fillna_with_mean(features: List[str], df: pd.DataFrame) -> pd.DataFrame:
+def fillna_with_mean(features: list[str], df: pd.DataFrame) -> pd.DataFrame:
     for feature in features:
         df[feature] = df[feature].fillna(df[feature].mean())
     return df
 
 
-def fillna_with_median(features: List[str], df: pd.DataFrame) -> pd.DataFrame:
+def fillna_with_median(features: list[str], df: pd.DataFrame) -> pd.DataFrame:
     for feature in features:
         df[feature] = df[feature].fillna(df[feature].median())
     return df
 
 
-def fillna_with_mean_of_last_values(features: List[str], df: pd.DataFrame, window: int, min_per: int) -> pd.DataFrame:
+def fillna_with_mean_of_last_values(features: list[str], df: pd.DataFrame, window: int, min_per: int) -> pd.DataFrame:
     for feature in features:
         df[feature] = df[feature].fillna(df[feature].rolling(window, min_periods=min_per).mean())
     return df

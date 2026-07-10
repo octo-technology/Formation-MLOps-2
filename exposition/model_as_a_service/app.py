@@ -1,6 +1,5 @@
 import requests
 import streamlit as st
-
 from config import INFERENCE_HOST
 
 st.title('My Wind Turbine App')

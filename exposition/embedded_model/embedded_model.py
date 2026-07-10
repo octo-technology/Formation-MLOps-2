@@ -1,9 +1,9 @@
 import pandas as pd
 import streamlit as st
-
 from config import MODEL_PATH
-from formation_indus_ds_avancee.feature_engineering import prepare_features
-from formation_indus_ds_avancee.train_and_predict import predict
+
+from formation_mlops_2.feature_engineering import prepare_features
+from formation_mlops_2.train_and_predict import predict
 
 st.title('My Wind Turbine App with an embedded model')
 

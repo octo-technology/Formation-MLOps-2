@@ -1,17 +1,16 @@
 import os
 import sys
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
 import pendulum
 from airflow.decorators import dag, task
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
-from dags.config import GENERATED_DATA_PATH, DATA_FOLDER, MODEL_PATH, PREDICTIONS_FOLDER, MONITORING_TABLE_NAME
-from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
-from formation_indus_ds_avancee.monitoring import monitor_with_io
-from formation_indus_ds_avancee.train_and_predict import predict_with_io
-
+from dags.config import DATA_FOLDER, GENERATED_DATA_PATH, MODEL_PATH, MONITORING_TABLE_NAME, PREDICTIONS_FOLDER
+from formation_mlops_2.feature_engineering import prepare_features_with_io
+from formation_mlops_2.monitoring import monitor_with_io
+from formation_mlops_2.train_and_predict import predict_with_io
 
 
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(minutes=2),

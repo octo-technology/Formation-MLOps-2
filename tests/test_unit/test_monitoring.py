@@ -5,7 +5,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 from dags.config import MONITORING_TABLE_NAME
-from formation_indus_ds_avancee.monitoring import monitor_with_io
+from formation_mlops_2.monitoring import monitor_with_io
 
 
 @patch('pandas.read_csv')

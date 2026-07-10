@@ -15,13 +15,13 @@ def train_model_with_io(features_path: str, model_registry_folder: str) -> None:
 
 def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
     target = 'Ba_avg'
-    X = features.drop(columns=[target])
+    df_x = features.drop(columns=[target])
     y = features[target]
     with mlflow.start_run():
         # log_models set to False because it doesn't work so we will log manually
         mlflow.sklearn.autolog(log_models=False)
         model = RandomForestRegressor(n_estimators=1, max_depth=10, n_jobs=1)
-        model.fit(X, y)
+        model.fit(df_x, y)
         mlflow.sklearn.log_model(
             sk_model=model,
             artifact_path="sklearn_model",
