@@ -1,11 +1,20 @@
+from typing import Annotated
+
 import pandas as pd
 from config import MODEL_PATH
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
+from pydantic import BaseModel, Field
 
 from formation_mlops_2.feature_engineering import prepare_features
 from formation_mlops_2.train_and_predict import predict
 
 app = FastAPI()
+
+
+class PredictionQueryParams(BaseModel):
+    Ws1_avg: int = Field(
+        gt=0, description="Vitesse moyenne du vent, doit être un entier positif"
+    )
 
 
 @app.get("/health")
@@ -14,8 +23,8 @@ def health():
 
 
 @app.get("/predict")
-def predict_endpoint(Ws1_avg: str):  # noqa: N803
-    received_wind_speed_avg = Ws1_avg
+def predict_endpoint(params: Annotated[PredictionQueryParams, Depends()]):
+    received_wind_speed_avg = params.Ws1_avg
     received_data = {
         "Wind_turbine_name": "R80721",
         "Date_time": "2017-02-08T08:00:00+01:00",
