@@ -44,7 +44,7 @@ Duration: 0:15:00
 
 Compléter le squelette de test fonctionnel :
 
-- ✅ Il doit passer **en local** avec la commande `behave tests/test_functional/features`.
+- ✅ Il doit passer **en local** avec la commande `uv run behave tests/test_functional/features`.
 - ✅ Compléter la chaîne d'intégration continue en exécutant les tests fonctionnels dans le stage `test`.
 
 ## Mesure de la qualité du code
@@ -54,9 +54,10 @@ Duration: 0:05:00
 Compléter la chaîne d'intégration continue avec une étape `qualite` afin de
 
 - mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
-  - `python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
+  - `uv run pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
 - mesurer la pyramide de tests en exécutant le script
   - `./tests/tests_pyramid.sh`
+  - Si vous rencontrez un `permission denied`, lancer `chmod +x tests/tests_pyramid.sh`
 
 ![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)
 
@@ -64,16 +65,21 @@ Compléter la chaîne d'intégration continue avec une étape `qualite` afin de
 
 Duration: 0:10:00
 
-Grâce aux agents de code, nous sommes capables d'écrire des tests complexes qui permettent de valider le respect de standard d'architecture.
+Grâce aux agents de code, nous sommes capables d'écrire des tests complexes qui permettent de valider le respect de standards d'architecture.
 
-Dans le dossier tests/test_architecture, ajouter un test qui valide que l'ensemble des écritures avec les méthode `to_csv` utilisent bien l'argument `index=False` qui évite d'écrire l'index comme colonne.
+Dans le dossier tests/test_architecture, ajouter un test qui valide que l'ensemble des écritures avec la méthode `to_csv` utilisent bien l'argument `index=False` qui évite d'écrire l'index comme colonne.
 
 N'hésitez pas à demander à un assistant de code pour vous aider : 
 1. Lui demander de coder le test
 2. Tester le cas vert : tout marche
 3. Introduire un problème et vérifier que le test est rouge.
 
+Lancer le test avec la commande 
+```shell
+uv run pytest tests/test_architecture/test_to_csv_called_with_index_false.py
+```
 
+Dans la pratique, vous pouvez implémenter un test d'architecture pour chaque ADR, bug technique rencontré, standard.
 ## Lien vers le TP suivant
 
 Duration: 0:01:00

@@ -29,9 +29,7 @@ Sur cette branche, il y a maintenant :
 
 - Un DAG `dags/train.py` qui permet d'entraîner un modèle
 - Un DAG `dags/predict.py` qui est incomplet et qui permettra de réaliser des prédictions
-- Les fonctions existantes dans `formation_indus_avancee/` ont été décorées avec des `read` et des `write` pour donner
-  des
-  fonctions `function_name_with_io`
+- Les fonctions existantes dans `formation_mlops_2/` ont été décorées avec des `read` et des `write` pour donner des fonctions `function_name_with_io`
 
 ## Scripts à disposition
 
@@ -51,15 +49,14 @@ Revue de code avec les formateurs pour introduire les concepts de DAGs et de tâ
 
 Duration: 0:10:00
 
-Il n'est pas conseillé de passer de la donnée d'une tâche à l'autre dans un DAG Airflow.
+Il n'est pas conseillé de partager en mémoire de la donnée d'une tâche à l'autre dans un DAG Airflow, il convient plutôt de les écrires dans des fichiers.
 
 Pour répondre à ce problème, nous avons décoré la fonction de prédiction avec
 
 - une fonction permettant de lire un fichier en entrée,
 - et d'écrire le résultat de la tâche dans un fichier en sortie.
 
-A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_indus_ds_avancee`,
-nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
+A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_mlops_2`, nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
 
 Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 
@@ -73,6 +70,7 @@ Duration: 0:10:00
 - Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
     - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/Formation-MLOps-2/dags`, cela permet d'indiquer à
       airflow où se situent vos DAGs
+    - Mettre lod_examples à False afin de ne pas charger les DAGs d'exemples
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -85,24 +83,22 @@ dags_folder = /airflow/dags
 ...
 
 # Whether to load the examples that ship with Airflow.
-load_examples = True
+load_examples = False
 
 ...
 
-# How often (in seconds) to scan the DAGs directory for new files. Default to 5 minutes.
-dag_dir_list_interval = 300
 ```
 
 - Dans le `Launcher`, lancer le service `Airflow`.
 
-Les identifiants de connection à airflow sont `admin` `admin`
+Les identifiants de connection à airflow sont `admin:admin`
 
 ![launcher](./docs/tp4/launcher-airflow.png)
 
 L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet, un message d'alerte vous préviendra que le
 `scheduler` ne répond pas, car il n'est pas démarré.
 
-- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
+- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `uv run airflow scheduler`.
 
 L'interface graphique devrait désormais afficher 3 DAGs :
 

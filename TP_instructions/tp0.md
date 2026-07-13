@@ -83,12 +83,14 @@ puis `new terminal`.
 
 En tapant la commande `git branch` vous pourrez constater que vous êtes sur la branche `0_initial_state`
 
-Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances :
+Ensuite, nous allons créer un environnement de travail Python avec [uv](https://docs.astral.sh/uv/) et installer les dépendances :
 
 ```bash
 cd Formation-MLops-2
 make install
 ```
+
+NB : Ici nous avons installé uv au niveau de l'environnement de TP, dans la vraie vie, il faut l'installer sur votre machine. 
 
 Exécutons les tests pour s'assurer que tout fonctionne !
 
