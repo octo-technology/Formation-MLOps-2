@@ -26,7 +26,7 @@ Pour ce TP, utilisez la branch 8_starting_monitoring :
 
 Sur cette branche, il y a maintenant :
 
-- Un fichier `formation_indus_ds_avancee/monitoring.py` qui contient 2 fonctions `monitor_with_io` et `monitor`
+- Un fichier `formation_mlops_2/monitoring.py` qui contient 2 fonctions `monitor_with_io` et `monitor`
 - Un fichier de tests correspondant : `tests/test_unit/test_monitoring.py` qui teste la fonction `monitor_with_io`
 - Une tâche en plus dans le DAG `dags/predict.py` qui exécute le monitoring.
 
@@ -36,7 +36,7 @@ Duration: 0:15:00
 
 ### Définir une sonde de monitoring sous forme de fonction Python
 
-Dans le fichier `formation_indus_ds_avancee/monitoring.py`, créez une fonction `monitor` qui retournera la valeur de
+Dans le fichier `formation_mlops_2/monitoring.py`, créez une fonction `monitor` qui retournera la valeur de
 votre choix à monitorer. 
 
 Retourner un data frame avec deux colonnes : 
@@ -92,3 +92,9 @@ Nous allons ajouter une *Data Source* de type *PostgreSQL* et spécifier les par
 
 Il vous suffit de cliquer sur *New dashboard* > *Add Query*, et de spécifier la connexion et la table PostgreSQL
 (personnelle) créées lors des étapes précédentes.
+
+## Lien vers le TP suivant
+
+Duration: 0:01:00
+
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp9#0)

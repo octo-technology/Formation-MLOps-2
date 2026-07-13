@@ -146,4 +146,4 @@ Parcourez le dossier `/home/jovyan/mlartifacts/0` pour voir vos artefacts organi
 
 Duration: 0:01:00
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp7#0)
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp6#0)

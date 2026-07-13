@@ -18,7 +18,11 @@ Duration: 0:05:00
 // TODO
 ### Mise en place du TP
 
-// TODO
+Pour ce TP, utilisez la branch `<TODO_NOM_BRANCHE_TP6>`
+
+```shell
+git checkout <TODO_NOM_BRANCHE_TP6>
+```
 
 ## Démonstration du couplage / découplage
 
@@ -157,4 +161,4 @@ Points clés à retenir :
 
 Duration: 0:01:00
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp7#0) // To update
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp7#0)

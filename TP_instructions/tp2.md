@@ -54,7 +54,7 @@ Duration: 0:05:00
 Compléter la chaîne d'intégration continue avec une étape `qualite` afin de
 
 - mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
-  - `uv run pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings`
+  - `uv run pytest --cov=formation_mlops_2/ tests/test_unit/ -vv -p no:warnings`
 - mesurer la pyramide de tests en exécutant le script
   - `./tests/tests_pyramid.sh`
   - Si vous rencontrez un `permission denied`, lancer `chmod +x tests/tests_pyramid.sh`

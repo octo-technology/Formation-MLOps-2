@@ -14,7 +14,7 @@ help:
 	grep -E '^\.PHONY: [a-zA-Z0-9_-]+ .*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = "(: |##)"}; {printf "\033[36m%-30s\033[0m %s\n", $$2, $$3}'
 
-.PHONY: install  ## 🐍 créé l'environnement conda python_indus_avancee, et le récréé s'il existe déjà
+.PHONY: install  ## 🐍 créé l'environnement (via uv) et le récréé s'il existe déjà
 install:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 	uv sync --locked --all-groups

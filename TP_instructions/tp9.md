@@ -19,9 +19,10 @@ Duration: 0:10:00
 
 ### Mise en place du TP
 
-Récupérer la branche de ce TP
+Récupérer la branche de ce TP, utilisez la branch `<TODO_NOM_BRANCHE_TP9>`
+
 ```shell
-git checkout ...
+git checkout <TODO_NOM_BRANCHE_TP9>
 ```
 
 Explorer dans le dossier `demo` le fichier  [integration_mlflow_agent.py](../demos/integration_mlflow_agent.py)
@@ -91,4 +92,4 @@ Duration: 0:05:00
 
 Duration: 0:01:00
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp7#0) // To update
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp10#0)
