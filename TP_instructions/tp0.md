@@ -86,6 +86,7 @@ En tapant la commande `git branch` vous pourrez constater que vous êtes sur la 
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances :
 
 ```bash
+cd Formation-MLops-2
 make install
 ```
 

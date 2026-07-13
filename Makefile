@@ -16,6 +16,7 @@ help:
 
 .PHONY: install  ## 🐍 créé l'environnement conda python_indus_avancee, et le récréé s'il existe déjà
 install:
+	curl -LsSf https://astral.sh/uv/install.sh | sh
 	uv sync --locked --all-groups
 
 .PHONY: validation  ## ✅ lance tous les validation
