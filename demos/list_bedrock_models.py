@@ -32,5 +32,5 @@ try:
     for p in profiles:
         if "anthropic" in p["inferenceProfileId"] or "nova" in p["inferenceProfileId"]:
             print(f"- {p['inferenceProfileId']}")
-except Exception as e:  # noqa: BLE001
+except Exception as e:
     print(f"Impossible de lister les profils d'inférence : {e}")
