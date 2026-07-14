@@ -36,8 +36,7 @@ Duration: 0:15:00
 
 ### Définir une sonde de monitoring sous forme de fonction Python
 
-Dans le fichier `formation_mlops_2/monitoring.py`, créez une fonction `monitor` qui retournera la valeur de
-votre choix à monitorer. 
+Dans le fichier `formation_mlops_2/monitoring.py`, créez une fonction `monitor` qui retournera la valeur de votre choix à monitorer. 
 
 Retourner un data frame avec deux colonnes : 
 
@@ -55,12 +54,9 @@ Mettre à jour le test unitaire dans `tests/test_unit/test_monitoring.py` pour q
 
 Spécifier la table PostgreSQL dans laquelle enregistrer les valeurs à monitorer
 
-Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique différent de celui des
-autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
+Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique différent de celui des autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
 
-Une fois cela fait, retirer du fichier `.github/worflows/ci.yml` la
-ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"` qui permettait
-d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
+Une fois cela fait, retirer du fichier `.github/worflows/ci.yml` la ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"` qui permettait d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
 
 ### Re-démarrer Airflow
 
@@ -75,9 +71,7 @@ Duration: 0:15:00
 
 Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à partir de la table PostgreSQL.
 
-- Accéder à Grafana à l'adresse `https://lab.aws.octo.training/grafana` et se connecter avec l'identifiant `admin` et le
-  mot de passe sera fourni par les formateurs.
-
+- Accéder à Grafana à l'adresse `https://lab.aws.octo.training/grafana` et se connecter avec l'identifiant `admin` et le mot de passe sera fourni par les formateurs.
 - Créer la connexion à la DB PostgreSQL
 
 Nous allons ajouter une *Data Source* de type *PostgreSQL* et spécifier les paramètres suivants :
