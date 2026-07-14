@@ -89,16 +89,26 @@ load_examples = False
 
 ```
 
-- Dans le `Launcher`, lancer le service `Airflow`.
+- Dans le `Launcher`, lancer le service `Airflow`. Si le lancement indique `could not start airflow in time` cela peut vouloir dire que airflow n'a pas encore redémarré, essayer de refresh quelques secondes plus tard.
 
 Les identifiants de connection à airflow sont `admin:admin`
 
 ![launcher](./docs/tp4/launcher-airflow.png)
 
+Vous ne voyez pour l'instant pas de DAG, il faut alors lancer le dag processor
+```shell
+uv run airflow dag-processor
+```
+
+La mise à jour des dags sera faite par ce service, qui les refresh par défaut toutes les 30 secondes. Pour forcer un refresh vous pourrez l'arrêter et le relancer.
+
+
 L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet, un message d'alerte vous préviendra que le
 `scheduler` ne répond pas, car il n'est pas démarré.
 
-- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `uv run airflow scheduler`.
+- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
+
+Finalement, il faut lancer l'exécution : `airflow api-server --apps execution` pour qu'un service s'occupe de réaliser les tâches.
 
 L'interface graphique devrait désormais afficher 3 DAGs :
 
