@@ -8,9 +8,9 @@ from airflow.sdk import dag, task
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
 from dags.config import DATA_FOLDER, GENERATED_DATA_PATH, MODEL_PATH, MONITORING_TABLE_NAME, PREDICTIONS_FOLDER
-from formation_mlops_2.feature_engineering import prepare_features_with_io
-from formation_mlops_2.monitoring import monitor_with_io
-from formation_mlops_2.train_and_predict import predict_with_io
+from formation_mlops_2.feature_engineering_io import prepare_features_with_io
+from formation_mlops_2.monitoring_io import monitor_with_io
+from formation_mlops_2.train_and_predict_io import predict_with_io
 
 
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(minutes=2),

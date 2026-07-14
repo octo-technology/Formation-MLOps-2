@@ -8,7 +8,7 @@ from airflow.sdk import dag, task
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
 from dags.config import GENERATED_DATA_FOLDER, TRAIN_DATA_PATH
-from formation_mlops_2.data_loading import get_data_from_csv
+from formation_mlops_2.data_loading_io import get_data_from_csv
 
 
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(minutes=2),

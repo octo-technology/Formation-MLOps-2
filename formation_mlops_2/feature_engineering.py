@@ -1,27 +1,4 @@
-from __future__ import annotations
-
-import logging
-import os
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    import pandas as pd
-
-
-def prepare_features_with_io(data_path: str, features_path: str, training_mode: bool = True) -> None:
-    import pandas as pd
-
-    data = pd.read_csv(data_path, sep=';')
-
-    data = prepare_features(data, training_mode=training_mode)
-
-    data.to_parquet(features_path)
-
-
-def prepare_features_on_last_file_with_io(data_folder: str, features_path: str, training_mode: bool = True) -> None:
-    last_file = max([file for file in os.listdir(data_folder) if file.startswith('2020')])
-    logging.info(f"Preparing file {last_file}")
-    prepare_features_with_io(os.path.join(data_folder, last_file), features_path, training_mode=training_mode)
+import pandas as pd
 
 
 def prepare_features(data: pd.DataFrame, training_mode: bool = True) -> pd.DataFrame:
@@ -43,8 +20,6 @@ def prepare_features(data: pd.DataFrame, training_mode: bool = True) -> pd.DataF
 
 
 def create_date_features(data_frame: pd.DataFrame) -> pd.DataFrame:
-    import pandas as pd
-
     data_frame['date'] = pd.to_datetime(data_frame.Date_time, utc=True)
     data_frame['year'] = data_frame['date'].dt.year
     data_frame['month'] = data_frame['date'].dt.month

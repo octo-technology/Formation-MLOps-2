@@ -8,8 +8,8 @@ from airflow.sdk import dag, task
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
 from dags.config import DATA_FOLDER, MODEL_REGISTRY_FOLDER, TRAIN_DATA_PATH
-from formation_mlops_2.feature_engineering import prepare_features_with_io
-from formation_mlops_2.train_and_predict import train_model_with_io
+from formation_mlops_2.feature_engineering_io import prepare_features_with_io
+from formation_mlops_2.train_and_predict_io import train_model_with_io
 
 
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(weeks=4),

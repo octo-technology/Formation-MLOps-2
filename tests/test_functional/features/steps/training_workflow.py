@@ -3,8 +3,8 @@ from unittest.mock import patch
 
 from behave import given, then, when
 
-from formation_mlops_2.feature_engineering import prepare_features_with_io
-from formation_mlops_2.train_and_predict import train_model_with_io
+from formation_mlops_2.feature_engineering_io import prepare_features_with_io
+from formation_mlops_2.train_and_predict_io import train_model_with_io
 
 test_data_path = './tests/test_functional/test_data/'
 training_data_path = test_data_path + 'sub_eolienne_data.csv'
