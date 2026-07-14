@@ -1,19 +1,26 @@
+from __future__ import annotations
+
 import os
 import time
+from typing import TYPE_CHECKING
 
-import joblib
-import mlflow
-import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
+if TYPE_CHECKING:
+    import pandas as pd
 
 
 def train_model_with_io(features_path: str, model_registry_folder: str) -> None:
+    import pandas as pd
+
     features = pd.read_parquet(features_path)
 
     train_model(features, model_registry_folder)
 
 
 def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
+    import joblib
+    import mlflow
+    from sklearn.ensemble import RandomForestRegressor
+
     target = 'Ba_avg'
     df_x = features.drop(columns=[target])
     y = features[target]
@@ -32,6 +39,8 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
 
 
 def predict_with_io(features_path: str, model_path: str, predictions_folder: str) -> None:
+    import pandas as pd
+
     features = pd.read_parquet(features_path)
     features = predict(features, model_path)
     time_str = time.strftime('%Y%m%d-%H%M%S')
@@ -42,6 +51,8 @@ def predict_with_io(features_path: str, model_path: str, predictions_folder: str
 
 
 def predict(features: pd.DataFrame, model_path: str) -> pd.DataFrame:
+    import joblib
+
     model = joblib.load(model_path)
     features['predictions'] = model.predict(features)
     return features

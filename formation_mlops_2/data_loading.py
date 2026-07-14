@@ -1,10 +1,10 @@
 import datetime
 import os
 
-import pandas as pd
-
 
 def get_data_from_csv(train_data_path: str, data_folder: str) -> None:
+    import pandas as pd
+
     df = pd.read_csv(train_data_path, sep=';')
     random_line_1 = df.sample(n=1, random_state=1)
     random_line_1.Date_time = datetime.datetime.now()
