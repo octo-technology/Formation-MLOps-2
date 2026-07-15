@@ -14,7 +14,7 @@ def health():
 
 
 @app.get("/predict")
-def predict_endpoint(...):  # noqa
+def predict_endpoint():  # Add arg here
     received_wind_speed_avg = ...
     received_data = {
         "Wind_turbine_name": "R80721",
