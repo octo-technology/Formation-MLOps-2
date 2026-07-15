@@ -1,7 +1,7 @@
 import pandas as pd
+from config import MODEL_PATH
 from fastapi import FastAPI
 
-from config import MODEL_PATH
 from formation_mlops_2.feature_engineering import prepare_features
 from formation_mlops_2.train_and_predict import predict
 

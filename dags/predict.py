@@ -6,9 +6,8 @@ from airflow.sdk import dag, task
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
-from dags.config import DATA_FOLDER, GENERATED_DATA_PATH, MODEL_PATH, MONITORING_TABLE_NAME, PREDICTIONS_FOLDER
+from dags.config import DATA_FOLDER, GENERATED_DATA_PATH, MODEL_PATH, PREDICTIONS_FOLDER
 from formation_mlops_2.feature_engineering_io import prepare_features_with_io
-from formation_mlops_2.monitoring_io import monitor_with_io
 from formation_mlops_2.train_and_predict_io import predict_with_io
 
 
@@ -31,15 +30,8 @@ def predict():
                         model_path=MODEL_PATH,
                         predictions_folder=PREDICTIONS_FOLDER)
 
-    @task
-    def monitor_task():
-        monitor_with_io(predictions_folder=PREDICTIONS_FOLDER,
-                        monitoring_table_name=MONITORING_TABLE_NAME,
-                        db_con_str='postgresql://postgres:postgres@postgres:5432/postgres')
-
     feature_path = prepare_features_with_io_task()
     predict_with_io_task(feature_path=feature_path)
-    monitor_task()
 
 
 predict_dag = predict()
