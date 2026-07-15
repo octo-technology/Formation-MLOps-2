@@ -22,7 +22,7 @@ Duration: 0:10:00
 Récupérer la branche de ce TP, utilisez la branche suivante :
 
 ```shell
-git checkout <TODO_NOM_BRANCHE_TP9>
+git checkout 9_start_agent_traces
 ```
 
 Explorer dans le dossier `demo` le fichier [integration_mlflow_agent.py](../demos/integration_mlflow_agent.py)
