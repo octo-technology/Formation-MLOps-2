@@ -1,21 +1,11 @@
-from typing import Annotated
-
 import pandas as pd
-from config import MODEL_PATH
-from fastapi import Depends, FastAPI
-from pydantic import BaseModel, Field
+from fastapi import FastAPI
 
+from config import MODEL_PATH
 from formation_mlops_2.feature_engineering import prepare_features
 from formation_mlops_2.train_and_predict import predict
 
 app = FastAPI()
-
-
-class PredictionQueryParams(BaseModel):
-    Ws1_avg: int = Field(
-        gt=...,  # noqa
-        description="..."
-    )
 
 
 @app.get("/health")

@@ -3,16 +3,15 @@ import os
 from pathlib import Path
 
 import boto3
-import mlflow.bedrock
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent / ".env")
 
 MODEL_ID = os.getenv("MODEL_ID")
 
-mlflow.set_experiment("agent-demo")
-mlflow.bedrock.autolog()
+# Début d'insérer ici le code MLflow
 
+# Fin
 bedrock = boto3.client("bedrock-runtime", region_name=os.environ.get("AWS_REGION"))
 
 
