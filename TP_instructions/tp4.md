@@ -58,7 +58,7 @@ Pour répondre à ce problème, nous avons décoré la fonction de prédiction a
 - une fonction permettant de lire un fichier en entrée,
 - et d'écrire le résultat de la tâche dans un fichier en sortie.
 
-A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.py` dans `/formation_mlops_2`, nous avons créé une fonction `predict_with_io` qui soit utilisable par le DAG Airflow.
+Nous avons créé une fonction `train_with_io` & `predict_with_io` qui soient utilisables par le DAG Airflow.
 
 Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 
