@@ -45,6 +45,12 @@ uv run python demos/integration_mlflow_agent.py
 
 C'est dans le `__main__`, tout en bas du fichier qu'est définit la question posée. Le but ici étant de démontrer l'intégration de MLflow, l'intéraction est minimaliste pour limiter le code de démonstration. 
 
+
+Si le modèle n'est plus accessible, il est possible de lister les modèles dispo,ibles avec le script : 
+```shell
+uv run demos/list_bedrock_models.py
+```
+
 ## Intégrer le tracing dans mlflow.
 Duration: 0:05:00
 
