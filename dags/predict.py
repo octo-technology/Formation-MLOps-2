@@ -2,7 +2,6 @@ import os
 import sys
 from datetime import datetime, timedelta
 
-import pendulum
 from airflow.sdk import dag, task
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files

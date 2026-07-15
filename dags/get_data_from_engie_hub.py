@@ -1,6 +1,6 @@
 import os
 import sys
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
 from airflow.sdk import dag, task
 
@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__)))) 
 
 from dags.config import GENERATED_DATA_FOLDER, TRAIN_DATA_PATH
 from formation_mlops_2.data_loading_io import get_data_from_csv
+
 
 # Here we use catchup=False, due to TP contexte, in other contexte either use catchup=True,
 # or have your code deal with eventual missed runs

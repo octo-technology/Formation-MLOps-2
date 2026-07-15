@@ -1,8 +1,7 @@
 import os
 import sys
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
-import pendulum
 from airflow.sdk import dag, task
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
@@ -10,6 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__)))) 
 from dags.config import DATA_FOLDER, MODEL_REGISTRY_FOLDER, TRAIN_DATA_PATH
 from formation_mlops_2.feature_engineering_io import prepare_features_with_io
 from formation_mlops_2.train_and_predict_io import train_model_with_io
+
 
 # Here we use catchup=False, due to TP contexte, in other contexte either use catchup=True,
 # or have your code deal with eventual missed runs
