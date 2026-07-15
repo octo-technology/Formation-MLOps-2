@@ -20,7 +20,7 @@ jobs:
       - name: Run Linter
         run: uv run ruff check .
       - name: Run tests
-        run: uv run pytest/test_unit
+        run: uv run pytest tests/test_unit
       - name: Run functional tests
         run: uv run behave tests/test_functional/features/
       - name: Run tests
