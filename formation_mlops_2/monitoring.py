@@ -2,5 +2,7 @@ import pandas as pd
 
 
 def monitor(latest_predictions: pd.DataFrame) -> pd.DataFrame:
-    monitoring_df = latest_predictions.groupby('predictions_time').agg({'predictions': 'mean'}).reset_index()
+    # Start filling function
+    monitoring_df = pd.DataFrame
+    # End filling function
     return monitoring_df
