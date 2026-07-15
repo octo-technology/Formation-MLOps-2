@@ -1,7 +1,7 @@
 import pandas as pd
+from config import MODEL_PATH
 from fastapi import FastAPI
 
-from config import MODEL_PATH
 from formation_mlops_2.feature_engineering import prepare_features
 from formation_mlops_2.train_and_predict import predict
 
@@ -14,7 +14,7 @@ def health():
 
 
 @app.get("/predict")
-def predict_endpoint(Ws1_avg: str):
+def predict_endpoint(Ws1_avg: str):  # noqa
     received_wind_speed_avg = Ws1_avg
     received_data = {
         "Wind_turbine_name": "R80721",
