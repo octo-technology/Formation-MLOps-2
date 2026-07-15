@@ -1,8 +1,0 @@
-FROM python:3.11-slim
-COPY . /app
-WORKDIR /app
-RUN pip install -r requirements-app.txt
-WORKDIR /app
-ENV PYTHONPATH /app
-EXPOSE 8092
-CMD streamlit run app.py --server.port 8092
