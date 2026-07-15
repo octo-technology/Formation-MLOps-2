@@ -22,6 +22,7 @@ jobs:
       - name: Run tests
         run: uv run pytest tests/test_unit
       - name: Run functional tests
+        continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
         run: uv run behave tests/test_functional/features/
       - name: Run tests
         continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
