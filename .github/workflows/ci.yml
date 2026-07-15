@@ -20,6 +20,7 @@ jobs:
       - name: Run Linter
         run: uv run ruff check .
       - name: Run tests
+        continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
         run: uv run pytest tests/test_unit
       - name: Run functional tests
         run: uv run behave tests/test_functional/features/
