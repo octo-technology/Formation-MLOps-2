@@ -145,7 +145,7 @@ Pour lancer le DAG `train`:
 
 - Activer le DAG en appuyant sur le bouton `Play` (à droite de chaque ligne de DAG),
 
-![dag_play.png](docs/tp4/dag_play.png)![ui-airflow](./docs/tp4/ui-airflow-start.png)
+![dag_play.png](docs/tp4/dag_play.png)
 
 Inspecter le DAG `train` en cliquant sur celui-ci, la tâche `prepare_features` devrait avoir commencé :
 
