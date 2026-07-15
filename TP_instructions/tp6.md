@@ -22,7 +22,7 @@ Duration: 0:05:00
 Pour ce TP, utilisez la branche suivante : 
 
 ```shell
-git checkout <TODO_NOM_BRANCHE_TP6>
+git checkout 6_starting_async_sync
 ```
 
 ## Démonstration de l'utilisation de Async / Sync 
