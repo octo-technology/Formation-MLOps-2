@@ -23,15 +23,13 @@ def predict():
                                  features_path=features_path,
                                  training_mode=False)
         return features_path
-
-    @task
-    def predict_with_io_task(feature_path: str) -> None:
-        predict_with_io(features_path=feature_path,
-                        model_path=MODEL_PATH,
-                        predictions_folder=PREDICTIONS_FOLDER)
+    # Start completing predict task
+    def predict_with_io_task():
+        pass
+    # End completing predict task
 
     feature_path = prepare_features_with_io_task()
-    predict_with_io_task(feature_path=feature_path)
+    # predict_with_io_task(feature_path=feature_path)
 
 
 predict_dag = predict()
