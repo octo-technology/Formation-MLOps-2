@@ -64,8 +64,8 @@ airflow-scheduler:
 
 
 
-.PHONY: airflow-pod-processor  ## 🌐  Run airflow pod-processor
-airflow-pod-processor:
+.PHONY: airflow-dag-processor  ## 🌐  Run airflow dag-processor
+airflow-dag-processor:
 	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
-	uv run airflow pod-processor
+	uv run airflow dag-processor
 
