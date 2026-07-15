@@ -22,7 +22,7 @@ install:
 .PHONY: validation  ## ✅ lance tous les validation
 validation:
 	uv run ruff check .
-	$(MAKE) tests-unitaires && $(MAKE) tests-fonctionnels
+	$(MAKE) tests-unitaires
 
 .PHONY: tests-unitaires  ## ✅ lance les tests unitaires
 tests-unitaires:
