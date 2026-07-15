@@ -18,13 +18,7 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked --all-groups
       - name: Run Linter
-        run: uv run ruff check .
+        run: "Trainee should add command to run ruff"
       - name: Run tests
-        run: uv run pytest tests/test_unit
-      - name: Run functional tests
-        continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
-        run: uv run behave tests/test_functional/features/
-      - name: Run tests
-        continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
-        run: python -m pytest tests/test_architecture
+        run: "Trainee should add command to run test"
 
