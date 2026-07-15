@@ -65,15 +65,10 @@ Quelques informations relatives à la construction de route d'API :
 
 - Pour passer un argument dans l'appel à la route, ajoutez `?arg_name=value` à la route (
   exemple : <http://localhost:5000/predict?Ws1_avg=10>)
-- Pour récupérer la valeur d'un argument dans le code, déclarez-le directement comme paramètre typé de la fonction de
-  route, FastAPI l'extrait automatiquement de la query string (
-  exemple : `def predict_endpoint(Ws1_avg: str):`)
-- Pour retourner un résultat dans une API FastAPI, retournez directement l'objet Python (dict, liste, etc.), il sera
-  automatiquement sérialisé en JSON (exemple : `return prediction`)
+- Pour récupérer la valeur d'un argument dans le code, déclarez-le directement comme paramètre typé de la fonction de route, FastAPI l'extrait automatiquement de la query string (exemple : `def predict_endpoint(Ws1_avg: str):`)
+- Pour retourner un résultat dans une API FastAPI, retournez directement l'objet Python (dict, liste, etc.), il sera automatiquement sérialisé en JSON (exemple : `return prediction`)
 
-Comme le modèle prend de nombreuses variables en entrée, pour simplifier le TP nous vous proposons de ne passer que 1 ou
-2 arguments à la route d'API et fixer les autres par défaut. Pour cela voici un code qui créé un `dataframe` avec des
-valeurs par défaut pour toutes les variables :
+Comme le modèle prend de nombreuses variables en entrée, pour simplifier le TP nous vous proposons de ne passer que 1 ou 2 arguments à la route d'API et fixer les autres par défaut. Pour cela voici un code qui créé un `dataframe` avec des valeurs par défaut pour toutes les variables :
 
 ```python
 received_data_df = pd.DataFrame(
