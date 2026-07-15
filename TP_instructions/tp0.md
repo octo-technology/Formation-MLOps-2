@@ -20,8 +20,7 @@ Duration: 0:05:00
 
 ### Création du compte
 
-Rendez-vous sur le site de Github afin de créer un compte si vous n'en possédez pas déjà
-un : <https://github.com/login>.
+Rendez-vous sur le site de Github afin de créer un compte si vous n'en possédez pas déjà un : <https://github.com/login>.
 
 Puis, cliquez sur `Create account`:
 
@@ -29,18 +28,15 @@ Puis, cliquez sur `Create account`:
 
 ### Fork du repository de TP dans votre espace personnel Github
 
-Une fois votre compte créé, rendez-vous sur la page du repository de code de cette
-formation : <https://github.com/octo-technology/Formation-MLOps-2>
+Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation : <https://github.com/octo-technology/Formation-MLOps-2>
 
-Puis `forkez` le repo à l'aide du bouton `Fork` en haut à droite pour récupérer une copie de ce dernier dans votre
-espace Github personnel :
+Puis `forkez` le repo à l'aide du bouton `Fork` en haut à droite pour récupérer une copie de ce dernier dans votre espace Github personnel :
 
 ![bouton fork](docs/tp0/github-fork-button.png)
 
 ⚠️ Attention : Veillez à décocher "Copy the 0_initial_state branch only" ⚠️
 
-🏁 Vous possédez désormais une copie personnelle du repository de code pour les TPs ! Nous allons désormais la cloner
-dans votre environnement de développement.
+🏁 Vous possédez désormais une copie personnelle du repository de code pour les TPs ! Nous allons dorénavant la cloner dans votre environnement de développement.
 
 ## Prise en main de Jupyterhub, l'environnement de TP
 
@@ -52,17 +48,16 @@ Pour vous connecter sur l'interface de TP, l'instructeur vous aura donné votre 
 Une fois connecté, une page de chargement apparaît, temps pendant lequel votre environnement de TP est créé :
 ![StartingServer](docs/tp0/starting_server.png)
 
-Cela peut prendre 1 à 2 minutes, mais pas plus. Si votre environment ne démarre pas vous pouvez essayer d'actualiser
-puis faire appel à votre formateur.
+Cela peut prendre 1 à 2 minutes, mais pas plus. Si votre environment ne démarre pas, vous pouvez essayer d'actualiser puis faire appel à votre formateur.
 
-Une fois que le serveur est démarré vous êtes redirigé vers la page principale :
+Une fois que le serveur est démarré, vous êtes redirigé vers la page principale :
 ![HomePage](docs/tp0/homepage.png)
 
-Depuis cette page vous pouvez ouvrir :
+Depuis cette page, vous pouvez ouvrir :
 
 - Un terminal : dans other / terminal
 - Un éditeur de code en ligne : dans Notebook / VS Code
-- Airflow et MLFlow que nous manipulerons
+- Airflow et MLFlow que nous manipulerons dans ce TP.
 
 Vous pouvez également changer votre mot de passe [ici](https://lab.aws.octo.training/jupyter/hub/auth/change-password).
 
@@ -75,10 +70,10 @@ Rendez-vous sur votre environnement de développement.
 L'URL de ce dernier vous sera communiqué pendant la formation.
 
 Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`.
+
 Vous trouverez l'URL de clonage en HTTPS sur github, dans le repo que vous avez forké :
 
-Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis `terminal`
-puis `new terminal`.
+Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis `terminal`puis `new terminal`.
 ![bouton clonage](docs/tp0/github-clone-button.png)
 
 En tapant la commande `git branch` vous pourrez constater que vous êtes sur la branche `0_initial_state`
@@ -90,7 +85,7 @@ cd Formation-MLops-2
 make install
 ```
 
-NB : Ici nous avons installé uv au niveau de l'environnement de TP, dans la vraie vie, il faut l'installer sur votre machine. 
+NB : Ici, nous avons installé uv au niveau de l'environnement de TP, dans la "vraie vie", il faut l'installer sur votre machine. 
 
 Exécutons les tests pour s'assurer que tout fonctionne !
 
@@ -102,9 +97,7 @@ make tests-unitaires
 
 Duration: 0:05:00
 
-Depuis peu, github ne supporte plus l'authentification en username-password, notamment pour pousser son code. 
-
-Il est possible d'utiliser une clé ssh et un token d'authentification, c'est ce que nous allons faire.
+Pour apporter des modifications sur le repository, nous allons utiliser un token d'authentification.
 
 Allez sur github.com, puis en étant connecté(e), allez dans les paramètres 
 ![bouton params](docs/tp0/github_settings.png)
@@ -112,7 +105,7 @@ Allez sur github.com, puis en étant connecté(e), allez dans les paramètres
 Puis, scrollez et allez dans la section "Developer settings"
 ![bouton params](docs/tp0/github_developer_settings.png)
 
-Puis dans "personal acess tokens/Tokens (classic)", générez un nouveau token avec les droits sur les repo et sur les workflows
+Puis dans "personal access tokens/Tokens (classic)", générez un nouveau token avec les droits sur les repo et sur les workflows
 ![bouton params](docs/tp0/github_tokens.png)
 
 Copiez-collez votre token, vous n'y aurez plus accès ensuite, vous l'utiliserez pour pousser votre code 

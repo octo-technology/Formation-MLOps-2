@@ -1,6 +1,6 @@
 import os
 import sys
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 import pendulum
 from airflow.sdk import dag, task
@@ -11,9 +11,10 @@ from dags.config import DATA_FOLDER, MODEL_REGISTRY_FOLDER, TRAIN_DATA_PATH
 from formation_mlops_2.feature_engineering_io import prepare_features_with_io
 from formation_mlops_2.train_and_predict_io import train_model_with_io
 
-
+# Here we use catchup=False, due to TP contexte, in other contexte either use catchup=True,
+# or have your code deal with eventual missed runs
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(weeks=4),
-     start_date=pendulum.today('UTC').add(hours=-1))
+     start_date=datetime(2026, 7, 1), catchup=False)
 def train_model():
     @task
     def prepare_features_task() -> str:

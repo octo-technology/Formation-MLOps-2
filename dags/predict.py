@@ -13,8 +13,10 @@ from formation_mlops_2.monitoring_io import monitor_with_io
 from formation_mlops_2.train_and_predict_io import predict_with_io
 
 
+# Here we use catchup=False, due to TP contexte, in other contexte either use catchup=True,
+# or have your code deal with eventual missed runs
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(minutes=2),
-     start_date=pendulum.today('UTC').add(hours=-1))
+     start_date=datetime(2026, 7, 1), catchup=False)
 def predict():
     @task
     def prepare_features_with_io_task():

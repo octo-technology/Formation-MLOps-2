@@ -19,17 +19,15 @@ Duration: 0:05:00
 - 🖊Comment éditer un pipeline github,
 - ✅Comment tester le fonctionnement d'une application Python dans une chaîne d'intégration continue,
 - ✔ Comment mesurer la qualité d'une application Python dans une chaîne de CI,
-- 📦Comment packager une application Python dans une chaîne de CI, aux formats `wheel` et `docker`,
-- 🐳Comment manipuler les registres github pour Python et Docker.
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch 1_starting_ci
+Pour ce TP, changer de branche :
 
 `git checkout 1_starting_ci`
 
 Sur cette branche, il y a maintenant : 
-- Un fichier `.github/workflows/ci.yml` qui contient le squelette d'une CI. 
+- Un fichier `.github/workflows/ci.yml` qui ,contient le squelette d'une CI. 
 
 ## Exécuter le pipeline de CI
 
@@ -40,7 +38,7 @@ Un pipeline de CI est déjà présent dans ce repo, nous allons l'exécuter.
 Comme vous avez forké un repo existant, github actions a besoin d'une notification de création de fichier dans `.github/workflows` 
 pour qu'il détecte qu'il y a une CI à exécuter.
 
-Pour cela renommez le fichier `ci.yml` en `ci-workflow.yml`. (Le fichier peut avoir n'importe quel nom, tant qu'il est dans le bon repository cela marchera).
+Pour cela, renommez le fichier `ci.yml` en `ci-workflow.yml`. (Le fichier peut avoir n'importe quel nom, tant qu'il est dans le bon repository cela marchera).
 ```shell
 mv .github/workflows/ci.yml .github/workflows/ci-workflow.yml
 ```
@@ -52,7 +50,7 @@ git commit -m "Rename workflow file"
 git push
 ```
 
-Comme il s'agit de notre premier commit il va falloir définir notre nom et notre adresse email :
+Comme il s'agit de notre premier commit, il va falloir définir notre nom et notre adresse email :
 
 ```bash
 git config --global user.email "you@example.com"
@@ -82,13 +80,13 @@ Ces pipelines peuvent être utilisés à des fins d'intégration continue.
 
 Le pipeline est décrit au travers de code, dans un fichier dans le dossier `.github/workflows` en langage [`YAML`](https://learnxinyminutes.com/docs/fr-fr/yaml-fr/), une spec de configuration similaire au `JSON`.
 
-La documentation des github Actions ainsi que les mot-clefs utilisables dans les workflows sont consultables sur <https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>.
+La documentation des github Actions ainsi que les mot-clefs utilisables dans les workflows sont consultables sur [ce tutoriel](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>).
 
 ### Exemple décrit en Python
 
 Duration: 0:05:00
 
-Un exemple officiel en Python est disponible sur le repository Github: <https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>, nous allons le décrire briévement ci-après:
+Un exemple officiel en Python est disponible sur le repository Github: [ici](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python), nous allons le décrire brièvement ci-après:
 
 ```yaml
 # Nom du workflow tel que visible dans l'interface
@@ -103,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
 
     steps:
         # Pull du code
@@ -111,7 +109,7 @@ jobs:
         - name: Set up Python
           uses: actions/setup-python@v5
           with:
-            python-version: '3.x'
+            python-version: ${{ matrix.python-version }}
         - name: Install the code linting and formatting tool Ruff
           run: pipx install ruff
         - name: Lint code with Ruff
@@ -139,7 +137,7 @@ Duration: 0:15:00
 
 Ajouter à votre CI :
 - Une détection d'inadéquations au standard pep8 avec la librairie `ruff` ([disponible sur pypi](https://pypi.org/project/ruff/))
-- Une détection de code mort avec la librairie `vulture` ([disponible sur sur pypi](https://pypi.org/project/vulture/))
+- Une détection de code mort avec la librairie `vulture` ([disponible sur pypi](https://pypi.org/project/vulture/))
 
 Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.github.com/fr/actions/quickstart) documentation.
 

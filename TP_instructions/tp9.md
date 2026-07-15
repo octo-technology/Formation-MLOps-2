@@ -19,13 +19,13 @@ Duration: 0:10:00
 
 ### Mise en place du TP
 
-Récupérer la branche de ce TP, utilisez la branch `<TODO_NOM_BRANCHE_TP9>`
+Récupérer la branche de ce TP, utilisez la branche suivante :
 
 ```shell
 git checkout <TODO_NOM_BRANCHE_TP9>
 ```
 
-Explorer dans le dossier `demo` le fichier  [integration_mlflow_agent.py](../demos/integration_mlflow_agent.py)
+Explorer dans le dossier `demo` le fichier [integration_mlflow_agent.py](../demos/integration_mlflow_agent.py)
 
 Il s'agit d'un petit Agent avec lequel nous pouvons intéragir pour obtenir la météo d'une ville, il dispose d'un tool
 
@@ -33,12 +33,12 @@ Il s'agit d'un petit Agent avec lequel nous pouvons intéragir pour obtenir la m
 
 Pour pouvoir utiliser l'agent, il vous faudra mettre en place quelques variables d'environnement : 
 ```shell
-cp .env.example .env
+cp demos/.env.example demos/.env
 ```
 
 Puis éditer le fichier `.env` et remplir le secret AWS_BEARER_TOKEN_BEDROCK avec la valeur fournie par le formateur.
 
-Ensuite vous pouvez lancer une intéraction avec l'agent en utilisant le code suivant : 
+Ensuite, vous pouvez lancer une intéraction avec l'agent en utilisant le code suivant : 
 ```shell
 uv run python demos/integration_mlflow_agent.py
 ```
@@ -51,16 +51,19 @@ Duration: 0:05:00
 Nous allons maintenant outiller l'agent avec le système de tracing MLflow.
 
 ### Demander à MLflow de stocker les traces
-Ajouter la log
-
+Importez MLflow :
 ```python
 import mlflow
-mlflow.bedrock.autolog()
 ```
 
-Nommer l'experimentation pour retrouver facilement les traces
+Nommer l'expérimentation pour retrouver facilement les traces :
 ```python
 mlflow.set_experiment("agent-demo")
+```
+
+Puis ajouter l'auto log associé à notre fournisseur de modèle bedrock :
+```python
+mlflow.bedrock.autolog()
 ```
 
 ### Intéragir avec l'agent
@@ -69,7 +72,7 @@ Lancer une intéraction avec l'agent en utilisant le code suivant :
 uv run python demos/integration_mlflow_agent.py
 ```
 
-Eventuellement faites en quelques autres.
+Éventuellement, faites en quelques autres.
 
 ### Visualiser les traces
 Retourner dans l'interface MLflow et naviguer dans l'onglet GenAI / Experiments
@@ -81,12 +84,11 @@ Cliquer sur le nom de l'agent que vous avez choisi et explorer :
     ![trace.png](docs/tp9/trace.png)
 
 
-
 ## Pour aller plus loin
 Duration: 0:05:00
 
-- Quel usages pouvez-vous faire de ces traces ?
-- Quelles limites y a t'il à stocker les traces dans un tel outil ? 
+- Quels usages pouvez-vous faire de ces traces ?
+- Quelles limites y a-t-il à stocker les traces dans un tel outil ? 
 
 ## Lien vers le TP suivant
 

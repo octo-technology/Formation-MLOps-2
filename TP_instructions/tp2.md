@@ -21,12 +21,14 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch 2_starting_test_behave
+Pour ce TP, utilisez la branch suivante :
 
-`git checkout 2_starting_test_behave`
+`git checkout 2_starting_tests`
 
 Sur cette branche, il y a maintenant : 
-- Un Dossier `tests/test_functional/` qui contient le squelette d'un test fonctionnel.
+- Un dossier `tests/test_functional/` qui contient le squelette d'un test fonctionnel.
+- Un dossier `tests/test_architecture/` qui contient un template de test d'architecture.
+- Un script `tests/tests_pyramid.sh` qui permet de mesurer la pyramide de tests.
 
 ## Tests fonctionnels avec Behave
 
@@ -80,6 +82,7 @@ uv run pytest tests/test_architecture/test_to_csv_called_with_index_false.py
 ```
 
 Dans la pratique, vous pouvez implémenter un test d'architecture pour chaque ADR, bug technique rencontré, standard.
+
 ## Lien vers le TP suivant
 
 Duration: 0:01:00

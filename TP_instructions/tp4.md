@@ -15,13 +15,15 @@ Duration: 0:05:00
 ### À l'issue de cette section, vous aurez découvert
 
 - Découvrir l'orchestration avec Airflow,
+- Découvrir et comprendre les différents composants d'airflow
 - Savoir créer un `DAG` et les scheduler,
 - Savoir créer des `tasks` Airflow et les orchestrer,
 - Comprendre la gestion des `IO` avec Airflow.
+- Découvrir une implémentation légère d'un système événementiel.
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch 4_starting_orchestration
+Pour ce TP, utilisez la branch suivante :
 
 `git checkout 4_starting_orchestration`
 
@@ -60,14 +62,22 @@ A l'image des fonctions `train_with_io` et `train` du module `train_and_predict.
 
 Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 
-- {date}.csv où la date est au format `%Y%m%d-%H%M%S`, exemple:
+- {date}.csv où la date est au format `%Y%m%d-%H%M%S`
 - latest.csv
+
+Les méthodes `_with_io` ont également des `import` lazy, c'est-à-dire qu'ils se font au runtime, plutôt qu'au chargement du script pour accélérer le `dag-orchestrator`.
 
 ## Démarrer avec Airflow
 
 Duration: 0:10:00
 
-- Modifier le fichier `/airflow/airflow.cfg` avec l'éditeur `nano /airflow/airflow.cfg`:
+### Configuration de Airflow
+Airflow se configure à travers un fichier de configuration situé dans le dossier `airflow_home`. Il est possible de configurer Airflow à travers des variables d'environnement, mais pour ce TP, nous allons utiliser le fichier de configuration.
+
+Pour voir l'ensemble des configurations possibles, allez voir [la documentation officielle](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html).
+
+Nous devons apporter quelques modifications au fichier de configuration actuel : 
+- Pour cela, ouvrez `/airflow/airflow.cfg`, avec l'éditeur nano : `nano /airflow/airflow.cfg`, ou bien avec vscode.
     - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/Formation-MLOps-2/dags`, cela permet d'indiquer à
       airflow où se situent vos DAGs
     - Mettre lod_examples à False afin de ne pas charger les DAGs d'exemples
@@ -89,30 +99,37 @@ load_examples = False
 
 ```
 
-- Dans le `Launcher`, lancer le service `Airflow`. Si le lancement indique `could not start airflow in time` cela peut vouloir dire que airflow n'a pas encore redémarré, essayer de refresh quelques secondes plus tard.
+### Démarrer les différents services Airflow
+Commençons par démarrer l'interface graphique d'Airflow, nous l'avons intégré dans l'environnement de TP.
+
+Dans le `Launcher`, lancer le service `Airflow`. 
+![launcher](./docs/tp4/launcher-airflow.png)
+
+L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet. Si le lancement indique `could not start airflow in time` cela peut vouloir dire qu'Airflow n'a pas encore démarré, essayer de refresh quelques secondes plus tard, sinon sollicitez votre formateur.
 
 Les identifiants de connection à airflow sont `admin:admin`
 
-![launcher](./docs/tp4/launcher-airflow.png)
+L'interface vous indique que les différents services ne sont pas accessibles pour l'instant, c'est normal. 
+![service_health.png](docs/tp4/service_health.png)
 
-Vous ne voyez pour l'instant pas de DAG, il faut alors lancer le dag processor
+Naviguez, dans l'onglet Dags. Vous ne voyez pour l'instant pas de DAG, il faut alors lancer le dag processor, il se charge de parcourir votre dossier de dags, et de les parser.
 ```shell
 uv run airflow dag-processor
 ```
+Il ne faudrat pas fermer ce terminal, au risque d'arrêter le service.
 
-La mise à jour des dags sera faite par ce service, qui les refresh par défaut toutes les 30 secondes. Pour forcer un refresh vous pourrez l'arrêter et le relancer.
+La mise à jour des dags sera faite par ce service, qui les refresh par défaut toutes les 30 secondes. Pour forcer un refresh, vous pourrez l'arrêter et le relancer.
 
+Nous allons maintenant lancer le scheduler, dans un nouveau terminal :
+```shell
+uv run airflow scheduler
+```
 
-L'interface graphique d'Airflow devrait s'ouvrir dans un nouvel onglet, un message d'alerte vous préviendra que le
-`scheduler` ne répond pas, car il n'est pas démarré.
-
-- En ligne de commande dans un terminal que vous ne devez pas fermer, lancer le scheduler avec `airflow scheduler`.
-
-Finalement, il faut lancer l'exécution : `airflow api-server --apps execution` pour qu'un service s'occupe de réaliser les tâches.
+Finalement, il faut lancer l'exécution : `uv run airflow api-server --apps execution` pour qu'un service s'occupe de réaliser les tâches.
 
 L'interface graphique devrait désormais afficher 3 DAGs :
 
-![ui-airflow](./docs/tp4/ui-airflow-start.png)
+![dag_ui.png](docs/tp4/dag_ui.png)
 
 ## Lancer un premier DAG d'entraînement
 
@@ -124,20 +141,17 @@ Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la 
 
 Les données sont désormais disponibles dans `data/la-haute-borne-data-2017-2020.csv`.
 
-Airflow tourne en utilisant l'env `base` de python. Il faut donc installer notre librairie
-
-- Installer le package en ouvrant un nouveau terminal, `cd Formation-MLOps-2; pip install .`
-
 Pour lancer le DAG `train`:
 
-- Activer le DAG en appuyant sur le bouton `ON/OFF` (à gauche de chaque ligne de DAG),
-- Déclencher le DAG manuellement en cliquant sur `Trigger Dag` dans les links (l'icône play)  (sur la droite).
+- Activer le DAG en appuyant sur le bouton `Play` (à droite de chaque ligne de DAG),
 
-![ui-airflow](./docs/tp4/ui-airflow-start.png)
+![dag_play.png](docs/tp4/dag_play.png)![ui-airflow](./docs/tp4/ui-airflow-start.png)
 
 Inspecter le DAG `train` en cliquant sur celui-ci, la tâche `prepare_features` devrait avoir commencé :
 
-![train-dag](./docs/tp4/train-prepare-features.png)
+![train_dag.png](docs/tp4/train_dag.png)
+
+Vous pouvez explorer les différentes informations, visuels qu'offre cette vue de DAGs.
 
 ## DAG de prédiction
 
@@ -145,21 +159,26 @@ Duration: 0:15:00
 
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
 
+Lancer le dag `data_denerator` pour qu'il produise toutes les 2 minutes un petit jeu de données sur lequel nous pourrons faire des inférences.
+
+Puis lancer le dag `predict` pour qu'il face les prédictions. 
+
 ## Découvrir une implémentation légère d'un système événementiel
 
 Duration: 0:05:00
 
-Pour illustrer ce à quoi ressemble une architecture événementiel nous allons ouvrir deux terminals.
+Après avoir manipulé des DAGs opérées par de la logique d'orchestration et le temps, nous vous proposons de découvrir le fonctionnement d'un système événementiel..
+
+Pour illustrer ce à quoi ressemble une architecture événementiel, nous allons ouvrir deux terminaux.
 1. L'émetteur : Il envoi des messages
    - Ouvrir un terminal
    - Créer la queue d'évènement : `touch /tmp/event.txt`
    - Envoyez un message : `echo "Hello World" >> /tmp/event.txt`
-2. Le listener: il écoute les évènements et les traites. 
+2. Le listener : il écoute les évènements et les traites. 
   - Ouvrir un terminal
   - Lancer la commande : `tail -f -n 1 /tmp/event.txt | xargs -I {} sh -c 'echo "{}" | wc -c'`
-  - Elle capture la dernière ligne du fichier event.txt, et cexécute une fonction métier, ici le nombre de lettre dans l'évènement.
+  - Elle capture la dernière ligne du fichier event.txt, et exécute une fonction métier, ici le nombre de lettres dans l'évènement.
 3. Essayer d'envoyer des nouveaux messages en observant le comportement du listener
-
 
 Cette implémentation basique est une illustration du comportement d'un système événementiel, si il y a un nouveau message il agit, sinon il ne fait rien. A la différnece d'un CRON qui tentera toujours de faire quelque chose, dont parfois constater la différence avec la précédente exé&cution.
 
@@ -167,8 +186,8 @@ Les systèmes événementiels tels que Kafka, RabbitMQ... offre bien entendu plu
 
 ## Pour aller plus loin
 
-Pour aller plus loin en attendant les autres stagiaires, vous pouvez regarder comment utiliser les fichiers générés par
-le DAG `get_data_from_engie_hub.py` dans le DAG `predict`.
+- Réfléchir au découpage des DAGs que vous pourriez avoir dans votre application.
+- Réfléchir aux avantages / inconvénients des approches événementielles ou CRON.
 
 ## Lien vers le TP suivant
 

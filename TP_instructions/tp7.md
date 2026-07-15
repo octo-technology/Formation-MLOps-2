@@ -21,7 +21,7 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch 7_starting_exposition
+Pour ce TP, utilisez la branche suivante :
 
 `git checkout 7_starting_exposition`
 
@@ -105,10 +105,14 @@ received_data_df = pd.DataFrame(
 
 Utilisez les méthodes `prepare_features` et `predict` pour réaliser une prédiction.
 
-Pour tester votre code éteignez l'API et redémarrez-la avec la commande `uv run uvicorn inference:app --host 0.0.0.0 --port 5000`
- puis requêtez une prédiction sur <http://localhost:5000/predict>.
+Pour tester votre code éteignez l'API et redémarrez-la avec la commande 
+```shell
+uv run uvicorn inference:app --host 0.0.0.0 --port 5000
+```
 
-## Démo: Exposition | model as a service
+Puis requêtez une prédiction sur <http://localhost:5000/predict>.
+
+## Démo: Expostion | model as a service
 
 Duration: 0:10:00
 

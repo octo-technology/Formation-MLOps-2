@@ -10,7 +10,6 @@ load_dotenv(Path(__file__).parent / ".env")
 
 MODEL_ID = os.getenv("MODEL_ID")
 
-mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("agent-demo")
 mlflow.bedrock.autolog()
 

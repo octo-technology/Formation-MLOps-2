@@ -6,7 +6,7 @@ status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
 
-# TP6 - Couplage / Découplage / Async / Sync
+# TP6 - Async / Sync
 
 ## Vue d'ensemble
 
@@ -15,19 +15,15 @@ Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
-// TODO
+- Le fonctionnement de l'asynchronisme et du synchronisme dans une API
+
 ### Mise en place du TP
 
-Pour ce TP, utilisez la branch `<TODO_NOM_BRANCHE_TP6>`
+Pour ce TP, utilisez la branche suivante : 
 
 ```shell
 git checkout <TODO_NOM_BRANCHE_TP6>
 ```
-
-## Démonstration du couplage / découplage
-
-Duration: 0:05:00
-// TODO
 
 ## Démonstration de l'utilisation de Async / Sync 
 
@@ -36,13 +32,13 @@ Duration: 0:15:00
 ### Explorer le code mis à disposition
 
 Aller explorer le fichier [async_sync_api.py](../demos/async_sync_api.py), dedans 3 routes d'api sont définies : 
-- blocking : Une API asynchrone qui est exécute time.sleep
+- blocking : Une API asynchrone qui exécute un `time.sleep`
 - nonblocking : Une API asynchrone qui attend un process asynchrone 
 - sync : Une API synchrone qui attend un process synchrone, 
 
 Le paramètre `n` est là pour illustrer une complexité métier de l'appel, plus n est grand plus l'appel est long.
 
-Le sleep est un moyen de modéliser facilement un calcul long.
+Le sleep est un moyen de modéliser facilement un long calcul.
 
 ### Lancer l'api
 ```shell
@@ -55,7 +51,7 @@ curl localhost:8000/blocking/1
 ```
 
 ### Comparer les délais de l'API blocking
-Pour cela nous allons utiliser deux terminaux : 1 pour chaque client : 
+Pour cela, nous allons utiliser deux terminaux : 1 pour chaque client : 
 
 Lancer les commandes : 
 ```shell

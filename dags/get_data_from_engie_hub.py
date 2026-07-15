@@ -1,8 +1,7 @@
 import os
 import sys
-from datetime import timedelta
+from datetime import timedelta, datetime
 
-import pendulum
 from airflow.sdk import dag, task
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
@@ -10,9 +9,10 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__)))) 
 from dags.config import GENERATED_DATA_FOLDER, TRAIN_DATA_PATH
 from formation_mlops_2.data_loading_io import get_data_from_csv
 
-
+# Here we use catchup=False, due to TP contexte, in other contexte either use catchup=True,
+# or have your code deal with eventual missed runs
 @dag(default_args={'owner': 'airflow'}, schedule=timedelta(minutes=2),
-     start_date=pendulum.today('UTC').add(hours=-1))
+     start_date=datetime(2026, 7, 1),catchup=False)
 def data_generator():
     @task
     def get_data_from_csv_task():

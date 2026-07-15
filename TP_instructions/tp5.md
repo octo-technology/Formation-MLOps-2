@@ -14,7 +14,7 @@ Duration: 0:05:00
 
 ### À l'issue de cette section, vous aurez découvert
 
-- Une stratégie simple de versioning de modèles : les timestamps et leur limitations
+- Une stratégie simple de versioning de modèles : les timestamps et leurs limitations
 - Une stratégie avancée de versioning de modèles : utiliser MLflow
   - L'interface MLflow tracking & registry,
   - Comment stocker vos expérimentations dans MLflow,
@@ -24,7 +24,7 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch 5_starting_artifacts
+Pour ce TP, utilisez la branch suivante :
 
 `git checkout 5_starting_artifacts`
 
@@ -49,18 +49,10 @@ Un moyen simple d'y parvenir est d'utiliser un horodatage.
 
 Exécuter plusieurs entraînements devrait produire plusieurs modèles identifiables comme ceci dans votre *model registry* :
 
-![model-registry](./docs/tp5/model-registry.png)
+![model_folder.png](docs/tp5/model_folder.png)
 
 - A quoi ce timestamp sert-il ?
 - Quelles limitations voyez-vous à cette technique ?
-
-## Accéder à MLflow
-
-Duration: 0:02:00
-
-`Depuis l'interface de Jupyterhub, vous pouvez cliquer sur l'icône MLflow pour lancer MLflow qui va s'ouvrir dans un nouvel onglet.
-
-![mlflow-ui](docs/tp5/mlflowui.png)`
 
 ## Versionner les expérimentations avec MLflow
 
@@ -80,26 +72,37 @@ with mlflow.start_run() as run:
 
 Une fois que vous avez intégré ce code, vous pouvez retourner dans l'interface Airflow et déclencher un entraînement.
 
+
+## Accéder à MLflow
+
+Duration: 0:02:00
+
+`Depuis l'interface de Jupyterhub, vous pouvez cliquer sur l'icône MLflow pour lancer MLflow qui va s'ouvrir dans un nouvel onglet.
+
+![mlflow_ui.png](docs/tp5/mlflow_ui.png)
+
+Dans l'onglet `Model training` nous allons retrouver l'expérimentation par défaut dans laquelle nous avons loggé notre expérience. 
+
 ### Explorer le run créé dans MLflow
 
 Duration: 0:05:00
 
 Actualiser la page de MLflow pour voir les runs apparaître
 
-![MLFLOW-run](docs/tp5/one_experiment.png)
+![mlflow_runs.png](docs/tp5/mlflow_runs.png)
 
 Vous pouvez voir l'ensemble des paramètres et métriques stockées.
 
-Ensuite en cliquant sur le run, vous pouvez aller voir plus de détails et en descendant voir l'artefact généré
+Ensuite en cliquant sur le run, vous pouvez aller voir plus de détails.
 
-![MLFLOW-artefact](docs/tp5/artifact.png)
+![metrics_mlflow.png](docs/tp5/metrics_mlflow.png)
 
 ### Explorer le système de dossier de MLflow
 
 Duration: 0:10:00
 
 En fait MLflow est basé sur un système de dossier / fichiers plats qui contiennent tout ce que l'on vient de voir.
-En plus de cela, MLflow se sert d'une base de donnée locale pour stocker les métadonnées liés aux runs
+En plus de cela, MLflow se sert d'une base de donnée locale pour stocker les métadonnées liées aux runs
 
 Vous pouvez parcourir les métadonnées en explorant le fichier mlflow.db à la racine
 ```shell
@@ -137,9 +140,14 @@ mlflow.sklearn.log_model(
 
 ```
 
-Lancez l'entraînement plusieurs fois et regardez la version du modèle s'incrémenter dans la Model Registry
+Lancez l'entraînement puis retrouver le modèle dans l'onglet `Models` vous pourrez retrouver le modèle créé : 
 
-Parcourez le dossier `/home/jovyan/mlartifacts/0` pour voir vos artefacts organisés par run
+![mlflow_models.png](docs/tp5/mlflow_models.png)
+
+Explorez les objets disponibles dans cette vue.
+
+
+Parcourez le dossier `/home/jovyan/mlruns/0` pour voir vos artefacts organisés par run
 
 
 ## Lien vers le TP suivant
