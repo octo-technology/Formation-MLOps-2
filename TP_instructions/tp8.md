@@ -28,6 +28,7 @@ Sur cette branche, il y a maintenant :
 
 - Un fichier `formation_mlops_2/monitoring.py` qui contient 2 fonctions `monitor_with_io` et `monitor`
 - Un fichier de tests correspondant : `tests/test_unit/test_monitoring.py` qui teste la fonction `monitor_with_io`
+- Un fichier de tests correspondant : `tests/test_architecture/test_monitor_table_is_changed.py` qui valide le nom de la table de monitoring.
 - Une tâche en plus dans le DAG `dags/predict.py` qui exécute le monitoring.
 
 ## Monitoring des prédictions et enregistrement dans une DB
