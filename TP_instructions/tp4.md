@@ -78,9 +78,8 @@ Pour voir l'ensemble des configurations possibles, allez voir [la documentation 
 
 Nous devons apporter quelques modifications au fichier de configuration actuel : 
 - Pour cela, ouvrez `/airflow/airflow.cfg`, avec l'éditeur nano : `nano /airflow/airflow.cfg`, ou bien avec vscode.
-    - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/Formation-MLOps-2/dags`, cela permet d'indiquer à
-      airflow où se situent vos DAGs
-    - Mettre lod_examples à False afin de ne pas charger les DAGs d'exemples
+    - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/work/Formation-MLOps-2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
+    - Mettre load_examples à False afin de ne pas charger les DAGs d'exemples
 
 ```toml
 # Fichier /airflow/airflow.cfg
@@ -88,7 +87,7 @@ Nous devons apporter quelques modifications au fichier de configuration actuel :
 # The folder where your airflow pipelines live, most likely a
 # subfolder in a code repository
 # This path must be absolute
-dags_folder = /airflow/dags
+dags_folder = /home/jovyan/work/Formation-MLOps-2/dags
 
 ...
 

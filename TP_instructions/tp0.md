@@ -26,7 +26,7 @@ Puis, cliquez sur `Create account`:
 
 ![Page de connexion à github.com](./docs/tp0/github-sign-in-page.png)
 
-### Fork du repository de TP dans votre espace personnel Github
+## Fork du repository de TP dans votre espace personnel Github
 
 Une fois votre compte créé, rendez-vous sur la page du repository de code de cette formation : <https://github.com/octo-technology/Formation-MLOps-2>
 

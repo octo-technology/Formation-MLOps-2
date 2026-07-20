@@ -62,7 +62,7 @@ curl localhost:8000/blocking/15
 time curl localhost:8000/blocking/1
 ```
 
-`time` permet de mesuré le temps mis. 
+`time` permet de mesurer le temps mis. 
 
 Combien de temps met le premier curl, et le deuxième ? 
 Que se passe-t-il si on inverse l'ordre des curls ? 
@@ -78,7 +78,7 @@ curl localhost:8000/nonblocking/15
 time curl localhost:8000/nonblocking/1
 ```
 
-`time` permet de mesuré le temps mis. 
+`time` permet de mesurer le temps mis. 
 
 Combien de temps met le premier curl, et le deuxième ? 
 Que se passe-t-il si on inverse l'ordre des curls ? 
@@ -94,7 +94,7 @@ curl localhost:8000/sync/15
 time curl localhost:8000/sync/1
 ```
 
-`time` permet de mesuré le temps mis. 
+`time` permet de mesurer le temps mis. 
 
 Combien de temps met le premier curl, et le deuxième ? 
 
