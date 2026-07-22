@@ -160,7 +160,11 @@ Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` da
 
 Lancer le dag `data_denerator` pour qu'il produise toutes les 2 minutes un petit jeu de données sur lequel nous pourrons faire des inférences.
 
-Puis lancer le dag `predict` pour qu'il face les prédictions. 
+Puis lancer le dag `predict` pour qu'il fasse les prédictions. Vérifier dans le dossier prediction que vous avez des fichiers produits.
+
+![predictions.png](docs/tp4/predictions.png)
+
+Pour aller un peu plus loin, compléter le code du dag avec de la log (ex: `logging.info("Reading")` ), relancer une prédiction puis chercher la log dans l'interface.
 
 ## Découvrir une implémentation légère d'un système événementiel
 
