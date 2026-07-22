@@ -134,7 +134,7 @@ Modifier le code d'entrainement pour sauvegarder le modèle dans MLflow registry
 mlflow.sklearn.log_model(
    sk_model=model,
    name="A nice name for your model",
-   input_example=df_x.iloc[[:1], :],
+   input_example=df_x.iloc[:1, :],
    registered_model_name="A nice name for your registered model",
 )
 
