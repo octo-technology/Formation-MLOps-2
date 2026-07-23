@@ -62,7 +62,14 @@ Une fois cela fait, retirer du fichier `.github/worflows/ci.yml` la ligne `conti
 
 ### Re-démarrer Airflow
 
-Relancer Airflow et le DAG de prédiction
+Si ils ne tournent plus, relancer les différents services airflow, dans 3 terminaux différents : 
+- `uv run airflow dag-processor` 
+- `uv run airflow scheduler` 
+- `uv run airflow api-server --apps execution`
+
+Cliquer sur le logo airflow dans le hub. 
+
+Puis lancer un DAG de prédiction.
 
 La tâche `monitor` devrait s'exécuter. Il nous faut désormais créer un dashboard de suivi des valeurs renvoyées par
 notre fonction.
