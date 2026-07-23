@@ -1,10 +1,17 @@
 import asyncio
 import time
+from contextlib import asynccontextmanager
 
+import anyio
 from fastapi import FastAPI
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    anyio.to_thread.current_default_thread_limiter().total_tokens = 1
+    yield
 
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/blocking/{n}")
 async def blocking(n: int):

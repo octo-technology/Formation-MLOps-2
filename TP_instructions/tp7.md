@@ -107,7 +107,7 @@ uv run uvicorn inference:app --host 0.0.0.0 --port 5000
 
 Puis requêtez une prédiction sur <http://localhost:5000/predict>.
 
-## Démo: Expostion | model as a service
+## Démo: Exposition | model as a service
 
 Duration: 0:10:00
 
