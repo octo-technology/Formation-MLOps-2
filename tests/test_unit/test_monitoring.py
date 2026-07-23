@@ -1,15 +1,23 @@
-import os
+import shutil
 from unittest.mock import patch
 
 import pandas as pd
+import pytest
 from sqlalchemy import create_engine
 
 from dags.config import MONITORING_TABLE_NAME
 from formation_mlops_2.monitoring_io import monitor_with_io
 
 
+@pytest.fixture
+def setup_db():
+    shutil.rmtree("test_db.db", ignore_errors=True)
+    yield
+    shutil.rmtree("test_db.db", ignore_errors=True)
+
+
 @patch('pandas.read_csv')
-def test_monitor_with_io_should_write_predictions_mean_to_db(mocked_read_csv):
+def test_monitor_with_io_should_write_predictions_mean_to_db(mocked_read_csv, setup_db):
     # Given
     predictions_folder = 'test_pred_folder'
     given_date = pd.to_datetime('20200101-120000', format='%Y%m%d-%H%M%S')
@@ -28,4 +36,3 @@ def test_monitor_with_io_should_write_predictions_mean_to_db(mocked_read_csv):
     # Then
     pd.testing.assert_frame_equal(expected, actual)
     db_conn.close()
-    os.remove('test_db.db')
