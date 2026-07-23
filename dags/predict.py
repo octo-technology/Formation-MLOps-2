@@ -27,19 +27,20 @@ def predict():
 
     @task
     def predict_with_io_task(feature_path: str) -> None:
-        predict_with_io(features_path=feature_path,
-                        model_path=MODEL_PATH,
-                        predictions_folder=PREDICTIONS_FOLDER)
+        prediction_path = predict_with_io(features_path=feature_path,
+                                          model_path=MODEL_PATH,
+                                          predictions_folder=PREDICTIONS_FOLDER)
+        return prediction_path
 
     @task
-    def monitor_task():
-        monitor_with_io(predictions_folder=PREDICTIONS_FOLDER,
+    def monitor_task(prediction_path: str):
+        monitor_with_io(prediction_path=prediction_path,
                         monitoring_table_name=MONITORING_TABLE_NAME,
                         db_con_str='postgresql://postgres:postgres@postgres:5432/postgres')
 
     feature_path = prepare_features_with_io_task()
-    predict_with_io_task(feature_path=feature_path)
-    monitor_task()
+    prediction_path = predict_with_io_task(feature_path=feature_path)
+    monitor_task(prediction_path=prediction_path)
 
 
 predict_dag = predict()
