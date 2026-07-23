@@ -26,7 +26,8 @@ Pour ce TP, utilisez la branch 8_starting_monitoring :
 
 Sur cette branche, il y a maintenant :
 
-- Un fichier `formation_mlops_2/monitoring.py` qui contient 2 fonctions `monitor_with_io` et `monitor`
+- Un fichier `formation_mlops_2/monitoring.py` qui contient 1 fonction `monitor`
+- Un fichier `formation_mlops_2/monitoring_with_io.py` qui contient une fonction `monitor_with_io`
 - Un fichier de tests correspondant : `tests/test_unit/test_monitoring.py` qui teste la fonction `monitor_with_io`
 - Un fichier de tests correspondant : `tests/test_architecture/test_monitor_table_is_changed.py` qui valide le nom de la table de monitoring.
 - Une tâche en plus dans le DAG `dags/predict.py` qui exécute le monitoring.
