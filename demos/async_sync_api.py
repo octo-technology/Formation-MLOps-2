@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 import anyio
 from fastapi import FastAPI
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     anyio.to_thread.current_default_thread_limiter().total_tokens = 1
