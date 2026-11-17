@@ -2,8 +2,9 @@
 
 ## Getting started
 
-- [ ] Installer [Go](https://golang.org/dl/) si vous l'avez pas déjà,
-- [ ] Installer claat, l'outil de génération de fichiers codelabs de Google avec `$> go get -u -v -x github.com/googlecodelabs/tools/claat`
+- [ ] Installer claat, l'outil de génération de fichiers codelabs de Google :
+  - soit en téléchargeant le binaire correspondant à votre OS sur la [page des releases](https://github.com/googlecodelabs/tools/releases/latest) (c'est ce que fait la CI),
+  - soit, si vous avez [Go](https://go.dev/dl/), avec `$> go install github.com/googlecodelabs/tools/claat@latest`
 
 Des instructions détaillées sont disponibles ici: <https://github.com/googlecodelabs/tools/blob/master/sample/codelab.md>
 

@@ -32,7 +32,7 @@ code [dslab](https://gitlab.com/octo-technology/les-bg-de-la-data/s-s-all/format
 
 ## Les TPs
 
-Pour suivre ces TPs, nous allons utiliser les pages gitlab suivantes :
+Pour suivre ces TPs, nous allons utiliser les pages GitHub suivantes :
 
 [TP 0 Installation de l'environnement](https://octo-technology.github.io/Formation-MLOps-2/tp0#0)
 
@@ -95,7 +95,7 @@ make distribution
 
 ## Runner les TP en local sur son laptop
 
-Installer les dépencances
+Installer les dépendances
 
 ```shell
 make install
@@ -132,7 +132,13 @@ Exporter la var d'env pour le server mlflow
 export MLFLOW_TRACKING_URI=http://127.0.0.1:5000
 ```
 
-Lancer les 3 services aiflow soit en detached, soit dans 3 shells :
+Initialiser la base de métadonnées Airflow :
+
+```shell
+make airflow-setup
+```
+
+Lancer les 3 services airflow soit en detached, soit dans 3 shells :
 
 ```shell
 make airflow-webserver
@@ -143,5 +149,5 @@ make airflow-scheduler
 ```
 
 ```shell
-make airflow-pod-processor
+make airflow-dag-processor
 ```

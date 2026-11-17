@@ -47,10 +47,10 @@ dataset:
 	curl -L https://github.com/Loubout/la_haute_borne_data/raw/main/la-haute-borne-data-2017-2020.csv \
   		-o data/la-haute-borne-data-2017-2020.csv
 
-.PHONY: airflow-setup  ## 💨  Initialize airflow backend: initdb > variables > connections
+.PHONY: airflow-setup  ## 💨  Initialise (ou migre) la base de métadonnées Airflow
 airflow-setup:
 	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
-	uv run airflow db
+	uv run airflow db migrate
 
 .PHONY: airflow-webserver  ## 🌐  Run airflow web server
 airflow-webserver:
