@@ -27,7 +27,7 @@ Pour ce TP, changer de branche :
 `git checkout 1_starting_ci`
 
 Sur cette branche, il y a maintenant : 
-- Un fichier `.github/workflows/ci.yml` qui ,contient le squelette d'une CI. 
+- Un fichier `.github/workflows/ci.yml` qui contient le squelette d'une CI. 
 
 ## Exécuter le pipeline de CI
 
@@ -80,7 +80,7 @@ Ces pipelines peuvent être utilisés à des fins d'intégration continue.
 
 Le pipeline est décrit au travers de code, dans un fichier dans le dossier `.github/workflows` en langage [`YAML`](https://learnxinyminutes.com/docs/fr-fr/yaml-fr/), une spec de configuration similaire au `JSON`.
 
-La documentation des github Actions ainsi que les mot-clefs utilisables dans les workflows sont consultables sur [ce tutoriel](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python>).
+La documentation des github Actions ainsi que les mot-clefs utilisables dans les workflows sont consultables sur [ce tutoriel](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python).
 
 ### Exemple décrit en Python
 
@@ -125,7 +125,7 @@ jobs:
 
 Duration: 0:10:00
 
-Votre mission si vous l'acceptez : éditez le fichier `.github/workflow/ci-workflow.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
+Votre mission si vous l'acceptez : éditez le fichier `.github/workflows/ci-workflow.yml` à la racine du repository pour exécuter les tests avec succès et faire passer le pipeline au vert ✅.
 
 Une fois que vous aurez apporté vos modifications, vous devrez commiter cela sur github.
 
@@ -141,7 +141,9 @@ Ajouter à votre CI :
 
 Vous pouvez creuser la façon d'ajouter des étapes sur votre pipeline avec [cette](https://docs.github.com/fr/actions/quickstart) documentation.
 
-Finalement, vous pouvez explorer comment ajouter des vérifications de sécurité dans votre CI avec le template SAST en lisant [cette](https://github.com/marketplace/actions/sast-scan) documentation.
+Finalement, vous pouvez ajouter des vérifications de sécurité dans votre CI :
+- Une analyse de sécurité du code avec `bandit` ([disponible sur pypi](https://pypi.org/project/bandit/))
+- Une détection de secrets dans le code avec `detect-secrets` ([disponible sur pypi](https://pypi.org/project/detect-secrets/))
 
 ## Lien vers le TP suivant
 

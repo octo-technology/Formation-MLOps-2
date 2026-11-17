@@ -1,7 +1,7 @@
-summary: TP4
+summary: TP4 - Orchestration
 id: tp4
-categories: tp, api
-tags: api, flask
+categories: tp, orchestration
+tags: orchestration, airflow
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
@@ -23,7 +23,7 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch suivante :
+Pour ce TP, utilisez la branche suivante :
 
 `git checkout 4_starting_orchestration`
 
@@ -31,7 +31,7 @@ Sur cette branche, il y a maintenant :
 
 - Un DAG `dags/train.py` qui permet d'entraîner un modèle
 - Un DAG `dags/predict.py` qui est incomplet et qui permettra de réaliser des prédictions
-- Les fonctions existantes dans `formation_mlops_2/` ont été décorées avec des `read` et des `write` pour donner des fonctions `function_name_with_io`
+- Les fonctions existantes dans `formation_mlops_2/` ont été enveloppées dans des fonctions `function_name_with_io` qui lisent leurs entrées et écrivent leurs sorties dans des fichiers
 
 ## Scripts à disposition
 
@@ -51,28 +51,28 @@ Revue de code avec les formateurs pour introduire les concepts de DAGs et de tâ
 
 Duration: 0:10:00
 
-Il n'est pas conseillé de partager en mémoire de la donnée d'une tâche à l'autre dans un DAG Airflow, il convient plutôt de les écrires dans des fichiers.
+Il n'est pas conseillé de partager en mémoire de la donnée d'une tâche à l'autre dans un DAG Airflow, il convient plutôt de les écrire dans des fichiers.
 
-Pour répondre à ce problème, nous avons décoré la fonction de prédiction avec
+Pour répondre à ce problème, nous avons enveloppé la fonction de prédiction dans une fonction qui ajoute
 
 - une fonction permettant de lire un fichier en entrée,
 - et d'écrire le résultat de la tâche dans un fichier en sortie.
 
-Nous avons créé une fonction `train_with_io` & `predict_with_io` qui soient utilisables par le DAG Airflow.
+Nous avons créé les fonctions `train_model_with_io` et `predict_with_io`, utilisables par le DAG Airflow.
 
 Les prédictions réalisées sont écrites dans 2 fichiers identiques :
 
 - {date}.csv où la date est au format `%Y%m%d-%H%M%S`
 - latest.csv
 
-Les méthodes `_with_io` ont également des `import` lazy, c'est-à-dire qu'ils se font au runtime, plutôt qu'au chargement du script pour accélérer le `dag-orchestrator`.
+Les méthodes `_with_io` ont également des `import` lazy, c'est-à-dire qu'ils se font au runtime, plutôt qu'au chargement du script pour accélérer le parsing des DAGs par le `dag-processor`.
 
 ## Démarrer avec Airflow
 
 Duration: 0:10:00
 
 ### Configuration de Airflow
-Airflow se configure à travers un fichier de configuration situé dans le dossier `airflow_home`. Il est possible de configurer Airflow à travers des variables d'environnement, mais pour ce TP, nous allons utiliser le fichier de configuration.
+Airflow se configure à travers un fichier de configuration situé dans le dossier défini par la variable `AIRFLOW_HOME`. Il est possible de configurer Airflow à travers des variables d'environnement, mais pour ce TP, nous allons utiliser le fichier de configuration.
 
 Pour voir l'ensemble des configurations possibles, allez voir [la documentation officielle](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html).
 
@@ -81,7 +81,7 @@ Nous devons apporter quelques modifications au fichier de configuration actuel :
     - Changer la variable `dags_folder` pour pointer sur `/home/jovyan/work/Formation-MLOps-2/dags`, cela permet d'indiquer à airflow où se situent vos DAGs
     - Mettre load_examples à False afin de ne pas charger les DAGs d'exemples
 
-```toml
+```ini
 # Fichier /airflow/airflow.cfg
 [core]
 # The folder where your airflow pipelines live, most likely a
@@ -115,7 +115,7 @@ Naviguez, dans l'onglet Dags. Vous ne voyez pour l'instant pas de DAG, il faut a
 ```shell
 uv run airflow dag-processor
 ```
-Il ne faudrat pas fermer ce terminal, au risque d'arrêter le service.
+Il ne faudra pas fermer ce terminal, au risque d'arrêter le service.
 
 La mise à jour des dags sera faite par ce service, qui les refresh par défaut toutes les 30 secondes. Pour forcer un refresh, vous pourrez l'arrêter et le relancer.
 
@@ -140,13 +140,13 @@ Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la 
 
 Les données sont désormais disponibles dans `data/la-haute-borne-data-2017-2020.csv`.
 
-Pour lancer le DAG `train`:
+Pour lancer le DAG `train_model` :
 
 - Activer le DAG en appuyant sur le bouton `Play` (à droite de chaque ligne de DAG),
 
 ![dag_play.png](docs/tp4/dag_play.png)
 
-Inspecter le DAG `train` en cliquant sur celui-ci, la tâche `prepare_features` devrait avoir commencé :
+Inspecter le DAG `train_model` en cliquant sur celui-ci, la tâche `prepare_features_task` devrait avoir commencé :
 
 ![train_dag.png](docs/tp4/train_dag.png)
 
@@ -158,9 +158,9 @@ Duration: 0:15:00
 
 Compléter le DAG `dags/predict` pour intégrer la fonction `predict_with_io` dans un opérateur, avec les bons arguments.
 
-Lancer le dag `data_denerator` pour qu'il produise toutes les 2 minutes un petit jeu de données sur lequel nous pourrons faire des inférences.
+Lancer le dag `data_generator` pour qu'il produise toutes les 2 minutes un petit jeu de données sur lequel nous pourrons faire des inférences.
 
-Puis lancer le dag `predict` pour qu'il fasse les prédictions. Vérifier dans le dossier prediction que vous avez des fichiers produits.
+Puis lancer le dag `predict` pour qu'il fasse les prédictions. Vérifier dans le dossier `data/predictions` que vous avez des fichiers produits.
 
 ![predictions.png](docs/tp4/predictions.png)
 
@@ -170,22 +170,22 @@ Pour aller un peu plus loin, compléter le code du dag avec de la log (ex: `logg
 
 Duration: 0:05:00
 
-Après avoir manipulé des DAGs opérées par de la logique d'orchestration et le temps, nous vous proposons de découvrir le fonctionnement d'un système événementiel..
+Après avoir manipulé des DAGs opérées par de la logique d'orchestration et le temps, nous vous proposons de découvrir le fonctionnement d'un système événementiel.
 
-Pour illustrer ce à quoi ressemble une architecture événementiel, nous allons ouvrir deux terminaux.
-1. L'émetteur : Il envoi des messages
+Pour illustrer ce à quoi ressemble une architecture événementielle, nous allons ouvrir deux terminaux.
+1. L'émetteur : il envoie des messages
    - Ouvrir un terminal
    - Créer la queue d'évènement : `touch /tmp/event.txt`
    - Envoyez un message : `echo "Hello World" >> /tmp/event.txt`
-2. Le listener : il écoute les évènements et les traites. 
+2. Le listener : il écoute les évènements et les traite. 
   - Ouvrir un terminal
   - Lancer la commande : `tail -f -n 1 /tmp/event.txt | xargs -I {} sh -c 'echo "{}" | wc -c'`
   - Elle capture la dernière ligne du fichier event.txt, et exécute une fonction métier, ici le nombre de lettres dans l'évènement.
 3. Essayer d'envoyer des nouveaux messages en observant le comportement du listener
 
-Cette implémentation basique est une illustration du comportement d'un système événementiel, si il y a un nouveau message il agit, sinon il ne fait rien. A la différnece d'un CRON qui tentera toujours de faire quelque chose, dont parfois constater la différence avec la précédente exé&cution.
+Cette implémentation basique est une illustration du comportement d'un système événementiel, s'il y a un nouveau message il agit, sinon il ne fait rien. À la différence d'un CRON qui tentera toujours de faire quelque chose, quitte à seulement constater qu'il n'y a rien de nouveau depuis la précédente exécution.
 
-Les systèmes événementiels tels que Kafka, RabbitMQ... offre bien entendu plus de fonctionnalité, de robustesse, de scalabilité.
+Les systèmes événementiels tels que Kafka, RabbitMQ... offrent bien entendu plus de fonctionnalité, de robustesse, de scalabilité.
 
 ## Pour aller plus loin
 

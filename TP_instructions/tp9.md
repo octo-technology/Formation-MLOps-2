@@ -1,7 +1,7 @@
-summary: TP9
+summary: TP9 - Traces d'un agent
 id: tp9
-categories: tp, api
-tags: api, flask
+categories: tp, agent
+tags: agent, mlflow, traces
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
@@ -25,9 +25,9 @@ Récupérer la branche de ce TP, utilisez la branche suivante :
 git checkout 9_start_agent_traces
 ```
 
-Explorer dans le dossier `demo` le fichier [integration_mlflow_agent.py](../demos/integration_mlflow_agent.py)
+Explorer dans le dossier `demos` le fichier [integration_mlflow_agent.py](https://github.com/octo-technology/Formation-MLOps-2/blob/9_start_agent_traces/demos/integration_mlflow_agent.py)
 
-Il s'agit d'un petit Agent avec lequel nous pouvons intéragir pour obtenir la météo d'une ville, il dispose d'un tool
+Il s'agit d'un petit Agent avec lequel nous pouvons interagir pour obtenir la météo d'une ville, il dispose d'un tool
 
 ### Runner l'agent
 
@@ -38,15 +38,15 @@ cp demos/.env.example demos/.env
 
 Puis éditer le fichier `.env` et remplir le secret AWS_BEARER_TOKEN_BEDROCK avec la valeur fournie par le formateur.
 
-Ensuite, vous pouvez lancer une intéraction avec l'agent en utilisant le code suivant : 
+Ensuite, vous pouvez lancer une interaction avec l'agent en utilisant le code suivant : 
 ```shell
 uv run python demos/integration_mlflow_agent.py
 ```
 
-C'est dans le `__main__`, tout en bas du fichier qu'est définit la question posée. Le but ici étant de démontrer l'intégration de MLflow, l'intéraction est minimaliste pour limiter le code de démonstration. 
+C'est dans le `__main__`, tout en bas du fichier qu'est définie la question posée. Le but ici étant de démontrer l'intégration de MLflow, l'interaction est minimaliste pour limiter le code de démonstration. 
 
 
-Si le modèle n'est plus accessible, il est possible de lister les modèles dispo,ibles avec le script : 
+Si le modèle n'est plus accessible, il est possible de lister les modèles disponibles avec le script : 
 ```shell
 uv run demos/list_bedrock_models.py
 ```
@@ -72,8 +72,8 @@ Puis ajouter l'auto log associé à notre fournisseur de modèle bedrock :
 mlflow.bedrock.autolog()
 ```
 
-### Intéragir avec l'agent
-Lancer une intéraction avec l'agent en utilisant le code suivant :
+### Interagir avec l'agent
+Lancer une interaction avec l'agent en utilisant le code suivant :
 ```shell
 uv run python demos/integration_mlflow_agent.py
 ```
@@ -83,7 +83,7 @@ uv run python demos/integration_mlflow_agent.py
 ### Visualiser les traces
 Retourner dans l'interface MLflow et naviguer dans l'onglet GenAI / Experiments
 
-Cliquer sur le nom de l'agent que vous avez choisi et explorer :
+Cliquer sur l'expérimentation `agent-demo` et explorer :
 - les indicateurs obtenus (overview dans le menu)
     ![metrics.png](docs/tp9/metrics.png)
 - les traces des différents calls (Traces dans le menu)

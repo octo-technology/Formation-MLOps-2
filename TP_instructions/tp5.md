@@ -1,4 +1,4 @@
-summary: TP5
+summary: TP5 - Artefacts
 id: tp5
 categories: tp, artifacts
 tags: artifacts
@@ -24,7 +24,7 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch suivante :
+Pour ce TP, utilisez la branche suivante :
 
 `git checkout 5_starting_artifacts`
 
@@ -64,8 +64,8 @@ Pour logger le résultat des expérimentations dans MLflow tracking il faut ajou
 ```python
 import mlflow
 ...
+mlflow.sklearn.autolog()
 with mlflow.start_run() as run:
-    mlflow.sklearn.autolog()
     model = ...
     model.fit(X, y)
 ```
@@ -77,7 +77,7 @@ Une fois que vous avez intégré ce code, vous pouvez retourner dans l'interface
 
 Duration: 0:02:00
 
-`Depuis l'interface de Jupyterhub, vous pouvez cliquer sur l'icône MLflow pour lancer MLflow qui va s'ouvrir dans un nouvel onglet.
+Depuis l'interface de Jupyterhub, vous pouvez cliquer sur l'icône MLflow pour lancer MLflow qui va s'ouvrir dans un nouvel onglet.
 
 ![mlflow_ui.png](docs/tp5/mlflow_ui.png)
 

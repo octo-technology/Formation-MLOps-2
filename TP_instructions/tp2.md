@@ -1,7 +1,7 @@
-summary: TP2
+summary: TP2 - Pyramide de tests
 id: tp2
-categories: tp, api
-tags: api, flask
+categories: tp, tests
+tags: tests, behave, ci
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
@@ -21,7 +21,7 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch suivante :
+Pour ce TP, utilisez la branche suivante :
 
 `git checkout 2_starting_tests`
 
@@ -47,7 +47,7 @@ Duration: 0:15:00
 Compléter le squelette de test fonctionnel :
 
 - ✅ Il doit passer **en local** avec la commande `uv run behave tests/test_functional/features`.
-- ✅ Compléter la chaîne d'intégration continue en exécutant les tests fonctionnels dans le stage `test`.
+- ✅ Compléter la chaîne d'intégration continue avec une étape (`step`) qui exécute les tests fonctionnels.
 
 ## Mesure de la qualité du code
 

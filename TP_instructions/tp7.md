@@ -17,7 +17,7 @@ Duration: 0:05:00
 - Comment fonctionne une simple API FastAPI,
 - Le pattern d'exposition `embedded model`,
 - Le pattern d'exposition `model as a service`,
-- Le pattern d'exposition `model published as data`,
+- Le pattern d'exposition `exposing predictions`,
 
 ### Présentation des nouveautés sur la branche de ce TP
 
@@ -127,7 +127,7 @@ L'application Streamlit permet d'afficher une prédiction à la demande selon la
 
 ![streamlit-model-as-a-service](./docs/tp7/streamlit-model-as-a-service.png)
 
-- Modifiez la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demander une prédiction
+- Modifiez la valeur de `Wind Speed Average` à 1, 10, 20, 50, 100 et demandez une prédiction
 - Observez les logs de docker compose et constatez que le service FastAPI réalise les prédictions quand Streamlit les
   demande.
 
@@ -151,7 +151,7 @@ L'application Streamlit permet d'afficher une prédiction à la demande selon la
 
 ![streamlit-embedded-model](./docs/tp7/streamlit-embedded-model.png)
 
-- Modifiez la valeur de `Wind Speed Average` à 0, 10, 20, 50, 100 et demandez une prédiction
+- Modifiez la valeur de `Wind Speed Average` à 1, 10, 20, 50, 100 et demandez une prédiction
 - Observez les logs de docker compose et constatez qu'aucun service FastAPI ne réalise de prédictions quand Streamlit
   les demande (le modèle est chargé directement dans l'application Streamlit).
 

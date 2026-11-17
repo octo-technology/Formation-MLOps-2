@@ -1,7 +1,7 @@
-summary: TP6
+summary: TP6 - Async / Sync
 id: tp6
 categories: tp, api
-tags: api, flask
+tags: api, async, fastapi
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose

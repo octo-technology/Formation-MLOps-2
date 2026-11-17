@@ -67,7 +67,7 @@ Duration: 0:05:00
 
 Rendez-vous sur votre environnement de développement.
 
-L'URL de ce dernier vous sera communiqué pendant la formation.
+L'URL de ce dernier vous sera communiquée pendant la formation.
 
 Dans VSCode, ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`.
 
@@ -81,7 +81,7 @@ En tapant la commande `git branch` vous pourrez constater que vous êtes sur la 
 Ensuite, nous allons créer un environnement de travail Python avec [uv](https://docs.astral.sh/uv/) et installer les dépendances :
 
 ```bash
-cd Formation-MLops-2
+cd Formation-MLOps-2
 make install
 ```
 

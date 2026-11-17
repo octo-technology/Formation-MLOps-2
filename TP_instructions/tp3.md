@@ -1,7 +1,7 @@
-summary: TP3
+summary: TP3 - DevOps, Cloud et Infra-as-Code
 id: tp3
-categories: tp, api
-tags: api, flask
+categories: tp, devops
+tags: devops, infra-as-code
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose

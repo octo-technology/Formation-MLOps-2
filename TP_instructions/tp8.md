@@ -1,7 +1,7 @@
-summary: TP8
+summary: TP8 - Monitoring
 id: tp8
-categories: tp, api
-tags: api, flask
+categories: tp, monitoring
+tags: monitoring, grafana
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-2/issues/new/choose
@@ -20,14 +20,14 @@ Duration: 0:05:00
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-Pour ce TP, utilisez la branch 8_starting_monitoring :
+Pour ce TP, utilisez la branche 8_starting_monitoring :
 
 `git checkout 8_starting_monitoring`
 
 Sur cette branche, il y a maintenant :
 
 - Un fichier `formation_mlops_2/monitoring.py` qui contient 1 fonction `monitor`
-- Un fichier `formation_mlops_2/monitoring_with_io.py` qui contient une fonction `monitor_with_io`
+- Un fichier `formation_mlops_2/monitoring_io.py` qui contient une fonction `monitor_with_io`
 - Un fichier de tests correspondant : `tests/test_unit/test_monitoring.py` qui teste la fonction `monitor_with_io`
 - Un fichier de tests correspondant : `tests/test_architecture/test_monitor_table_is_changed.py` qui valide le nom de la table de monitoring.
 - Une tâche en plus dans le DAG `dags/predict.py` qui exécute le monitoring.
@@ -42,9 +42,9 @@ Dans le fichier `formation_mlops_2/monitoring.py`, créez une fonction `monitor`
 
 Retourner un data frame avec deux colonnes : 
 
-| prediction_time | Nom de votre indicateur (ex: prediction)        |
-|-----------------|-------------------------------------------------|
-| Datetime        | Une valeur aggrégée par run (exemple : moyenne) |
+| predictions_time | Nom de votre indicateur (ex: predictions)      |
+|------------------|------------------------------------------------|
+| Datetime         | Une valeur agrégée par run (exemple : moyenne) |
 
 Cette valeur sera enregistrée dans la DB PostgreSQL grâce à la fonction `monitor_with_io` associée à une tâche Airflow.
 
@@ -58,11 +58,11 @@ Spécifier la table PostgreSQL dans laquelle enregistrer les valeurs à monitore
 
 Dans le fichier `dags/config.py`, définir la constante `MONITORING_TABLE_NAME` avec un nom unique différent de celui des autres participants. Cette table sera désormais alimentée par la tâche `monitor` d'Airflow.
 
-Une fois cela fait, retirer du fichier `.github/worflows/ci.yml` la ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"` qui permettait d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
+Une fois cela fait, retirer du fichier `.github/workflows/ci.yml` la ligne `continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"` qui permettait d'éviter à la CI de fail, même si vous n'avez pas fait cette modification.
 
 ### Re-démarrer Airflow
 
-Si ils ne tournent plus, relancer les différents services airflow, dans 3 terminaux différents : 
+S'ils ne tournent plus, relancer les différents services airflow, dans 3 terminaux différents : 
 - `uv run airflow dag-processor` 
 - `uv run airflow scheduler` 
 - `uv run airflow api-server --apps execution`
@@ -85,10 +85,10 @@ Nous souhaitons maintenant afficher nos valeurs monitorées dans Grafana à part
 
 Nous allons ajouter une *Data Source* de type *PostgreSQL* et spécifier les paramètres suivants :
 
-![sdata-source-grafana](./docs/tp8/data-source-grafana.png)
+![data-source-grafana](./docs/tp8/data-source-grafana.png)
 
 - Host : postgres:5432
-- Username: postges
+- Username: postgres
 - Password: postgres
 
 - Créer un simple dashboard de monitoring.
