@@ -1,5 +1,8 @@
 .DS_Store
 .idea/
+
+# Slides de la formation (versionnées sur le Drive, pas dans le repo)
+_slides/
 airflow_home/__init__.py
 dags/__pycache__/
 formation_mlops_2/__pycache__/
