@@ -41,6 +41,9 @@ mlruns/
 mlartifacts/
 mlflow.db
 
+# Bases SQLite créées par les tests unitaires
+test_*.db
+
 # Secrets locaux (credentials, API keys)
 .env
 demos/.env
