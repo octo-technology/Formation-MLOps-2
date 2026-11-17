@@ -14,8 +14,11 @@ model_registry_folder = test_data_path
 
 @given('training data is available')
 def step_impl_given(context):
-    assert len(os.listdir(test_data_path)) == 1
     assert os.path.exists(training_data_path)
+    # Start from a clean folder: remove what a previous failed run may have left
+    for file_name in os.listdir(test_data_path):
+        if file_name.endswith(('.parquet', '.joblib')):
+            os.remove(os.path.join(test_data_path, file_name))
 
 
 @when('I launch the training')
