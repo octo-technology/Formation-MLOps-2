@@ -71,7 +71,12 @@ function count_tests
     readonly tests_folder=${1}
     readonly pattern_for_one_test=${2}
 
-    find ${APP_DIRECTORY}/tests/${tests_folder}/ -type f -exec grep -e "${pattern_for_one_test}" "{}" \; | wc -l;
+    if [[ ! -d ${APP_DIRECTORY}/tests/${tests_folder} ]]; then
+        echo 0;
+        return;
+    fi
+
+    find ${APP_DIRECTORY}/tests/${tests_folder}/ -type f -exec grep -e "${pattern_for_one_test}" "{}" \; | wc -l | tr -d ' ';
 }
 
 main
