@@ -1,4 +1,4 @@
-import shutil
+import os
 from unittest.mock import patch
 
 import pandas as pd
@@ -8,12 +8,20 @@ from sqlalchemy import create_engine
 from dags.config import MONITORING_TABLE_NAME
 from formation_mlops_2.monitoring_io import monitor_with_io
 
+TEST_DB_FILES = ['test_db.db']
+
+
+def _remove_test_db_files():
+    for db_file in TEST_DB_FILES:
+        if os.path.exists(db_file):
+            os.remove(db_file)
+
 
 @pytest.fixture
 def setup_db():
-    shutil.rmtree("test_db.db", ignore_errors=True)
+    _remove_test_db_files()
     yield
-    shutil.rmtree("test_db.db", ignore_errors=True)
+    _remove_test_db_files()
 
 
 @patch('pandas.read_csv')
