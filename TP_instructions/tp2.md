@@ -53,15 +53,17 @@ Compléter le squelette de test fonctionnel :
 
 Duration: 0:05:00
 
-Compléter la chaîne d'intégration continue avec une étape `qualite` afin de
+Compléter la chaîne d'intégration continue avec une étape (`step`) `qualite` afin de
 
 - mesurer la couverture de tests avec `pytest` en rajoutant l'argument `--cov`,
   - `uv run pytest --cov=formation_mlops_2/ tests/test_unit/ -vv -p no:warnings`
 - mesurer la pyramide de tests en exécutant le script
   - `./tests/tests_pyramid.sh`
-  - Si vous rencontrez un `permission denied`, lancer `chmod +x tests/tests_pyramid.sh`
+  - Si vous rencontrez un `permission denied`, lancer `chmod +x tests/tests_pyramid.sh`, puis commitez ce changement pour que la CI en profite
 
-![test+qualite](./docs/tp2/pipeline-test-qualite-vert.png)
+Une fois l'étape ajoutée, le détail du job doit ressembler à ceci :
+
+![Job vert avec l'étape qualite](./docs/tp2/ci-etape-qualite-vert.png)
 
 ## Mettre en place un test d'architecture
 
