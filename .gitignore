@@ -3,6 +3,7 @@
 
 # Slides de la formation (versionnées sur le Drive, pas dans le repo)
 _slides/
+_work_in_progress/
 airflow_home/__init__.py
 dags/__pycache__/
 formation_mlops_2/__pycache__/
