@@ -39,13 +39,14 @@ Comme vous avez forké un repo existant, github actions a besoin d'une notificat
 pour qu'il détecte qu'il y a une CI à exécuter.
 
 Pour cela, renommez le fichier `ci.yml` en `ci-workflow.yml`. (Le fichier peut avoir n'importe quel nom, tant qu'il est dans le bon repository cela marchera).
+
+Utilisez `git mv` plutôt que `mv` : il renomme le fichier et enregistre aussi la suppression de l'ancien `ci.yml` dans git. Sinon, `ci.yml` resterait dans le repo et le workflow s'exécuterait deux fois.
 ```shell
-mv .github/workflows/ci.yml .github/workflows/ci-workflow.yml
+git mv .github/workflows/ci.yml .github/workflows/ci-workflow.yml
 ```
 
 Commitez et pushez ce changement
 ```shell
-git add .github/workflows/ci-workflow.yml
 git commit -m "Rename workflow file"
 git push
 ```
@@ -86,7 +87,7 @@ La documentation des github Actions ainsi que les mot-clefs utilisables dans les
 
 Duration: 0:05:00
 
-Un exemple officiel en Python est disponible sur le repository Github: [ici](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python), nous allons le décrire brièvement ci-après:
+Un exemple officiel de pipeline Python avec uv est disponible dans la documentation d'uv : [ici](https://docs.astral.sh/uv/guides/integration/github/), nous allons le décrire brièvement ci-après :
 
 ```yaml
 # Nom du workflow tel que visible dans l'interface
@@ -105,20 +106,26 @@ jobs:
 
     steps:
         # Pull du code
-        - uses: actions/checkout@v6
-        - name: Set up Python
-          uses: actions/setup-python@v5
+        - uses: actions/checkout@v7
+        # Installation de uv, qui installe aussi la version de Python demandée
+        - name: Install uv and set the Python version
+          uses: astral-sh/setup-uv@v10.3.3
           with:
             python-version: ${{ matrix.python-version }}
+        # Installation du projet et de ses dépendances, à partir de uv.lock
+        - name: Install the project
+          run: uv sync --locked --all-groups
+        # Installation de ruff comme outil, en dehors des dépendances du projet
         - name: Install the code linting and formatting tool Ruff
-          run: pipx install ruff
+          run: uv tool install ruff
         - name: Lint code with Ruff
           run: ruff check --output-format=github --target-version=py39
         - name: Check code formatting with Ruff
           run: ruff format --diff --target-version=py39
           continue-on-error: true
+        # uv run lance une commande dans l'environnement virtuel du projet
         - name: Test with pytest
-          run: pytest
+          run: uv run pytest
 ```
 
 ## Exercice: Compléter le pipeline de CI pour le faire passer au vert
