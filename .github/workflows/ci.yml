@@ -17,8 +17,8 @@ jobs:
         run: uv python install
       - name: Install dependencies
         run: uv sync --locked --all-groups
-#      - name: Run Linter
-#        run: "Trainee should add command to run ruff"
-#      - name: Run tests
-#        run: "Trainee should add command to run test"
+      - name: Run Linter
+        run: echo "::error::À compléter - remplacez cette ligne par la commande qui lance ruff" && exit 1
+      - name: Run tests
+        run: echo "::error::À compléter - remplacez cette ligne par la commande qui lance les tests unitaires" && exit 1
 
