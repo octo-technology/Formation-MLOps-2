@@ -26,7 +26,9 @@ Duration: 0:05:00
 
 Pour ce TP, utilisez la branche suivante :
 
-`git checkout 5_starting_artifacts`
+```shell
+git checkout 5_starting_artifacts
+```
 
 ## Versionner les modèles avec un timestamp
 
@@ -79,9 +81,11 @@ Duration: 0:02:00
 
 Depuis l'interface de Jupyterhub, vous pouvez cliquer sur l'icône MLflow pour lancer MLflow qui va s'ouvrir dans un nouvel onglet.
 
-![mlflow_ui.png](docs/tp5/mlflow_ui.png)
+![mlflow_ui.png](docs/tp5/launcher-mlflow.png)
 
 Dans l'onglet `Model training` nous allons retrouver l'expérimentation par défaut dans laquelle nous avons loggé notre expérience. 
+
+![mlflow_ui.png](docs/tp5/mlflow_ui.png)
 
 ### Explorer le run créé dans MLflow
 
@@ -137,7 +141,6 @@ mlflow.sklearn.log_model(
    input_example=df_x.iloc[:1, :],
    registered_model_name="A nice name for your registered model",
 )
-
 ```
 
 Lancez l'entraînement puis retrouver le modèle dans l'onglet `Models` vous pourrez retrouver le modèle créé : 
@@ -155,3 +158,5 @@ Parcourez le dossier `/home/jovyan/mlruns/0` pour voir vos artefacts organisés 
 Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp6#0)
+
+Le repo GitHub de la formation : [octo-technology/Formation-MLOps-2](https://github.com/octo-technology/Formation-MLOps-2)
