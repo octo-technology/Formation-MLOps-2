@@ -140,7 +140,7 @@ Duration: 0:05:00
 Afin de s'entraîner, il va nous falloir des données d'entraînement !
 
 Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande :
-````
+```
 make dataset
 ```
 
