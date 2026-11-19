@@ -124,7 +124,10 @@ Nous allons maintenant lancer le scheduler, dans un nouveau terminal :
 uv run airflow scheduler
 ```
 
-Finalement, il faut lancer l'exécution : `uv run airflow api-server --apps execution` pour qu'un service s'occupe de réaliser les tâches.
+Finalement, il faut lancer l'exécution dans un nouveau terminal pour qu'un service s'occupe de réaliser les tâches : 
+```shell
+uv run airflow api-server --apps execution
+```
 
 L'interface graphique devrait désormais afficher 3 DAGs :
 
