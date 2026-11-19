@@ -158,3 +158,5 @@ Points clés à retenir :
 Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp7#0)
+
+Le repo GitHub de la formation : [octo-technology/Formation-MLOps-2](https://github.com/octo-technology/Formation-MLOps-2)

@@ -113,3 +113,5 @@ Copiez-collez votre token, vous n'y aurez plus accès ensuite, vous l'utiliserez
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp1#0)
+
+Le repo GitHub de la formation : [octo-technology/Formation-MLOps-2](https://github.com/octo-technology/Formation-MLOps-2)

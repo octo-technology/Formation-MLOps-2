@@ -26,3 +26,5 @@ Le formateur montre les différents éléments d'infrastructure déployés avec 
 Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp4#0)
+
+Le repo GitHub de la formation : [octo-technology/Formation-MLOps-2](https://github.com/octo-technology/Formation-MLOps-2)

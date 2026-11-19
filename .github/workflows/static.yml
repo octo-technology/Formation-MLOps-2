@@ -30,6 +30,19 @@ jobs:
           ../claat-linux-amd64 export tp*.md
           sed -i 's/codelab-elements\//codelab-elements-tmp\//' tp*/index.html # Tmp fix linked to an issue with codelab elements see https://github.com/googlecodelabs/tools/issues/796
 
+      - name: Point the Done and close buttons to the next TP or to the repo
+        run: |
+          cd TP_instructions
+          for page in tp*/index.html; do
+            number=$(dirname "$page" | tr -dc '0-9')
+            next="tp$((number + 1))"
+            next_attribute=""
+            if [ -d "$next" ]; then
+              next_attribute=" data-next=\"../$next/\""
+            fi
+            sed -i "s|</body>|<script src=\"../codelab-links.js\"$next_attribute></script></body>|" "$page"
+          done
+
       - name: Create public directory
         run: mkdir _site
 

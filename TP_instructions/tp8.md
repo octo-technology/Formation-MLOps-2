@@ -101,3 +101,5 @@ Il vous suffit de cliquer sur *New dashboard* > *Add Query*, et de spécifier la
 Duration: 0:01:00
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-2/tp9#0)
+
+Le repo GitHub de la formation : [octo-technology/Formation-MLOps-2](https://github.com/octo-technology/Formation-MLOps-2)
