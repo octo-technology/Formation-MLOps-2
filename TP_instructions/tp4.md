@@ -139,7 +139,10 @@ Duration: 0:05:00
 
 Afin de s'entraîner, il va nous falloir des données d'entraînement !
 
-Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande `make dataset`.
+Elles ne sont pas versionnées dans ce repo. Télécharger les données avec la commande :
+````
+make dataset
+```
 
 Les données sont désormais disponibles dans `data/la-haute-borne-data-2017-2020.csv`.
 
@@ -178,11 +181,20 @@ Après avoir manipulé des DAGs opérées par de la logique d'orchestration et l
 Pour illustrer ce à quoi ressemble une architecture événementielle, nous allons ouvrir deux terminaux.
 1. L'émetteur : il envoie des messages
    - Ouvrir un terminal
-   - Créer la queue d'évènement : `touch /tmp/event.txt`
-   - Envoyez un message : `echo "Hello World" >> /tmp/event.txt`
+   - Créer la queue d'évènement : 
+   ```
+   touch /tmp/event.txt
+   ```
+   - Envoyez un message : 
+   ```
+   echo "Hello World" >> /tmp/event.txt
+   ```
 2. Le listener : il écoute les évènements et les traite. 
   - Ouvrir un terminal
-  - Lancer la commande : `tail -f -n 1 /tmp/event.txt | xargs -I {} sh -c 'echo "{}" | wc -c'`
+  - Lancer la commande : 
+  ```
+  tail -f -n 1 /tmp/event.txt | xargs -I {} sh -c 'echo "{}" | wc -c'
+  ```
   - Elle capture la dernière ligne du fichier event.txt, et exécute une fonction métier, ici le nombre de lettres dans l'évènement.
 3. Essayer d'envoyer des nouveaux messages en observant le comportement du listener
 
